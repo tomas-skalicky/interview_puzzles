@@ -1,3 +1,8 @@
+# Task:
+#
+# Given two sorted linked lists, merge them in order.
+
+
 class ListNode(object):
     def __init__(self,
                  value,
@@ -92,7 +97,6 @@ def create_linked_lists():
     return list1_node1, list2_node1
 
 
-# Task: Given two sorted linked lists, merge them in order.
 def main():
     list1_node1, list2_node1 = create_linked_lists()
 
