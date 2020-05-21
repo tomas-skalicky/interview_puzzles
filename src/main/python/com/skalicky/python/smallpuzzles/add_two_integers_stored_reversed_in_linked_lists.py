@@ -76,13 +76,9 @@ def main():
 
     result: ListNode = Solution.add_two_numbers(l1, l2)
     while result:
-        print(result.val)
+        print(result.val, end=' ')
         result = result.next
-        # 7
-        # 0
-        # 2
-        # 5
-        # 2
+        # 7 0 2 5 2
 
 
 main()
