@@ -32,27 +32,6 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RunManager" selected="Python.find_min_and_max_index_of_target_char">
-    <configuration name="add_two_integers_stored_reversed_in_linked_lists" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="small_puzzles" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main/python/com/skalicky/python/smallpuzzles" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main/python/com/skalicky/python/smallpuzzles/add_two_integers_stored_reversed_in_linked_lists.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="find_longest_palindromic_substring" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="small_puzzles" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -143,7 +122,6 @@
         <item itemvalue="Python.validate_closing_of_parentheses" />
         <item itemvalue="Python.find_longest_palindromic_substring" />
         <item itemvalue="Python.find_max_length_of_substring_without_repeating_chars" />
-        <item itemvalue="Python.add_two_integers_stored_reversed_in_linked_lists" />
       </list>
     </recent_temporary>
   </component>
