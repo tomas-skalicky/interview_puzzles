@@ -10,13 +10,13 @@
 
 
 def sort_nums(nums: list):
-    frequency = {1: 0, 2: 0, 3: 0}
+    frequency: list = [0, 0, 0]
     for n in nums:
-        frequency[n] = frequency[n] + 1
+        frequency[n - 1] = frequency[n - 1] + 1
     result = []
-    for n in range(1, 4):
+    for n in range(0, 3):
         for i in range(0, frequency[n]):
-            result.append(n)
+            result.append(n + 1)
     return result
 
 
