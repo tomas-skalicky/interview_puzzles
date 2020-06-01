@@ -8,6 +8,12 @@
 # return true since 4 + 1 = 5.
 #
 # Try to do it in a single pass of the list.
+#
+# def two_sum(list, k):
+#   # Fill this in.
+#
+# print two_sum([4,7,1,-3,2], 5)
+# # True
 
 
 def two_sum(nums: list, k: int):

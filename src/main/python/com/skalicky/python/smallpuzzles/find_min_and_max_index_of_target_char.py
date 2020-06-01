@@ -12,6 +12,18 @@
 #
 # Input: A = [1,2,3,4,5,6,10], target = 9
 # Output: [-1, -1]
+#
+# Here is a function signature example:
+#
+# class Solution:
+#   def getRange(self, arr, target):
+#     # Fill this in.
+#
+# # Test program
+# arr = [1, 2, 2, 2, 2, 3, 4, 7, 8, 8]
+# x = 2
+# print(Solution().getRange(arr, x))
+# # [1, 4]
 
 
 class Solution:
