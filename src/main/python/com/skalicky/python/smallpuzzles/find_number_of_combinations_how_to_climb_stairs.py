@@ -12,30 +12,49 @@
 # # 8
 #
 # Can you find a solution in O(n) time?
+from math import floor
+from math import factorial
 
 
-def staircase(n):
+def staircase_fibonacchi(n: int):
     if n == 1:
         return 1
     elif n == 2:
         return 2
     else:
-        fibn_minus_1 = 1
-        fibn = 2
+        fibn_minus_1: int = 1
+        fibn: int = 2
         for i in range(3, n + 1):
-            fibn_minus_2 = fibn_minus_1
-            fibn_minus_1 = fibn
-            fibn = fibn_minus_1 + fibn_minus_2
+            fibn_minus_2: int = fibn_minus_1
+            fibn_minus_1: int = fibn
+            fibn: int = fibn_minus_1 + fibn_minus_2
         return fibn
 
 
-print(staircase(4))
+def staircase_combinatorics(n: int):
+    total_count: int = 0
+    for two_count in range(0, floor(n / 2) + 1):
+        items_to_permutate: int = n - two_count
+        total_count = total_count + floor(
+            factorial(items_to_permutate) / (factorial(items_to_permutate - two_count) * factorial(two_count)))
+    return total_count
+
+
+print(staircase_fibonacchi(4))
 # 5
-print(staircase(1))
+print(staircase_combinatorics(4))
+# 5
+print(staircase_fibonacchi(1))
 # 1
-print(staircase(2))
+print(staircase_combinatorics(1))
+# 1
+print(staircase_fibonacchi(2))
 # 2
-print(staircase(5))
+print(staircase_combinatorics(2))
+# 2
+print(staircase_fibonacchi(5))
+# 8
+print(staircase_combinatorics(5))
 # 8
 
 # Fibonacci sequence:
