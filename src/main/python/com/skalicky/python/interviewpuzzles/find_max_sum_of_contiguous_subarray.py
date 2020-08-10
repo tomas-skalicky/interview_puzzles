@@ -20,7 +20,7 @@
 from typing import List
 
 
-def max_subarray_sum(arr: List[int]):
+def max_subarray_sum(arr: List[int]) -> int:
     if len(arr) == 0:
         return 0
     else:
@@ -37,7 +37,7 @@ def max_subarray_sum(arr: List[int]):
             else:
                 current_max_sum = current_sum
             max_sum = max(max_sum, current_max_sum) if max_sum else current_max_sum
-        return max(max_sum, current_max_sum) if max_sum else current_max_sum
+        return max_sum
 
 
 print(max_subarray_sum([34, -50, 42, 14, -5, 86]))
