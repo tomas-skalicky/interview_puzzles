@@ -20,6 +20,9 @@
 from typing import List
 
 
+# Complexities of this method:
+# - time complexity O(n) where n is a length of the input array "arr"
+# - space complexity O(1)
 def max_subarray_sum(arr: List[int]) -> int:
     if len(arr) == 0:
         return 0

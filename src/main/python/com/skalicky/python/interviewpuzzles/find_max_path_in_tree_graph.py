@@ -32,27 +32,10 @@
 # # 42
 from collections import deque
 from typing import Deque, List, Tuple, Set
+from src.main.python.com.skalicky.python.interviewpuzzles.find_max_sum_of_contiguous_subarray import max_subarray_sum
 
-
-# Copied from find_max_sum_of_contiguous_subarray.py
-def max_subarray_sum(arr: List[int]) -> int:
-    if len(arr) == 0:
-        return 0
-    else:
-        max_sum: int = None
-        current_max_sum: int = None
-        current_sum: int = None
-        for i in range(0, len(arr)):
-            current_num: int = arr[i]
-            current_sum = current_sum + current_num if current_sum else current_num
-            if not current_max_sum:
-                current_max_sum = current_sum
-            if (current_max_sum >= 0 and current_sum < 0) or (current_sum < current_max_sum < 0):
-                current_sum = None
-            else:
-                current_max_sum = current_sum
-            max_sum = max(max_sum, current_max_sum) if max_sum else current_max_sum
-        return max_sum
+print()
+print('find_max_path_in_tree_graph.py:')
 
 
 class Node:
@@ -67,6 +50,9 @@ class Node:
         return '[id={}, val={}]'.format(self.id, self.val)
 
 
+# Complexities of this method:
+# - time complexity O(n) where n is the number of nodes in the tree
+# - space complexity O(n)
 def initialize_parents_and_ids(root_node: Node) -> None:
     next_id: int = 1
     nodes_to_process: Deque[Node] = deque()
@@ -83,6 +69,9 @@ def initialize_parents_and_ids(root_node: Node) -> None:
             nodes_to_process.append(node_to_process.right)
 
 
+# Complexities of this method:
+# - time complexity O(n) where n is the number of nodes in the tree
+# - space complexity O(n)
 def retrieve_leaves(root_node: Node) -> List[Node]:
     leaves: List[Node] = list()
     nodes_to_process: Deque[Node] = deque()
@@ -99,6 +88,9 @@ def retrieve_leaves(root_node: Node) -> List[Node]:
     return leaves
 
 
+# Complexities of this method:
+# - time complexity O(n^2) where n is the number of nodes in the tree. One "n" is from copy of arrays.
+# - space complexity O(n^2). One "n" is from copy of arrays.
 def generate_all_possible_sequences(node_to_process: Node, previous_node_id: int, current_sequence: List[int],
                                     current_sequence_start_node: Node, all_sequences: List[List[int]],
                                     leaves_of_all_sequences: Set[Tuple[int, int]]) -> None:
@@ -130,6 +122,10 @@ def generate_all_possible_sequences(node_to_process: Node, previous_node_id: int
             leaves_of_all_sequences.add((start_node_id, end_node_id))
 
 
+# Complexities of this method:
+# - time complexity O(n^3) where n is the number of nodes in the tree. Reason: the number of leaves can be
+# asymptotically approximated to n.
+# - space complexity O(n^3)
 def max_path_sum(root_node: Node) -> int:
     if root_node is None:
         return 0
@@ -138,8 +134,8 @@ def max_path_sum(root_node: Node) -> int:
         leaves: List[Node] = retrieve_leaves(root_node)
         all_sequences: List[List[int]] = list()
         leaves_of_all_sequences: Set[Tuple[int, int]] = set()
-        for leave in leaves:
-            generate_all_possible_sequences(leave, None, list(), leave, all_sequences, leaves_of_all_sequences)
+        for leaf in leaves:
+            generate_all_possible_sequences(leaf, None, list(), leaf, all_sequences, leaves_of_all_sequences)
         current_max_sum: int = None
         for sequence in all_sequences:
             current_sum: int = max_subarray_sum(sequence)
