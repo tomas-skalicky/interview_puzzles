@@ -34,8 +34,8 @@ from collections import deque
 from typing import Deque, List, Tuple, Set
 from src.main.python.com.skalicky.python.interviewpuzzles.find_max_sum_of_contiguous_subarray import max_subarray_sum
 
-print()
-print('find_max_path_in_tree_graph.py:')
+print('------------------------------')
+print('find_max_path_in_tree_graph:')
 
 
 class Node:
