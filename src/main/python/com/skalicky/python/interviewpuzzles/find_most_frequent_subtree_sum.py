@@ -75,12 +75,14 @@ def most_freq_subtree_sum(root: Node):
             else:
                 occurrence_counts_by_sums[node_to_process.subtree_sum] = 0
 
-    sum_with_most_occurrences: int = None
-    for current_cum in occurrence_counts_by_sums.keys():
-        current_count: int = occurrence_counts_by_sums[current_cum]
-        sum_with_most_occurrences = max(sum_with_most_occurrences,
-                                        current_count) if sum_with_most_occurrences is not None else current_count
-    return sum_with_most_occurrences
+    sum_with_max_occurrence_count: int = None
+    max_occurrence_count: int = 0
+    for current_sum in occurrence_counts_by_sums.keys():
+        current_occurrence_count: int = occurrence_counts_by_sums[current_sum]
+        if current_occurrence_count > max_occurrence_count:
+            max_occurrence_count = current_occurrence_count
+            sum_with_max_occurrence_count = current_sum
+    return sum_with_max_occurrence_count
 
 
 #    3
@@ -88,3 +90,11 @@ def most_freq_subtree_sum(root: Node):
 #  1   -3
 print(most_freq_subtree_sum(Node(3, Node(1), Node(-3))))
 # 1
+
+#    2
+#   / \
+#  4   2
+#       \
+#        2
+print(most_freq_subtree_sum(Node(2, Node(4), Node(2, right=Node(2)))))
+# 4
