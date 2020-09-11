@@ -14,9 +14,6 @@
 # # False
 
 
-import math
-
-
 def is_palindrome(n: int) -> bool:
     rest: int = n
     reversed_number: int = 0
