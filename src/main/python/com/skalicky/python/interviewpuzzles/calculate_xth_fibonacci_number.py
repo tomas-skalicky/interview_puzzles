@@ -25,7 +25,8 @@
 
 
 class Solution:
-    def fibonacci(self, n: int) -> int:
+    @staticmethod
+    def fibonacci(n: int) -> int:
         if n == 0:
             return 0
         elif n == 1:
@@ -40,11 +41,11 @@ class Solution:
             return fib_number
 
 
-print(Solution().fibonacci(0))
+print(Solution.fibonacci(0))
 # 0
-print(Solution().fibonacci(1))
+print(Solution.fibonacci(1))
 # 1
-print(Solution().fibonacci(2))
+print(Solution.fibonacci(2))
 # 1
-print(Solution().fibonacci(9))
+print(Solution.fibonacci(9))
 # 34

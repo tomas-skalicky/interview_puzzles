@@ -20,7 +20,7 @@
 
 class Solution:
     @staticmethod
-    def reverse_words(input_string: str):
+    def reverse_words(input_string: str) -> str:
         result: str = ""
         string_length: int = len(input_string)
         word_start_to_process: int = 0

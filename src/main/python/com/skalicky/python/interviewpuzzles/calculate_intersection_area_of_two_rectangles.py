@@ -38,7 +38,7 @@ def intersection_area(rect1: Rectangle, rect2: Rectangle) -> int:
     min_y: int = max(rect1.min_y, rect2.min_y)
     max_y_excluded: int = min(rect1.max_y_excluded, rect2.max_y_excluded)
     return (max_x_excluded - min_x) * (
-                max_y_excluded - min_y) if max_x_excluded >= min_x and max_y_excluded >= min_y else 0
+            max_y_excluded - min_y) if max_x_excluded >= min_x and max_y_excluded >= min_y else 0
 
 
 # 2  BB
@@ -46,9 +46,7 @@ def intersection_area(rect1: Rectangle, rect2: Rectangle) -> int:
 # 0 AAA
 #   012
 #######
-rect1 = Rectangle(0, 0, 3, 2)
-rect2 = Rectangle(1, 1, 3, 3)
-print(intersection_area(rect1, rect2))
+print(intersection_area(Rectangle(0, 0, 3, 2), Rectangle(1, 1, 3, 3)))
 # 2
 
 # 2    B
@@ -56,9 +54,7 @@ print(intersection_area(rect1, rect2))
 # 0 AAA
 #   0123
 ########
-rect1 = Rectangle(0, 0, 3, 2)
-rect2 = Rectangle(3, 1, 4, 3)
-print(intersection_area(rect1, rect2))
+print(intersection_area(Rectangle(0, 0, 3, 2), Rectangle(3, 1, 4, 3)))
 # 0
 
 # 3     B
@@ -67,16 +63,12 @@ print(intersection_area(rect1, rect2))
 # 0 AAA
 #   01234
 #########
-rect1 = Rectangle(0, 0, 3, 1)
-rect2 = Rectangle(4, 2, 5, 4)
-print(intersection_area(rect1, rect2))
+print(intersection_area(Rectangle(0, 0, 3, 1), Rectangle(4, 2, 5, 4)))
 # 0
 
 # 1 XXX
 # 0 XXX
 #   012
 #######
-rect1 = Rectangle(0, 0, 3, 2)
-rect2 = Rectangle(0, 0, 3, 2)
-print(intersection_area(rect1, rect2))
+print(intersection_area(Rectangle(0, 0, 3, 2), Rectangle(0, 0, 3, 2)))
 # 6

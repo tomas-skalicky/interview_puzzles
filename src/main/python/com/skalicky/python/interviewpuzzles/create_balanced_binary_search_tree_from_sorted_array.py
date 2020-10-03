@@ -50,7 +50,7 @@ class Node:
         self.left = left
         self.right = right
 
-    def __str__(self):
+    def __str__(self) -> str:
         # level-by-level pretty-printer
         nodes = deque([self])
         answer = ''

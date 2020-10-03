@@ -49,15 +49,16 @@
 # print("List after reversal: ")
 # testTail.printList()
 # # 0 1 2 3 4
+from typing import Optional, Tuple
 
 
 class ListNode(object):
     def __init__(self, x):
         self.val = x
-        self.next: ListNode = None
+        self.next: Optional[ListNode] = None
 
     # Function to print the list
-    def print_list(self):
+    def print_list(self) -> None:
         node = self
         output = ''
         while node is not None:
@@ -67,8 +68,8 @@ class ListNode(object):
         print(output)
 
     # Iterative Solution
-    def reverse_iteratively(self):
-        previous_node: ListNode = None
+    def reverse_iteratively(self) -> None:
+        previous_node: Optional[ListNode] = None
         current_node: ListNode = self
         next_node: ListNode = current_node.next
         while current_node is not None:
@@ -78,17 +79,17 @@ class ListNode(object):
             if current_node is not None:
                 next_node: ListNode = current_node.next
             else:
-                next_node: ListNode = None
+                next_node: Optional[ListNode] = None
 
     # Recursive Solution
-    def reverse_recursively(self, previous_node=None):
+    def reverse_recursively(self, previous_node=None) -> None:
         next_node: ListNode = self.next
         self.next = previous_node
         if next_node is not None:
             next_node.reverse_recursively(self)
 
 
-def create_test_linked_list():
+def create_test_linked_list() -> Tuple[ListNode, ListNode]:
     test_head = ListNode(4)
     node1 = ListNode(3)
     test_head.next = node1
@@ -101,7 +102,7 @@ def create_test_linked_list():
     return test_head, test_tail
 
 
-def main():
+def main() -> None:
     test_head1, test_tail1 = create_test_linked_list()
     print("Initial list: ")
     test_head1.print_list()

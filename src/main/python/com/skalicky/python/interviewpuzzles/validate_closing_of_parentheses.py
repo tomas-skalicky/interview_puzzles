@@ -60,27 +60,20 @@ class Solution:
                 return False
 
 
-# Test Program
-s = "()(){(())"
-# should return False
-print(Solution.is_valid(s))
+print(Solution.is_valid("()(){(())"))
+# False
 
-s = ""
-# should return True
-print(Solution.is_valid(s))
+print(Solution.is_valid(""))
+# True
 
-s = "([{}])()"
-# should return True
-print(Solution.is_valid(s))
+print(Solution.is_valid("([{}])()"))
+# True
 
-s = "((()))"
-# should return True
-print(Solution.is_valid(s))
+print(Solution.is_valid("((()))"))
+# True
 
-s = "[()]{}"
-# should return True
-print(Solution.is_valid(s))
+print(Solution.is_valid("[()]{}"))
+# True
 
-s = "({[)]"
-# should return False
-print(Solution.is_valid(s))
+print(Solution.is_valid("({[)]"))
+# False

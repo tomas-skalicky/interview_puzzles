@@ -26,12 +26,13 @@
 # # Order should now be 3, 4, 1, 2
 # print(rotate_list(llist, 2))
 # # 3412
+from typing import Optional
 
 
 class Node:
-    def __init__(self, value, next=None):
+    def __init__(self, value, next_node=None):
         self.value = value
-        self.next = next
+        self.next: Optional[Node] = next_node
 
     def __str__(self):
         current = self
@@ -50,7 +51,7 @@ def rotate_list(linked_list_head: Node, k: int):
         node_count += 1
 
     modulod_k: int = k % node_count
-    previous_node: Node = None
+    previous_node: Optional[Node] = None
     current_node: Node = linked_list_head
     for i in range(0, modulod_k):
         previous_node = current_node

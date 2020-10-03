@@ -60,8 +60,7 @@ class Solution:
 
     @staticmethod
     def add_two_numbers(l1: ListNode,
-                        l2: ListNode,
-                        c=0) -> Optional[ListNode]:
+                        l2: ListNode) -> Optional[ListNode]:
         result_list_dummy_first_node = ListNode(-1)
         result_list_current_node: ListNode = result_list_dummy_first_node
         list1_current_node: ListNode = l1

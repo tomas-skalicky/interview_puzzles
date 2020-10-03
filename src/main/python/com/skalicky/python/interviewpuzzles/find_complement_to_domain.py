@@ -18,7 +18,7 @@
 from typing import List, Set
 
 
-class Solution(object):
+class Solution:
     @staticmethod
     def find_disappeared_numbers(nums: List[int]) -> List[int]:
         complement_to_domain: Set[int] = set(range(1, len(nums) + 1))

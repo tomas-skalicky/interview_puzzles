@@ -17,7 +17,7 @@
 from typing import List
 
 
-class Solution(object):
+class Solution:
     @staticmethod
     def compress(chars: List[str]) -> List[str]:
         char_count: int = len(chars)

@@ -8,7 +8,7 @@
 # Output: True # a -> d, b -> e, c -> f
 #
 # Input: aab, def
-# Ouput: False # a can't map to d and e
+# Output: False # a can't map to d and e
 #
 # Here's some starter code:
 #

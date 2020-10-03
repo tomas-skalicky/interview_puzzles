@@ -22,9 +22,9 @@ from typing import Optional
 
 
 class Node:
-    def __init__(self, value, next=None):
+    def __init__(self, value, next_node=None):
         self.value = value
-        self.next: Optional[Node] = next
+        self.next: Optional[Node] = next_node
 
     def __repr__(self):
         return f"{self.value}, ({self.next.__repr__()})"

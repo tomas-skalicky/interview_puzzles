@@ -40,8 +40,7 @@
 # # ['a']
 
 
-from collections import defaultdict
-from typing import Dict, List, Tuple
+from typing import Dict, List
 
 
 class Node:
@@ -53,7 +52,7 @@ class Node:
         return str(self.value)
 
 
-def reverse_graph(graph_input: Dict[object, Node]):
+def reverse_graph(graph_input: Dict[object, Node]) -> Dict[object, Node]:
     reversed_graph: Dict[object, Node] = dict()
     for current_node_value in graph_input.keys():
         reversed_graph[current_node_value] = Node(current_node_value)

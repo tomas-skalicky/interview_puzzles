@@ -21,7 +21,7 @@ from typing import List, Dict, Tuple, Set
 
 
 # Total time complexity is O(n^2)
-class Solution(object):
+class Solution:
     @staticmethod
     def three_sum(nums: List[int]):
         number_count: int = len(nums)

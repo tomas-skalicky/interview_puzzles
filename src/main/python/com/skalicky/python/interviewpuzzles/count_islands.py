@@ -35,7 +35,7 @@
 from typing import List, Tuple, Set
 
 
-class Solution(object):
+class Solution:
     @staticmethod
     def in_range(grid: List[List[int]], r: int, c: int) -> bool:
         num_row, num_col = len(grid), len(grid[0])
