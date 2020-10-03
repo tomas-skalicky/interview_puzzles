@@ -31,21 +31,21 @@
 #   print node.value,
 #   node = node.next
 # # 10
-from typing import Dict
+from typing import Dict, Optional
 
 
 class Node:
     def __init__(self, value, next_arg=None):
         self.value = value
-        self.next: Node = next_arg
+        self.next: Optional[Node] = next_arg
 
-    def __str__(self):
+    def __str__(self) -> str:
         return str(self.value)
 
 
-def remove_consecutive_sum_to_0(node_arg: Node):
+def remove_consecutive_sum_to_0(node_arg: Node) -> Optional[Node]:
     all_possible_previous_sums_from_last_cut: Dict[int, Node] = {}
-    previous_node: Node = None
+    previous_node: Optional[Node] = None
     first_node: Node = node_arg
     current_node: Node = node_arg
     while current_node:
@@ -77,7 +77,7 @@ def remove_consecutive_sum_to_0(node_arg: Node):
     return first_node
 
 
-def print_out_linked_list(node_arg: Node):
+def print_out_linked_list(node_arg: Optional[Node]) -> None:
     if node_arg is None:
         print('None', end='')
     current_node: Node = node_arg
@@ -86,7 +86,7 @@ def print_out_linked_list(node_arg: Node):
             print(' -> ', end='')
         print(current_node.value, end='')
         current_node = current_node.next
-    print('')
+    print()
 
 
 node = Node(10)
@@ -98,20 +98,20 @@ node.next.next.next.next.next = Node(4)
 node.next.next.next.next.next.next = Node(-4)
 print_out_linked_list(node)
 print_out_linked_list(remove_consecutive_sum_to_0(node))
-print('')
+print()
 # 10
 
 node2 = Node(-10)
 node2.next = Node(10)
 print_out_linked_list(node2)
 print_out_linked_list(remove_consecutive_sum_to_0(node2))
-print('')
+print()
 # None
 
 node3 = Node(0)
 print_out_linked_list(node3)
 print_out_linked_list(remove_consecutive_sum_to_0(node3))
-print('')
+print()
 # None
 
 node4 = Node(-10)
@@ -120,12 +120,12 @@ node4.next.next = Node(-3)
 node4.next.next.next = Node(-3)
 print_out_linked_list(node4)
 print_out_linked_list(remove_consecutive_sum_to_0(node4))
-print('')
+print()
 # -3 -> -3
 
 node5 = Node(0)
 node5.next = Node(10)
 print_out_linked_list(node5)
 print_out_linked_list(remove_consecutive_sum_to_0(node5))
-print('')
+print()
 # 10

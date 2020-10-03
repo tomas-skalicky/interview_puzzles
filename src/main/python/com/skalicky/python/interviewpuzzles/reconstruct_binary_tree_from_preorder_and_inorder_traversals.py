@@ -50,16 +50,16 @@
 
 
 from collections import deque
-from typing import Deque, List, Dict, Tuple
+from typing import Deque, List, Dict, Optional, Tuple
 
 
 class Node(object):
     def __init__(self, val: str):
         self.val: str = val
-        self.left: Node = None
-        self.right: Node = None
+        self.left: Optional[Node] = None
+        self.right: Optional[Node] = None
 
-    def __str__(self):
+    def __str__(self) -> str:
         q: Deque[Node] = deque()
         q.append(self)
         result: str = ''
@@ -73,7 +73,7 @@ class Node(object):
         return result
 
 
-def reconstruct(preorder: List[str], inorder: List[str]):
+def reconstruct(preorder: List[str], inorder: List[str]) -> Optional[Node]:
     node_count: int = len(preorder)
     if node_count == 0:
         return None
@@ -86,7 +86,7 @@ def reconstruct(preorder: List[str], inorder: List[str]):
         root_value: str = preorder[0]
         root_node_order: int = order_by_value[root_value]
         root: Node = Node(root_value)
-        ancestors_with_order_and_ranges: Deque[Node, int, int, int] = deque()
+        ancestors_with_order_and_ranges: Deque[Tuple[Node, int, Optional[int], Optional[int]]] = deque()
         ancestors_with_order_and_ranges.append((root, root_node_order, None, None))
 
         for i in range(1, node_count):

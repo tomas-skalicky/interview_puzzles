@@ -28,15 +28,15 @@
 # head = remove_kth_from_linked_list(head, 3)
 # print(head)
 # # [1, 2, 4, 5]
-from typing import List
+from typing import List, Optional
 
 
 class Node:
-    def __init__(self, val: int, next=None):
+    def __init__(self, val: int, next_node=None):
         self.val: int = val
-        self.next: Node = next
+        self.next: Optional[Node] = next_node
 
-    def __str__(self):
+    def __str__(self) -> str:
         current_node = self
         result: List[int] = []
         while current_node:
@@ -45,14 +45,14 @@ class Node:
         return str(result)
 
 
-def remove_kth_from_linked_list(head_arg: Node, k: int):
+def remove_kth_from_linked_list(head_arg: Optional[Node], k: int) -> Optional[Node]:
     if head_arg is None:
         return None
     else:
-        before_kth_last: Node = None
-        kth_last: Node = None
+        before_kth_last: Optional[Node] = None
+        kth_last: Optional[Node] = None
         current: Node = head_arg
-        index_of_kth_last: int = None
+        index_of_kth_last: Optional[int] = None
         index_of_current: int = 0
         while current:
             if index_of_current + 1 == k:
@@ -97,7 +97,7 @@ print(head4)
 print(remove_kth_from_linked_list(head4, 1))
 # [1, 2, 3, 4]
 
-head5: Node = None
+head5: Optional[Node] = None
 print(head5)
 # None
 print(remove_kth_from_linked_list(head5, 1))
