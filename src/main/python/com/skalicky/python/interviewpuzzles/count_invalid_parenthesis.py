@@ -20,7 +20,7 @@
 # # 1
 
 
-def count_invalid_parenthesis(string: str):
+def count_invalid_parenthesis(string: str) -> int:
     invalid_parenthesis_count: int = 0
     open_parenthesis_count: int = 0
     for c in list(string):

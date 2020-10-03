@@ -22,15 +22,15 @@
 from typing import Dict
 
 
-def has_character_map(str1: str, str2: str) -> True:
+def has_character_map(str1: str, str2: str) -> bool:
     str1_length: int = len(str1)
     if str1_length != len(str2):
         raise RuntimeError('Input strings [{}, {}] do have have the same length.'.format(str1, str2))
     else:
         character_map: Dict[str, str] = dict()
         for i in range(0, str1_length):
-            char1: str = str1[i:i+1]
-            char2: str = str2[i:i+1]
+            char1: str = str1[i:i + 1]
+            char2: str = str2[i:i + 1]
             if character_map.__contains__(char1):
                 if character_map[char1] != char2:
                     return False

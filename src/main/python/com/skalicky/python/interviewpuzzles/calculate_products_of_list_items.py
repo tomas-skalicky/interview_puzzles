@@ -18,7 +18,7 @@ from math import floor
 from typing import List
 
 
-def products(nums: List[int]):
+def products(nums: List[int]) -> List[int]:
     if len(nums) == 0:
         return []
     else:

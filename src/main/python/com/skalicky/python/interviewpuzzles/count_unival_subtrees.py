@@ -40,18 +40,18 @@
 # print count_unival_subtrees(a)
 # # 5
 from collections import deque
-from typing import Deque
+from typing import Deque, Optional
 
 
 class Node(object):
     def __init__(self, val):
         self.val: int = val
-        self.left: Node = None
-        self.right: Node = None
-        self.unival_subtree_root: bool = None
+        self.left: Optional[Node] = None
+        self.right: Optional[Node] = None
+        self.unival_subtree_root: Optional[bool] = None
 
 
-def count_unival_subtrees(root: Node):
+def count_unival_subtrees(root: Node) -> int:
     nodes_to_process: Deque[Node] = deque()
     nodes_to_process.append(root)
     result_count: int = 0

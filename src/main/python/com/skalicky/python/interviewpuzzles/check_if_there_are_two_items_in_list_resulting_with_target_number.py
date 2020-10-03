@@ -16,7 +16,7 @@
 # # True
 
 
-def two_sum(nums: list, k: int):
+def two_sum(nums: list, k: int) -> bool:
     if len(nums) < 2:
         return False
     else:

@@ -20,7 +20,7 @@
 from math import factorial, floor
 
 
-def num_ways(n: int, m: int):
+def num_ways(n: int, m: int) -> int:
     return floor(factorial(n - 1 + m - 1) / factorial(n - 1) / factorial(m - 1))
 
 

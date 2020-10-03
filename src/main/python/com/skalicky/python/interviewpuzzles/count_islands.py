@@ -37,14 +37,14 @@ from typing import List, Tuple, Set
 
 class Solution(object):
     @staticmethod
-    def in_range(grid: List[List[int]], r: int, c: int):
+    def in_range(grid: List[List[int]], r: int, c: int) -> bool:
         num_row, num_col = len(grid), len(grid[0])
         if r < 0 or c < 0 or r >= num_row or c >= num_col:
             return False
         return True
 
     @staticmethod
-    def num_islands(grid: List[List[int]]):
+    def num_islands(grid: List[List[int]]) -> int:
         row_count: int = len(grid)
         if row_count == 0:
             return 0

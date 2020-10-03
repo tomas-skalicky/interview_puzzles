@@ -25,7 +25,7 @@
 from typing import List, Dict
 
 
-def chained_words(words: List[str]):
+def chained_words(words: List[str]) -> bool:
     if len(words) < 2:
         return False
     else:

@@ -12,7 +12,7 @@
 from math import floor
 
 
-def calc_angle(h: int, m: int):
+def calc_angle(h: int, m: int) -> int:
     minutes_per_clock: int = 60
     hours_per_clock: int = 12
     angle_between_60_and_m: int = m * floor(360 / minutes_per_clock)

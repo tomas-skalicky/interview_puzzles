@@ -36,10 +36,13 @@
 
 
 # Definition for singly-linked list.
+from typing import Optional, Tuple
+
+
 class ListNode(object):
     def __init__(self, x: int):
         self.val = x
-        self.next = None
+        self.next: Optional[ListNode] = None
 
 
 class Solution:
@@ -47,7 +50,7 @@ class Solution:
     def add_node_values_to_new_node(node1_value: int,
                                     node2_value: int,
                                     addition_left: int,
-                                    result_list_current_node: ListNode):
+                                    result_list_current_node: ListNode) -> Tuple[ListNode, int]:
         sum_result: int = node1_value + node2_value + addition_left
         new_node_value: int = sum_result % 10
         result_list_current_node.next = ListNode(new_node_value)
@@ -58,7 +61,7 @@ class Solution:
     @staticmethod
     def add_two_numbers(l1: ListNode,
                         l2: ListNode,
-                        c=0):
+                        c=0) -> Optional[ListNode]:
         result_list_dummy_first_node = ListNode(-1)
         result_list_current_node: ListNode = result_list_dummy_first_node
         list1_current_node: ListNode = l1
@@ -91,7 +94,7 @@ class Solution:
         return result_list_dummy_first_node.next
 
 
-def main():
+def main() -> None:
     l1 = ListNode(2)
     l1.next = ListNode(4)
     l1.next.next = ListNode(7)
@@ -102,7 +105,7 @@ def main():
     l2.next.next.next = ListNode(4)
     l2.next.next.next.next = ListNode(2)
 
-    result: ListNode = Solution.add_two_numbers(l1, l2)
+    result: Optional[ListNode] = Solution.add_two_numbers(l1, l2)
     while result:
         print(result.val, end=' ')
         result = result.next

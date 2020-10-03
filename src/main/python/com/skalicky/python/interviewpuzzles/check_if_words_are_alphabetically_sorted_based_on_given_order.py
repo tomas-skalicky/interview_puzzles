@@ -31,14 +31,14 @@
 from typing import List, Dict
 
 
-def get_character_order(index: int, word: str, orders_by_chars: Dict[str, int]):
+def get_character_order(index: int, word: str, orders_by_chars: Dict[str, int]) -> int:
     if index >= len(word):
         return -1
     else:
         return orders_by_chars[word[index]]
 
 
-def is_sorted(words: List[str], order: str):
+def is_sorted(words: List[str], order: str) -> bool:
     if len(words) == 1:
         return True
     else:

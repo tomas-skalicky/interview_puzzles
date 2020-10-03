@@ -32,7 +32,7 @@ class Rectangle:
         self.max_y_excluded: int = max_y_excluded
 
 
-def intersection_area(rect1: Rectangle, rect2: Rectangle):
+def intersection_area(rect1: Rectangle, rect2: Rectangle) -> int:
     min_x: int = max(rect1.min_x, rect2.min_x)
     max_x_excluded: int = min(rect1.max_x_excluded, rect2.max_x_excluded)
     min_y: int = max(rect1.min_y, rect2.min_y)

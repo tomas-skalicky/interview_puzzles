@@ -22,7 +22,7 @@
 # # 2 is the root node, with 1 as the left child and 3 as the right child
 # print(create_tree([1, 3, 2]))
 from collections import deque
-from typing import List, Deque, Tuple
+from typing import List, Deque, Tuple, Optional
 
 
 class Node:
@@ -31,11 +31,11 @@ class Node:
         self.left = left
         self.right = right
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return "(" + str(self.value) + ", " + self.left.__repr__() + ", " + self.right.__repr__() + ")"
 
 
-def create_tree(postorder: List[int]) -> Node:
+def create_tree(postorder: List[int]) -> Optional[Node]:
     node_count: int = len(postorder)
     if node_count == 0:
         return None

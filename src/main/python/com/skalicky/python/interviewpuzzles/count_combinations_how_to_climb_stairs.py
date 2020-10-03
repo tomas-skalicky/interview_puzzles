@@ -16,7 +16,7 @@ from math import floor
 from math import factorial
 
 
-def staircase_fibonacchi(n: int):
+def staircase_fibonacchi(n: int) -> int:
     if n == 1:
         return 1
     elif n == 2:
@@ -31,7 +31,7 @@ def staircase_fibonacchi(n: int):
         return fibn
 
 
-def staircase_combinatorics(n: int):
+def staircase_combinatorics(n: int) -> int:
     total_count: int = 0
     for two_count in range(0, floor(n / 2) + 1):
         items_to_permutate: int = n - two_count

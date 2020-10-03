@@ -34,16 +34,16 @@ class AbstractBinaryOperator(AbstractItem, ABC):
 
 
 class BinaryPlus(AbstractBinaryOperator):
-    def apply(self, operand_one: Number, operand_two: Number):
+    def apply(self, operand_one: Number, operand_two: Number) -> int:
         return operand_one.value + operand_two.value
 
 
 class BinaryMinus(AbstractBinaryOperator):
-    def apply(self, operand_one: Number, operand_two: Number):
+    def apply(self, operand_one: Number, operand_two: Number) -> int:
         return operand_one.value - operand_two.value
 
 
-def squash_stacked_items_by_evaluation_of_binary_operator(stacked_items: List[AbstractItem]):
+def squash_stacked_items_by_evaluation_of_binary_operator(stacked_items: List[AbstractItem]) -> None:
     stack_size = len(stacked_items)
     operand_two = stacked_items.pop(stack_size - 1)
     assert isinstance(operand_two, Number)
@@ -54,7 +54,7 @@ def squash_stacked_items_by_evaluation_of_binary_operator(stacked_items: List[Ab
     stacked_items.append(Number(operator.apply(operand_one, operand_two)))
 
 
-def evaluate_expression_without_parentheses(expression: List[str]):
+def evaluate_expression_without_parentheses(expression: List[str]) -> int:
     stacked_items = []
     item_index = 0
     while item_index < len(expression):
@@ -88,7 +88,7 @@ def evaluate_expression_without_parentheses(expression: List[str]):
     return number.value
 
 
-def eval(expression: str):
+def eval(expression: str) -> int:
     stacked_expressions = []
     current_expression = []
     for c in list(expression):

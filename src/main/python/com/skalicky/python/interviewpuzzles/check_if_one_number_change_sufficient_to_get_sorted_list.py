@@ -25,7 +25,7 @@
 # # False
 
 
-def check(lst: list):
+def check(lst: list) -> bool:
     if len(lst) <= 1:
         return True
     else:

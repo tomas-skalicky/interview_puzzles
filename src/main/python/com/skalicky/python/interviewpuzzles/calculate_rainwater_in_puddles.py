@@ -21,7 +21,7 @@ from typing import List, Deque, Tuple
 
 def identify_bottom_of_puddle(current_index: int,
                               landscape: List[int],
-                              bottom_of_puddles_to_process: Deque[Tuple]):
+                              bottom_of_puddles_to_process: Deque[Tuple]) -> int:
     i: int = current_index
     current_value = landscape[current_index]
     while i > 0 and landscape[i] == current_value:
@@ -40,7 +40,7 @@ def identify_bottom_of_puddle(current_index: int,
 
 
 # Time complexity O(n ^ 2)
-def capacity(arr: List[int]):
+def capacity(arr: List[int]) -> int:
     if len(arr) < 3:
         return 0
     else:

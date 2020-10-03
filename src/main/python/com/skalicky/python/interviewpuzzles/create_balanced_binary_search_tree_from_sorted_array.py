@@ -41,7 +41,7 @@
 
 from collections import deque
 from math import floor
-from typing import List, Deque, Tuple
+from typing import List, Deque, Tuple, Optional
 
 
 class Node:
@@ -64,13 +64,13 @@ class Node:
         return answer
 
 
-def create_balanced_binary_search_tree(nums: List[int]):
+def create_balanced_binary_search_tree(nums: List[int]) -> Optional[Node]:
     if len(nums) == 0:
         return None
     else:
         tuples_to_process: Deque[Tuple] = deque()
         tuples_to_process.append((0, len(nums) - 1, None))
-        root_node: Node = None
+        root_node: Optional[Node] = None
         while len(tuples_to_process) > 0:
             tuple_to_process = tuples_to_process.popleft()
             from_index_included: int = tuple_to_process[0]

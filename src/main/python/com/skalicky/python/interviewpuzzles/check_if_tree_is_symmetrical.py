@@ -29,7 +29,7 @@
 # # True
 from collections import deque
 from math import floor
-from typing import List, Deque, Tuple
+from typing import List, Deque, Tuple, Optional
 
 
 class Node:
@@ -38,7 +38,7 @@ class Node:
         self.children: List[Node] = children
 
 
-def is_symmetric(root: Node) -> bool:
+def is_symmetric(root: Optional[Node]) -> bool:
     if root is None:
         return True
     else:

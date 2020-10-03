@@ -25,7 +25,7 @@
 # # True
 from collections import deque
 from math import floor
-from typing import Deque
+from typing import Deque, Optional
 
 
 class Node(object):
@@ -35,7 +35,7 @@ class Node(object):
         self.prev = None
 
 
-def is_palindrome_using_previous_node(input_node: Node) -> bool:
+def is_palindrome_using_previous_node(input_node: Optional[Node]) -> bool:
     if input_node is None:
         return False
     else:
@@ -55,7 +55,7 @@ def is_palindrome_using_previous_node(input_node: Node) -> bool:
         return True
 
 
-def is_palindrome_without_previous_node(input_node: Node) -> bool:
+def is_palindrome_without_previous_node(input_node: Optional[Node]) -> bool:
     if input_node is None:
         return False
     else:
@@ -76,7 +76,7 @@ def is_palindrome_without_previous_node(input_node: Node) -> bool:
         return True
 
 
-def is_palindrome(input_node: Node):
+def is_palindrome(input_node: Optional[Node]) -> None:
     print(is_palindrome_using_previous_node(input_node))
     print(is_palindrome_without_previous_node(input_node))
 

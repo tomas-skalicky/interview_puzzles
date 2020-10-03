@@ -38,13 +38,14 @@
 # n = 'MCMX'
 # print(Solution.romanToInt(n))
 # # 1910
+from typing import Optional
 
 
 class Solution:
     @staticmethod
-    def roman_to_int(s):
+    def roman_to_int(s) -> int:
         result: int = 0
-        processed_previous_letter: str = None
+        processed_previous_letter: Optional[str] = None
         for letter in list(s):
             if letter == 'I':
                 result += 1
