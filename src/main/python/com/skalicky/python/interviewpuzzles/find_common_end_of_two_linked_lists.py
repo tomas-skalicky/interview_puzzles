@@ -36,15 +36,16 @@
 # c = intersection(a, b)
 # c.prettyPrint()
 # # 3 4
+from typing import Optional
 
 
 class Node(object):
     def __init__(self, val: int):
         self.val = val
-        self.next: Node = None
-        self.previous: Node = None
+        self.next: Optional[Node] = None
+        self.previous: Optional[Node] = None
 
-    def pretty_print_self_and_nexts(self):
+    def pretty_print_self_and_nexts(self) -> None:
         current: Node = self
         while current:
             print(current.val)
@@ -71,14 +72,14 @@ class Node(object):
             current.previous = previous
         return current
 
-    def __eq__(self, other):
+    def __eq__(self, other) -> bool:
         return self.val == other.val
 
-    def __str__(self):
+    def __str__(self) -> str:
         return str(self.val)
 
 
-def intersection_intern(first: Node, second: Node):
+def intersection_intern(first: Node, second: Node) -> Optional[Node]:
     current_first: Node = first
     current_second: Node = second
     if current_first == current_second:
@@ -90,11 +91,11 @@ def intersection_intern(first: Node, second: Node):
         return None
 
 
-def intersection_when_shared_objects_in_list(first: Node, second: Node):
+def intersection_when_shared_objects_in_list(first: Node, second: Node) -> Optional[Node]:
     return intersection_intern(first.invert_by_creating_new_list(), second.invert_by_creating_new_list())
 
 
-def intersection_when_no_shared_objects_in_list(first: Node, second: Node):
+def intersection_when_no_shared_objects_in_list(first: Node, second: Node) -> Optional[Node]:
     return intersection_intern(first.invert_by_setting_previous(), second.invert_by_setting_previous())
 
 

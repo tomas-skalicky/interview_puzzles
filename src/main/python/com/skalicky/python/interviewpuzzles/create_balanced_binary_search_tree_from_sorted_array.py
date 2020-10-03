@@ -47,8 +47,8 @@ from typing import List, Deque, Tuple, Optional
 class Node:
     def __init__(self, value, left=None, right=None):
         self.value = value
-        self.left = left
-        self.right = right
+        self.left: Optional[Node] = left
+        self.right: Optional[Node] = right
 
     def __str__(self) -> str:
         # level-by-level pretty-printer

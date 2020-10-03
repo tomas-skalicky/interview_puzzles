@@ -30,15 +30,15 @@
 # print(most_freq_subtree_sum(root))
 # # 1
 from collections import deque
-from typing import Deque, Dict
+from typing import Deque, Dict, Optional
 
 
 class Node:
     def __init__(self, value: int, left=None, right=None, subtree_sum=None):
         self.val: int = value
-        self.left: Node = left
-        self.right: Node = right
-        self.subtree_sum: int = subtree_sum
+        self.left: Optional[Node] = left
+        self.right: Optional[Node] = right
+        self.subtree_sum: Optional[int] = subtree_sum
 
 
 def most_freq_subtree_sum(root: Node):

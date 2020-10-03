@@ -30,7 +30,7 @@ from collections.abc import MutableSet
 from typing import List
 
 
-def word_search(input_matrix: List[List[str]], word: str):
+def word_search(input_matrix: List[List[str]], word: str) -> bool:
     if len(word) == 0:
         return True
     if len(input_matrix) == 0 or len(input_matrix[0]) == 0:

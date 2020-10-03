@@ -41,14 +41,14 @@
 # print evaluate(tree)
 # # 45
 from collections import deque
-from typing import Deque
+from typing import Deque, Optional
 
 
 class Node:
     def __init__(self, val, left=None, right=None):
         self.val = val
-        self.left: Node = left
-        self.right: Node = right
+        self.left: Optional[Node] = left
+        self.right: Optional[Node] = right
 
     def __str__(self):
         return str(self.val)
@@ -82,7 +82,7 @@ def evaluate_operator(node: Node) -> float:
         return node.left.val / right_side
 
 
-def evaluate(root: Node) -> float:
+def evaluate(root: Optional[Node]) -> float:
     if root is None:
         return 0
     elif is_operator(root):

@@ -39,14 +39,14 @@
 # # value: 1, left: (value: 1, left: (value: 2, left: (None), right: (None)), right: (None)), right: (None)
 from collections import deque
 from enum import Enum
-from typing import Deque, Tuple
+from typing import Deque, Tuple, Optional
 
 
 class Node:
     def __init__(self, value, left=None, right=None):
         self.value = value
-        self.left: Node = left
-        self.right: Node = right
+        self.left: Optional[Node] = left
+        self.right: Optional[Node] = right
 
     def __repr__(self):
         return f"value: {self.value}, left: ({self.left.__repr__()}), right: ({self.right.__repr__()})"
@@ -57,8 +57,8 @@ class ChildType(Enum):
     RIGHT = 2
 
 
-def filter(tree: Node, k) -> Node:
-    nodes_to_process: Deque[Tuple[Node, Node, ChildType, bool]] = deque()
+def filter_leaves(tree: Node, k) -> Optional[Node]:
+    nodes_to_process: Deque[Tuple[Node, Optional[Node], Optional[ChildType], bool]] = deque()
     nodes_to_process.append((tree, None, None, False))
     while len(nodes_to_process) > 0:
         node_to_process, parent_node, child_type, already_visited = nodes_to_process.pop()
@@ -84,7 +84,7 @@ def filter(tree: Node, k) -> Node:
 #   1   1
 #  /   /
 # 2   1
-print(filter(Node(1, left=Node(1, left=Node(2)), right=Node(1, left=Node(1))), 1))
+print(filter_leaves(Node(1, left=Node(1, left=Node(2)), right=Node(1, left=Node(1))), 1))
 #     1
 #    /
 #   1
@@ -97,5 +97,5 @@ print(filter(Node(1, left=Node(1, left=Node(2)), right=Node(1, left=Node(1))), 1
 #   1   1
 #  /   /
 # 2   1
-print(filter(Node(1, left=Node(1, left=Node(1)), right=Node(1, left=Node(1))), 1))
+print(filter_leaves(Node(1, left=Node(1, left=Node(1)), right=Node(1, left=Node(1))), 1))
 # None

@@ -28,14 +28,14 @@
 # print valuesAtHeight(a, 3)
 # # [4, 5, 7]
 from collections import deque
-from typing import Tuple, Deque, List
+from typing import Tuple, Deque, List, Optional
 
 
 class Node:
     def __init__(self, value, left=None, right=None):
         self.value: int = value
-        self.left: Node = left
-        self.right: Node = right
+        self.left: Optional[Node] = left
+        self.right: Optional[Node] = right
 
 
 def values_at_height(root: Node, height: int):

@@ -23,10 +23,10 @@ from typing import List, Dict, Tuple, Set
 # Total time complexity is O(n^2)
 class Solution:
     @staticmethod
-    def three_sum(nums: List[int]):
+    def three_sum(nums: List[int]) -> Set[Tuple[int, int, int]]:
         number_count: int = len(nums)
         if number_count < 3:
-            return []
+            return set()
         else:
             # Time complexity of sorting is O(n log n)
             sorted_numbers: List[int] = sorted(nums)

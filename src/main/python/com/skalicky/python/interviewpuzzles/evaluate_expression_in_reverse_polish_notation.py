@@ -19,7 +19,7 @@
 # # 1 - (2 + 3) * 2
 # print(reverse_polish_notation([1, 2, 3, '+', 2, '*', '-']))
 # # -9
-from typing import List, Set
+from typing import List, Set, Optional
 
 BINARY_OPERATORS: Set[str] = {'+', '-', '*', '/'}
 
@@ -35,7 +35,7 @@ def evaluate_operator(operator: str, operand1: int, operand2: int) -> int:
         return int(operand1 / operand2)
 
 
-def reverse_polish_notation(expr: List[object]) -> int:
+def reverse_polish_notation(expr: List[object]) -> Optional[int]:
     expression_length: int = len(expr)
     if expression_length == 0:
         return None
@@ -49,7 +49,7 @@ def reverse_polish_notation(expr: List[object]) -> int:
             next_index += 1
 
             queued_expression_parts_count: int = len(queued_expression_parts)
-            previous_iteration_parts_count: int = None
+            previous_iteration_parts_count: Optional[int] = None
 
             while queued_expression_parts_count > 1 and queued_expression_parts_count != previous_iteration_parts_count:
                 previous_iteration_parts_count = queued_expression_parts_count

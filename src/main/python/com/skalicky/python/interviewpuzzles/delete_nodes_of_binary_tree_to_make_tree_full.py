@@ -63,16 +63,16 @@
 
 from collections import deque
 from enum import Enum
-from typing import Deque, Tuple
+from typing import Deque, Tuple, Optional
 
 
 class Node(object):
     def __init__(self, value, left=None, right=None):
-        self.left: Node = left
-        self.right: Node = right
+        self.left: Optional[Node] = left
+        self.right: Optional[Node] = right
         self.value = value
 
-    def __str__(self):
+    def __str__(self) -> str:
         q: Deque = deque()
         q.append(self)
         result = ''
@@ -97,12 +97,12 @@ class ChildType(Enum):
     RIGHT = 2
 
 
-def full_binary_tree(node: Node) -> Node:
+def full_binary_tree(node: Optional[Node]) -> Optional[Node]:
     if node is None:
         return None
     else:
         root: Node = node
-        nodes_to_process: Deque[Tuple[Node, Node, ChildType]] = deque()
+        nodes_to_process: Deque[Tuple[Node, Optional[Node], Optional[ChildType]]] = deque()
         nodes_to_process.append((node, None, None))
         while len(nodes_to_process) > 0:
             node_to_process, parent, parent_child_type = nodes_to_process.pop()

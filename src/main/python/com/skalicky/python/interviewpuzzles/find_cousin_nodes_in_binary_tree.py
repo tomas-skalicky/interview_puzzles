@@ -31,14 +31,14 @@
 # print Solution().list_cousins(root, 5)
 # # [4, 6]
 from collections import deque
-from typing import List, Deque, Tuple
+from typing import List, Deque, Tuple, Optional
 
 
 class Node(object):
     def __init__(self, value, left=None, right=None):
         self.value = value
-        self.left = left
-        self.right = right
+        self.left: Optional[Node] = left
+        self.right: Optional[Node] = right
 
 
 class Solution:

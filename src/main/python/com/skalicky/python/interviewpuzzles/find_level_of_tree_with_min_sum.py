@@ -29,14 +29,14 @@
 #
 # print minimum_level_sum(node)
 import sys
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Optional
 
 
 class Node:
     def __init__(self, value, left=None, right=None):
         self.val = value
-        self.left = left
-        self.right = right
+        self.left: Optional[Node] = left
+        self.right: Optional[Node] = right
 
 
 def minimum_level_sum(root: Node) -> int:

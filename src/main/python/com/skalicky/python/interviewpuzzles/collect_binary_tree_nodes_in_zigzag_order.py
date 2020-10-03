@@ -34,14 +34,14 @@
 # print(zigzag_order(n1))
 # # [1, 3, 2, 4, 5, 6, 7]
 from collections import deque
-from typing import List, Deque
+from typing import List, Deque, Optional
 
 
 class Node:
     def __init__(self, value: int, left=None, right=None):
         self.value: int = value
-        self.left: Node = left
-        self.right: Node = right
+        self.left: Optional[Node] = left
+        self.right: Optional[Node] = right
 
 
 def zigzag_order(tree_root: Node) -> List[int]:

@@ -32,18 +32,18 @@
 #
 # print lowestCommonAncestor(root, a, b).val
 # # c
-from typing import Dict
+from typing import Dict, Optional
 
 
 class TreeNode:
     def __init__(self, val):
-        self.left = None
-        self.right = None
-        self.parent = None
+        self.left: Optional[TreeNode] = None
+        self.right: Optional[TreeNode] = None
+        self.parent: Optional[TreeNode] = None
         self.val = val
 
 
-def lowest_common_ancestor(root_node: TreeNode, a_node: TreeNode, b_node: TreeNode) -> TreeNode:
+def lowest_common_ancestor(a_node: TreeNode, b_node: TreeNode) -> Optional[TreeNode]:
     a_ancestors: Dict[TreeNode] = dict()
     a_ancestors[a_node.val] = a_node
     a_node_to_process: TreeNode = a_node
@@ -74,11 +74,11 @@ root.right.left.parent = root.right
 b = root.right.right = TreeNode('e')
 root.right.right.parent = root.right
 
-print(lowest_common_ancestor(root, a, b).val)
+print(lowest_common_ancestor(a, b).val)
 # c
-print(lowest_common_ancestor(root, root.left, b).val)
+print(lowest_common_ancestor(root.left, b).val)
 # a
-print(lowest_common_ancestor(root, root.right, b).val)
+print(lowest_common_ancestor(root.right, b).val)
 # c
-print(lowest_common_ancestor(root, root, TreeNode('f')))
+print(lowest_common_ancestor(root, TreeNode('f')))
 # None

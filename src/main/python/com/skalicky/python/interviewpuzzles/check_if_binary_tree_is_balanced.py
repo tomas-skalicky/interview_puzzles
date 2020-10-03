@@ -36,14 +36,14 @@
 # print(is_height_balanced(n1))
 # # False
 from collections import deque
-from typing import Deque, Dict
+from typing import Deque, Dict, Optional
 
 
 class Node:
     def __init__(self, value, left=None, right=None):
         self.value = value
-        self.left: Node = left
-        self.right: Node = right
+        self.left: Optional[Node] = left
+        self.right: Optional[Node] = right
 
 
 def is_height_balanced(tree: Node) -> bool:

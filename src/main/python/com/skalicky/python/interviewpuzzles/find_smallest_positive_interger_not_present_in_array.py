@@ -42,7 +42,7 @@
 from typing import List
 
 
-def first_missing_positive(nums: List[int]):
+def first_missing_positive(nums: List[int]) -> int:
     number_count: int = len(nums)
     if number_count == 0:
         return 1

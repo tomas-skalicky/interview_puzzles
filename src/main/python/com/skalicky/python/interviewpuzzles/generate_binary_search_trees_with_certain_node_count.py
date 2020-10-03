@@ -37,14 +37,14 @@
 # #      \    /           \    /
 # #       3  2             2  1
 from collections import deque
-from typing import List, Deque, Tuple, Set
+from typing import List, Deque, Tuple, Set, Optional
 
 
 class Node:
     def __init__(self, value: int, left=None, right=None):
         self.value: int = value
-        self.left: Node = left
-        self.right: Node = right
+        self.left: Optional[Node] = left
+        self.right: Optional[Node] = right
 
     def __str__(self) -> str:
         result = str(self.value)
