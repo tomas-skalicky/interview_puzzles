@@ -29,18 +29,18 @@
 # # / \ /
 # #1  4 6
 from collections import deque
-from typing import Deque, Tuple
+from typing import Deque, Tuple, Optional
 
 
 class TreeNode:
     def __init__(self, key):
-        self.left: TreeNode = None
-        self.right: TreeNode = None
+        self.left: Optional[TreeNode] = None
+        self.right: Optional[TreeNode] = None
         self.key: int = key
 
 
-def is_bst(root: TreeNode):
-    nodes_to_process: Deque[Tuple[TreeNode, int, int]] = deque()
+def is_bst(root: TreeNode) -> bool:
+    nodes_to_process: Deque[Tuple[TreeNode, Optional[int], Optional[int]]] = deque()
     nodes_to_process.append((root, None, None))
     while len(nodes_to_process) > 0:
         current_node, min_allowed, max_allowed = nodes_to_process.popleft()

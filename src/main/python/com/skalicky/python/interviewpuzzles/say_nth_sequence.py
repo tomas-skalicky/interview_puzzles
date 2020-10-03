@@ -12,11 +12,11 @@
 # 111221 # #one 1, one 2, and two 1's.
 #
 # Your task is, return the nth term of this sequence.
-from typing import List
+from typing import List, Optional
 
 
-def generate_next_sequence(input_sequence: List[int]):
-    counted_number: int = None
+def generate_next_sequence(input_sequence: List[int]) -> List[int]:
+    counted_number: Optional[int] = None
     counted_number_occurrence: int = 0
     i: int = 0
     result_sequence: List[int] = []
@@ -38,7 +38,7 @@ def generate_next_sequence(input_sequence: List[int]):
     return result_sequence
 
 
-def generate_nth_sequence(n: int):
+def generate_nth_sequence(n: int) -> List[int]:
     if n < 1:
         raise Exception('non allowed n [{}]'.format(n))
     elif n == 1:

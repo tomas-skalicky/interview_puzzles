@@ -48,14 +48,14 @@
 # # 132547
 from collections import deque
 from enum import Enum
-from typing import List, Deque, Tuple
+from typing import List, Deque, Tuple, Optional
 
 
 class Node:
     def __init__(self, val: int, left=None, right=None):
         self.val: int = val
-        self.left: Node = left
-        self.right: Node = right
+        self.left: Optional[Node] = left
+        self.right: Optional[Node] = right
 
     def __str__(self) -> str:
         # pre-order printing of the tree.
@@ -73,7 +73,7 @@ class ChildType(Enum):
     RIGHT = 2
 
 
-def serialize(root: Node) -> str:
+def serialize(root: Optional[Node]) -> str:
     if root is None:
         return ''
     else:
@@ -93,7 +93,7 @@ def serialize(root: Node) -> str:
         return result
 
 
-def deserialize(data: str) -> Node:
+def deserialize(data: str) -> Optional[Node]:
     if len(data) == 0:
         return None
     else:

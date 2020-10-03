@@ -37,7 +37,7 @@ class Direction(Enum):
     UP = 4
 
 
-def matrix_spiral_print(matrix: List[List[int]]):
+def matrix_spiral_print(matrix: List[List[int]]) -> None:
     matrix_visited: List[List[bool]] = []
     row_count: int = len(matrix)
     for i in range(0, row_count):
@@ -80,15 +80,14 @@ def matrix_spiral_print(matrix: List[List[int]]):
     print()
 
 
-grid = [[1, 2, 3, 4, 5],
-        [6, 7, 8, 9, 10],
-        [11, 12, 13, 14, 15],
-        [16, 17, 18, 19, 20]]
-matrix_spiral_print(grid)
+matrix_spiral_print([[1, 2, 3, 4, 5],
+                     [6, 7, 8, 9, 10],
+                     [11, 12, 13, 14, 15],
+                     [16, 17, 18, 19, 20]])
 # 1 2 3 4 5 10 15 20 19 18 17 16 11 6 7 8 9 14 13 12
-grid2 = [[2]]
-matrix_spiral_print(grid2)
+
+matrix_spiral_print([[2]])
 # 2
-grid3 = [[]]
-matrix_spiral_print(grid3)
+
+matrix_spiral_print([[]])
 #

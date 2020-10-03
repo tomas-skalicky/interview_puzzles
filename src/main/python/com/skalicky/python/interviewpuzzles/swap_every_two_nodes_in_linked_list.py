@@ -18,20 +18,21 @@
 # llist = Node(1, Node(2, Node(3, Node(4, Node(5)))))
 # print(swap_every_two(llist))
 # # 2, (1, (4, (3, (5, (None)))))
+from typing import Optional
 
 
 class Node:
     def __init__(self, value, next=None):
         self.value = value
-        self.next = next
+        self.next: Optional[Node] = next
 
     def __repr__(self):
         return f"{self.value}, ({self.next.__repr__()})"
 
 
-def swap_every_two(llist: Node) -> Node:
-    root: Node = None
-    previous_already_swapped: Node = None
+def swap_every_two(llist: Optional[Node]) -> Optional[Node]:
+    root: Optional[Node] = None
+    previous_already_swapped: Optional[Node] = None
     current: Node = llist
     while current is not None and current.next is not None:
         old_next: Node = current.next

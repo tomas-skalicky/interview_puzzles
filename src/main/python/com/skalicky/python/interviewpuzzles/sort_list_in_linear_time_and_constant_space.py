@@ -13,10 +13,11 @@
 #
 # print sortNums([3, 3, 2, 1, 3, 2, 1])
 # # [1, 1, 2, 2, 3, 3, 3]
+from typing import List
 
 
-def sort_nums(nums: list):
-    frequency: list = [0, 0, 0]
+def sort_nums(nums: List[int]) -> List[int]:
+    frequency: List[int] = [0, 0, 0]
     for n in nums:
         frequency[n - 1] = frequency[n - 1] + 1
     result = []

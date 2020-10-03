@@ -33,7 +33,7 @@ from typing import List
 
 class Solution:
     @staticmethod
-    def sort_colors(numbers: List[int]):
+    def sort_colors(numbers: List[int]) -> None:
         number_count: int = len(numbers)
         if number_count > 1:
             last_zero_index: int = -1
@@ -53,10 +53,9 @@ class Solution:
                     first_two_index -= 1
                     numbers[last_one_index + 1] = numbers[first_two_index]
                     numbers[first_two_index] = current_number
-        return numbers
 
 
-def sort_and_print(numbers: List[int]):
+def sort_and_print(numbers: List[int]) -> None:
     print('Before Sort: {}'.format(numbers))
     Solution.sort_colors(numbers)
     print('After Sort:  {}'.format(numbers), end='\n\n')

@@ -36,7 +36,7 @@
 
 class Solution:
     @staticmethod
-    def is_valid(s: str):
+    def is_valid(s: str) -> bool:
         if len(s) == 0:
             return True
         else:

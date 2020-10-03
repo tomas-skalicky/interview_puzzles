@@ -23,17 +23,17 @@
 # print_level_order(root)
 # # 1 2 3 4 5
 from collections import deque
-from typing import Deque
+from typing import Deque, Optional
 
 
 class Node:
     def __init__(self, val, left=None, right=None):
         self.val = val
-        self.left = left
-        self.right = right
+        self.left: Optional[Node] = left
+        self.right: Optional[Node] = right
 
 
-def print_level_order(root_node: Node) -> None:
+def print_level_order(root_node: Optional[Node]) -> None:
     if root_node is not None:
         nodes_to_process: Deque[Node] = deque()
         nodes_to_process.append(root_node)
