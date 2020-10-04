@@ -10,7 +10,8 @@
 from typing import List, Dict
 
 
-def add_new_candidate_to_dictionary_if_suitable(candidate: List[int], candidates_by_length: Dict[int, List[int]]):
+def add_new_candidate_to_dictionary_if_suitable(candidate: List[int],
+                                                candidates_by_length: Dict[int, List[int]]) -> None:
     current_candidate_new_length: int = len(candidate)
     index_of_last: int = current_candidate_new_length - 1
     if not candidates_by_length.__contains__(current_candidate_new_length) or \
@@ -20,7 +21,7 @@ def add_new_candidate_to_dictionary_if_suitable(candidate: List[int], candidates
 
 # Trivial algorithm would have a time complexity of O (2 ^ n) where n is a size of input list.
 # This one has a time complexity of O (n * min(n, len(longest_subsequence))) which is in the worst case O (n ^ 2)
-def find_longest_increasing_subsequence(numbers: List[int]):
+def find_longest_increasing_subsequence(numbers: List[int]) -> List[int]:
     if len(numbers) == 0:
         return []
     else:
@@ -45,7 +46,7 @@ def find_longest_increasing_subsequence(numbers: List[int]):
         return candidates_by_lengths[max(candidates_by_lengths.keys())]
 
 
-def print_result(result_list: List[int]):
+def print_result(result_list: List[int]) -> None:
     print('{} -> length of {}'.format(result_list, len(result_list)))
 
 

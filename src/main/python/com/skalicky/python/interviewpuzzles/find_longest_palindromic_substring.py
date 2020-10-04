@@ -18,11 +18,12 @@
 # s = "tracecars"
 # print(str(Solution().longestPalindrome(s)))
 # # racecar
+from typing import Optional
 
 
 class Solution:
     @staticmethod
-    def check_if_palindrome(chars: list, left_pointer: int, right_pointer: int):
+    def check_if_palindrome(chars: list, left_pointer: int, right_pointer: int) -> bool:
         current_left_pointer: int = left_pointer
         current_right_pointer: int = right_pointer
         while current_left_pointer < current_right_pointer:
@@ -34,7 +35,7 @@ class Solution:
         return True
 
     @staticmethod
-    def longest_palindrome(s: str):
+    def longest_palindrome(s: Optional[str]) -> Optional[str]:
         if s is None or len(s) == 0:
             return None
         chars: list = list(s)

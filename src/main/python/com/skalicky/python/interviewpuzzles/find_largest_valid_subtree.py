@@ -37,16 +37,16 @@
 # print largest_bst_subtree(node)
 # #749
 from collections import deque
-from typing import Deque, Dict
+from typing import Deque, Dict, Optional
 
 
 class TreeNode:
     def __init__(self, key: int):
-        self.left: TreeNode = None
-        self.right: TreeNode = None
+        self.left: Optional[TreeNode] = None
+        self.right: Optional[TreeNode] = None
         self.key: int = key
 
-    def __str__(self):
+    def __str__(self) -> str:
         # preorder traversal
         answer: str = str(self.key)
         if self.left:
@@ -57,7 +57,7 @@ class TreeNode:
 
 
 def largest_bst_subtree(root: TreeNode):
-    current_root_with_max_subtree: TreeNode = None
+    current_root_with_max_subtree: Optional[TreeNode] = None
 
     nodes_to_process: Deque[TreeNode] = deque()
     nodes_to_process.append(root)

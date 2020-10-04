@@ -18,7 +18,7 @@
 from typing import List
 
 
-def buy_and_sell(arr: List[int]):
+def buy_and_sell(arr: List[int]) -> int:
     if len(arr) == 0:
         return 0
     else:

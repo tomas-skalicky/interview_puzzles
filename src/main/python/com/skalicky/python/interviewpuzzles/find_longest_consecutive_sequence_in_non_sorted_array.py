@@ -12,15 +12,15 @@
 # # 4
 #
 # Can you do this in linear time?
-from typing import List, Set
+from typing import List, Set, Optional
 
 
 def longest_consecutive(nums: List[int]) -> int:
     if len(nums) < 1:
         return 0
     else:
-        max_num: int = None
-        min_num: int = None
+        max_num: Optional[int] = None
+        min_num: Optional[int] = None
         # Time complexity O(n) where n is the length of the input
         for n in nums:
             max_num = max(max_num, n) if max_num is not None else n

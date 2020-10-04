@@ -31,7 +31,7 @@
 # print maxPathSum(root)
 # # 42
 from collections import deque
-from typing import Deque, List, Tuple, Set
+from typing import Deque, List, Tuple, Set, Optional
 from src.main.python.com.skalicky.python.interviewpuzzles.find_max_sum_of_contiguous_subarray import max_subarray_sum
 
 print('------------------------------')
@@ -41,10 +41,10 @@ print('find_max_path_in_tree_graph:')
 class Node:
     def __init__(self, val: int):
         self.val: int = val
-        self.left: Node = None
-        self.right: Node = None
-        self.parent: Node = None
-        self.id: int = None
+        self.left: Optional[Node] = None
+        self.right: Optional[Node] = None
+        self.parent: Optional[Node] = None
+        self.id: Optional[int] = None
 
     def __str__(self) -> str:
         return '[id={}, val={}]'.format(self.id, self.val)
@@ -91,7 +91,7 @@ def retrieve_leaves(root_node: Node) -> List[Node]:
 # Complexities of this method:
 # - time complexity O(n^2) where n is the number of nodes in the tree. One "n" is from copy of arrays.
 # - space complexity O(n^2). One "n" is from copy of arrays.
-def generate_all_possible_sequences(node_to_process: Node, previous_node_id: int, current_sequence: List[int],
+def generate_all_possible_sequences(node_to_process: Node, previous_node_id: Optional[int], current_sequence: List[int],
                                     current_sequence_start_node: Node, all_sequences: List[List[int]],
                                     leaves_of_all_sequences: Set[Tuple[int, int]]) -> None:
     current_sequence.append(node_to_process.val)
@@ -126,7 +126,7 @@ def generate_all_possible_sequences(node_to_process: Node, previous_node_id: int
 # - time complexity O(n^3) where n is the number of nodes in the tree. Reason: the number of leaves can be
 # asymptotically approximated to n.
 # - space complexity O(n^3)
-def max_path_sum(root_node: Node) -> int:
+def max_path_sum(root_node: Optional[Node]) -> int:
     if root_node is None:
         return 0
     else:
@@ -136,7 +136,7 @@ def max_path_sum(root_node: Node) -> int:
         leaves_of_all_sequences: Set[Tuple[int, int]] = set()
         for leaf in leaves:
             generate_all_possible_sequences(leaf, None, list(), leaf, all_sequences, leaves_of_all_sequences)
-        current_max_sum: int = None
+        current_max_sum: Optional[int] = None
         for sequence in all_sequences:
             current_sum: int = max_subarray_sum(sequence)
             current_max_sum = max(current_max_sum, current_sum) if current_max_sum is not None else current_sum

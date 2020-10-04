@@ -17,7 +17,7 @@
 #
 # print max_subarray_sum([34, -50, 42, 14, -5, 86])
 # # 137
-from typing import List
+from typing import List, Optional
 
 
 # Complexities of this method:
@@ -27,9 +27,9 @@ def max_subarray_sum(arr: List[int]) -> int:
     if len(arr) == 0:
         return 0
     else:
-        max_sum: int = None
-        current_max_sum: int = None
-        current_sum: int = None
+        max_sum: Optional[int] = None
+        current_max_sum: Optional[int] = None
+        current_sum: Optional[int] = None
         for i in range(0, len(arr)):
             current_num: int = arr[i]
             current_sum = current_sum + current_num if current_sum else current_num

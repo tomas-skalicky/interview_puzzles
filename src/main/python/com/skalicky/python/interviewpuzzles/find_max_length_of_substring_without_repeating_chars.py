@@ -11,25 +11,26 @@
 #
 # print Solution().lengthOfLongestSubstring('abrkaabcdefghijjxxx')
 # # 10
+from typing import Optional, Set
 
 
 class Solution:
     @staticmethod
-    def length_of_longest_substring(s: str):
+    def length_of_longest_substring(s: Optional[str]):
         if s is None:
             return 0
         current_max_length: int = 0
         current_length: int = 0
-        current_char_set = dict()
+        current_char_set: Set[str] = set()
         for current_char in list(s):
             if current_char_set.__contains__(current_char):
                 if current_length > current_max_length:
                     current_max_length = current_length
                 current_char_set.clear()
-                current_char_set[current_char] = None
+                current_char_set.add(current_char)
                 current_length = 1
             else:
-                current_char_set[current_char] = None
+                current_char_set.add(current_char)
                 current_length = current_length + 1
         return current_max_length
 
