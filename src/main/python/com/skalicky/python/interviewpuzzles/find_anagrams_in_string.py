@@ -26,7 +26,7 @@ def find_anagrams(text: str, substring: str) -> List[int]:
             else:
                 anagram_set[character] = 1
 
-        beginnings_of_amagrams: List[int] = []
+        beginnings_of_anagrams: List[int] = []
         remaining_chars_from_substring: Dict[str, int] = anagram_set.copy()
         for i in range(0, text_length):
             before_head_index: int = i - substring_length
@@ -47,19 +47,5 @@ def find_anagrams(text: str, substring: str) -> List[int]:
                 if remaining_chars_from_substring[current_character] == 0:
                     remaining_chars_from_substring.pop(current_character)
                     if len(remaining_chars_from_substring) == 0:
-                        beginnings_of_amagrams.append(before_head_index + 1)
-        return beginnings_of_amagrams
-
-
-print(find_anagrams('acdbacdacb', 'abc'))
-# [3, 7]
-print(find_anagrams('acb', 'abc'))
-# [0]
-print(find_anagrams('acba', 'abc'))
-# [0, 1]
-print(find_anagrams('aacb', 'abac'))
-# [0]
-print(find_anagrams('acd', 'abc'))
-# []
-print(find_anagrams('ac', 'abc'))
-# []
+                        beginnings_of_anagrams.append(before_head_index + 1)
+        return beginnings_of_anagrams
