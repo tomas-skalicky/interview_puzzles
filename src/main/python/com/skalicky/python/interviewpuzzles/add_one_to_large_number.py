@@ -36,13 +36,3 @@ class Solution:
             new_digits.append(overflow)
         new_digits.reverse()
         return new_digits
-
-
-print(Solution.plus_one([2, 9, 9]))
-# [3, 0, 0]
-print(Solution.plus_one([0]))
-# [1]
-print(Solution.plus_one([2, 3, 4]))
-# [2, 3, 5]
-print(Solution.plus_one([9, 9, 9]))
-# [1, 0, 0, 0]
