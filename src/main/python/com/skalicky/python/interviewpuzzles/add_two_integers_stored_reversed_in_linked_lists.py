@@ -35,7 +35,6 @@
 # # 7 0 8
 
 
-# Definition for singly-linked list.
 from typing import Optional, Tuple
 
 
@@ -91,24 +90,3 @@ class Solution:
                 list1_current_node = list1_current_node.next
                 list2_current_node = list2_current_node.next
         return result_list_dummy_first_node.next
-
-
-def main() -> None:
-    l1 = ListNode(2)
-    l1.next = ListNode(4)
-    l1.next.next = ListNode(7)
-
-    l2 = ListNode(5)
-    l2.next = ListNode(6)
-    l2.next.next = ListNode(4)
-    l2.next.next.next = ListNode(4)
-    l2.next.next.next.next = ListNode(2)
-
-    result: Optional[ListNode] = Solution.add_two_numbers(l1, l2)
-    while result:
-        print(result.val, end=' ')
-        result = result.next
-        # 7 0 2 5 2
-
-
-main()
