@@ -17,7 +17,6 @@ def square_sum(n: int) -> int:
     rest: int = n
     count: int = 0
     while rest != 0:
-        print('rest={}, count={}, foo={}'.format(rest, count, round(sqrt(rest)) ** 2))
         rest = rest - floor(sqrt(rest)) ** 2
         count += 1
     return count
