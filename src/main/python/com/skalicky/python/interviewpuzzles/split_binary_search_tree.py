@@ -49,14 +49,15 @@
 # #   2          4
 # #               \
 # #                5
-from typing import Tuple, Optional
+from collections import deque
+from typing import Tuple, Optional, Deque, Dict, List
 
 
 class Node:
-    def __init__(self, value, left=None, right=None):
-        self.value = value
-        self.left = left
-        self.right = right
+    def __init__(self, value: int, left=None, right=None):
+        self.value: int = value
+        self.left: Optional[Node] = left
+        self.right: Optional[Node] = right
 
     def __repr__(self):
         if self.left and self.right:
@@ -68,5 +69,33 @@ class Node:
         return f"({self.value})"
 
 
-def split_bst(bst: Node, s: int) -> Tuple[Node, Optional[Node]]:
-    return bst, None
+def find_path_from_root_to_node(node_value: int, root_node: Node) -> List[Node]:
+    path: List[Node] = []
+    current_node: Node = root_node
+    while current_node.value != node_value:
+        path.append(current_node)
+        current_node = current_node.left if node_value < current_node.value else current_node.right
+    path.append(current_node)
+    return path
+
+
+def split_bst(root_node: Node, split_value: int) -> Tuple[Node, Optional[Node]]:
+    path: List[Node] = find_path_from_root_to_node(split_value, root_node)
+
+    current_node: Node = path.pop()
+    previous_node: Node
+    last_less_node_to_hang: Optional[Node] = None
+    last_greater_node_to_hang: Optional[Node] = current_node.right
+    current_node.right = None
+    while len(path) > 0:
+        previous_node = current_node
+        current_node = path.pop()
+        if previous_node.value <= split_value < current_node.value:
+            last_less_node_to_hang = previous_node
+            current_node.left = last_greater_node_to_hang
+        elif previous_node.value > split_value >= current_node.value:
+            last_greater_node_to_hang = previous_node
+            current_node.right = last_less_node_to_hang
+
+    return (last_less_node_to_hang, current_node) if current_node.value > split_value else (
+        current_node, last_greater_node_to_hang)

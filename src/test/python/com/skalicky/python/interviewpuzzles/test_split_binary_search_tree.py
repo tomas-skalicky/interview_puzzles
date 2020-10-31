@@ -38,7 +38,7 @@ class Test(TestCase):
         #     2
         #    /
         #    1
-        self.assertEqual('((-1, None, (0, None, (2, 1, None))), (4, None, (5, None, (6))))',
+        self.assertEqual('((-1, None, (0, None, (2, (1)))), (4, None, (5, None, (6))))',
                          str(split_bst(root_node, 2)))
         # How the split looks like
         # -1    and   4
@@ -64,7 +64,7 @@ class Test(TestCase):
         #     2
         #    / \
         #    1 3
-        self.assertEqual('((-1, None, (0, None, (2, 1, None))), (4, (3), (5, None, (6))))',
+        self.assertEqual('((-1, None, (0, None, (2, (1)))), (4, (3), (5, None, (6))))',
                          str(split_bst(root_node, 2)))
         # How the split looks like
         # -1    and   4
@@ -88,7 +88,7 @@ class Test(TestCase):
         #    2     6
         #         / \
         #         5  7
-        self.assertEqual('((3, (1, None, (2)), (4, None, (6, (5), None))), (7))', str(split_bst(root_node, 6)))
+        self.assertEqual('((3, (1, None, (2)), (4, None, (6, (5)))), (7))', str(split_bst(root_node, 6)))
         # How the split looks like
         #     3        and    7
         #   /   \
@@ -112,13 +112,47 @@ class Test(TestCase):
         #     2
         #    / \
         #    1 3
-        self.assertEqual('((0, None, (2, (1), None)), (5, (4, (3), None), None))', str(split_bst(root_node, 2)))
+        self.assertEqual('((0, None, (2, (1))), (5, (4, (3))))', str(split_bst(root_node, 2)))
         # How the split looks like
         #      0     and      5
         #       \            /
         #        2          4
         #        /         /
         #       1         3
+
+    def test_split_bst__when_split_node_has_parent_with_less_value_and_ancestor_with_greater_value_and_another_ancestor_with_less_value__then_tree_splits_between_less_ancestors_and_greater_ancestors(
+            self):
+        left_child: Node = Node(-3, None,
+                                Node(-2, None, Node(5, Node(4, Node(-1, None, Node(0, None, Node(2))), None), None)))
+        root_node: Node = Node(6, left_child, None)
+        # How the tree looks like
+        #                 6
+        #         /
+        # -3
+        #   \
+        #    -2
+        #         \
+        #               5
+        #             /
+        #           4
+        #         /
+        #      -1
+        #        \
+        #        0
+        #         \
+        #         2
+        self.assertEqual('((-3, None, (-2, None, (-1, None, (0, None, (2))))), (6, (5, (4))))',
+                         str(split_bst(root_node, 2)))
+        # How the split looks like
+        # -3    and        6
+        #  \              /
+        #   -2           5
+        #    \          /
+        #     -1       4
+        #      \
+        #       0
+        #        \
+        #         2
 
     def test_split_bst__when_split_node_is_root__then_tree_splits_between_root_and_its_right_child(
             self):
@@ -131,7 +165,7 @@ class Test(TestCase):
         #  1     4
         #   \     \
         #    2     5
-        self.assertEqual('((3, (1, None, (2), None)), (4, None, (5)))', str(split_bst(root_node, 3)))
+        self.assertEqual('((3, (1, None, (2))), (4, None, (5)))', str(split_bst(root_node, 3)))
         # How the split looks like
         #     3        and    4
         #   /                  \
