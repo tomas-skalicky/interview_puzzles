@@ -14,5 +14,5 @@ class Test(TestCase):
 
     def test_closest_nums__when_input_list_of_numbers_is_smaller_than_k__then_exception(
             self):
-        self.assertRaisesRegex(RuntimeError, 'There is not enough elements in \\[3\\] to return 2 elements.', closest_nums,
-                               [3], 2, 5)
+        self.assertRaisesRegex(RuntimeError, 'There is not enough elements in \\[3\\] to return 2 elements.',
+                               closest_nums, [3], 2, 5)
