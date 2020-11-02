@@ -9,6 +9,9 @@
 from typing import List, Dict
 
 
+# Time complexity ... maximum of O(n) and O(d log d) where
+#   n is a size of input list of numbers and
+#   d is the number of different distances
 def closest_nums(nums: List[int], k: int, x: int) -> List[int]:
     if len(nums) < k:
         raise RuntimeError('There is not enough elements in {} to return {} elements.'.format(nums, k))
