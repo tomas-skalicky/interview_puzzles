@@ -58,22 +58,3 @@ class Solution:
                 return True
             else:
                 return False
-
-
-print(Solution.is_valid("()(){(())"))
-# False
-
-print(Solution.is_valid(""))
-# True
-
-print(Solution.is_valid("([{}])()"))
-# True
-
-print(Solution.is_valid("((()))"))
-# True
-
-print(Solution.is_valid("[()]{}"))
-# True
-
-print(Solution.is_valid("({[)]"))
-# False
