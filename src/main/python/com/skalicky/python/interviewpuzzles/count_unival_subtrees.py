@@ -43,7 +43,7 @@ from collections import deque
 from typing import Deque, Optional
 
 
-class Node(object):
+class Node:
     def __init__(self, val):
         self.val: int = val
         self.left: Optional[Node] = None

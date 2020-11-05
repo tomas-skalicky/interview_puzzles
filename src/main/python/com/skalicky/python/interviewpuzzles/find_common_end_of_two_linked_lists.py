@@ -39,7 +39,7 @@
 from typing import Optional
 
 
-class Node(object):
+class Node:
     def __init__(self, val: int):
         self.val = val
         self.next: Optional[Node] = None

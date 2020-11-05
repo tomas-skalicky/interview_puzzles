@@ -47,13 +47,11 @@
 #                    ['d', 'b', 'e', 'a', 'f', 'c', 'g'])
 # print tree
 # # abcdefg
-
-
 from collections import deque
 from typing import Deque, List, Dict, Optional, Tuple
 
 
-class Node(object):
+class Node:
     def __init__(self, val: str):
         self.val: str = val
         self.left: Optional[Node] = None

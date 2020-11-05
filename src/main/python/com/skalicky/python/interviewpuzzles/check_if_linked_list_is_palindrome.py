@@ -28,7 +28,7 @@ from math import floor
 from typing import Deque, Optional
 
 
-class Node(object):
+class Node:
     def __init__(self, val):
         self.val = val
         self.next = None

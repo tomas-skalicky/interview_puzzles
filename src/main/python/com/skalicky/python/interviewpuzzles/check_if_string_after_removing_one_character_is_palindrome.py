@@ -15,20 +15,20 @@
 # # False
 
 
-def is_palindrome(s: str) -> bool:
-    return s == s[::-1]
+def is_palindrome(input_string: str) -> bool:
+    return input_string == input_string[::-1]
 
 
-def create_palindrome(s: str) -> bool:
-    s_length: int = len(s)
-    for i in range(0, s_length):
+def check_if_string_after_removing_one_character_is_palindrome(input_string: str) -> bool:
+    input_string_length: int = len(input_string)
+    for i in range(0, input_string_length):
         if i == 0:
-            if is_palindrome(s[1:]):
+            if is_palindrome(input_string[1:]):
                 return True
-        elif i == s_length - 1:
-            if is_palindrome(s[:i]):
+        elif i == input_string_length - 1:
+            if is_palindrome(input_string[:i]):
                 return True
         else:
-            if is_palindrome(s[:i] + s[i + 1:]):
+            if is_palindrome(input_string[:i] + input_string[i + 1:]):
                 return True
     return False

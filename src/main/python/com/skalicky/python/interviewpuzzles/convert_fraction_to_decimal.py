@@ -21,7 +21,7 @@
 from typing import Dict
 
 
-def frac_to_dec(numerator: int, denominator: int) -> str:
+def convert_fraction_to_decimal(numerator: int, denominator: int) -> str:
     result_string: str = ''
     rest: int = numerator
     first_iteration: bool = True

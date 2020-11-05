@@ -19,7 +19,7 @@ from typing import List
 
 class Solution:
     @staticmethod
-    def plus_one(digits: List[int]) -> List[int]:
+    def add_one_to_large_number(digits: List[int]) -> List[int]:
         new_digits: List[int] = []
         overflow: int = 0
         first: bool = True

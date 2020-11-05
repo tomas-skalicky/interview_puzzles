@@ -25,10 +25,10 @@
 # b = Node(2, Node(4, Node(6)))
 # print merge([a, b])
 # # 123456
-from typing import List
+from typing import List, Optional
 
 
-class Node(object):
+class Node:
     def __init__(self, val: int, next_node=None):
         self.val: int = val
         self.next_node: Node = next_node
@@ -53,8 +53,8 @@ def set_next_node_and_determine_beginning(beginning: Node, current: Node, next_n
 def merge_two_lists(first: Node, second: Node):
     first_current: Node = first
     second_current: Node = second
-    result_beginning: Node = None
-    result_current: Node = None
+    result_beginning: Optional[Node] = None
+    result_current: Optional[Node] = None
     while first_current and second_current:
         if first_current.val <= second_current.val:
             result_beginning, result_current = set_next_node_and_determine_beginning(result_beginning,

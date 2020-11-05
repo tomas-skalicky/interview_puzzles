@@ -59,14 +59,12 @@
 # # 1
 # # 03
 # # 94
-
-
 from collections import deque
 from enum import Enum
 from typing import Deque, Tuple, Optional
 
 
-class Node(object):
+class Node:
     def __init__(self, value, left=None, right=None):
         self.left: Optional[Node] = left
         self.right: Optional[Node] = right

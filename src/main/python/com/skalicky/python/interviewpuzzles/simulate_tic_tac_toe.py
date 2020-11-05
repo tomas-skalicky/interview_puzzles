@@ -70,7 +70,7 @@ class CellOccupation(Enum):
     SECOND = 'O'
 
 
-class TicTacToe(object):
+class TicTacToe:
     def __init__(self, n: int):
         self.matrix: List[List[CellOccupation]] = []
         for i in range(0, n):

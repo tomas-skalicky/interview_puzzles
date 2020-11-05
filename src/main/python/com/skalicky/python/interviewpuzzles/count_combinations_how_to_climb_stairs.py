@@ -12,8 +12,7 @@
 # # 8
 #
 # Can you find a solution in O(n) time?
-from math import floor
-from math import factorial
+from math import factorial, floor
 
 
 def staircase_fibonacchi(n: int) -> int:

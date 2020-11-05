@@ -36,7 +36,7 @@
 from typing import Optional, Tuple
 
 
-class ListNode(object):
+class ListNode:
     def __init__(self, x: int):
         self.val: int = x
         self.next: Optional[ListNode] = None
@@ -56,12 +56,12 @@ class Solution:
         return new_result_list_current_node, new_addition_left
 
     @staticmethod
-    def add_two_numbers(l1: ListNode,
-                        l2: ListNode) -> Optional[ListNode]:
+    def add_two_integers_stored_reversed_in_linked_lists(number1_last_digit: ListNode,
+                                                         number2_last_digit: ListNode) -> Optional[ListNode]:
         result_list_dummy_first_node = ListNode(-1)
         result_list_current_node: ListNode = result_list_dummy_first_node
-        list1_current_node: ListNode = l1
-        list2_current_node: ListNode = l2
+        list1_current_node: ListNode = number1_last_digit
+        list2_current_node: ListNode = number2_last_digit
         addition_left: int = 0
         while list1_current_node is not None or list2_current_node is not None:
             if list1_current_node is None:

@@ -39,7 +39,7 @@ from collections import deque
 from typing import Deque, Tuple
 
 
-class Node(object):
+class Node:
     def __init__(self, val):
         self.val = val
         self.left = None

@@ -23,7 +23,8 @@ def find_greatest_lower_or_equal_number(target_number: int, adjusted_overflow: i
         'Unreachable code. Input target_number={} and adjusted_overflow={}'.format(target_number, adjusted_overflow))
 
 
-def calculate_square_root(x_string: str, overflow: int, rest_from_previous_iteration: int) -> Tuple[str, int, int]:
+def calculate_square_root_intern(x_string: str, overflow: int, rest_from_previous_iteration: int) -> Tuple[
+    str, int, int]:
     x_length: int = len(x_string)
     digit_blocks: List[str] = []
 
@@ -51,11 +52,11 @@ def calculate_square_root(x_string: str, overflow: int, rest_from_previous_itera
 
 
 # Using a long division technique. See https://www.youtube.com/watch?v=Ga1_wuLz0QM
-def manual_square_root(x: int) -> float:
-    result, overflow, rest_from_previous_iteration = calculate_square_root(str(x), 0, 0)
+def calculate_square_root(x: int) -> float:
+    result, overflow, rest_from_previous_iteration = calculate_square_root_intern(str(x), 0, 0)
     if rest_from_previous_iteration > 0:
-        result_decimal, overflow, rest_from_previous_iteration = calculate_square_root('00' * 3, overflow,
-                                                                                       rest_from_previous_iteration)
+        result_decimal, overflow, rest_from_previous_iteration = calculate_square_root_intern('00' * 3, overflow,
+                                                                                              rest_from_previous_iteration)
         return float('{}.{}'.format(result, result_decimal))
     else:
         return int(result)

@@ -1,9 +1,10 @@
 # Task:
 #
 # Given two sorted linked lists, merge them in order.
+from typing import Optional
 
 
-class ListNode(object):
+class ListNode:
     def __init__(self,
                  value,
                  name,
@@ -21,8 +22,8 @@ class ListNode(object):
         return '{0}:{1}'.format(self.value, self.name)
 
 
-def merge_iteratively(list1_node1: ListNode,
-                      list2_node1: ListNode):
+def merge_iteratively(list1_node1: Optional[ListNode],
+                      list2_node1: Optional[ListNode]):
     result_list_node1: ListNode = ListNode(-1000, 'dummy')
     result_list_current_node: ListNode = result_list_node1
     current_list1_node: ListNode = list1_node1

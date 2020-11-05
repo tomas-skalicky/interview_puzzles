@@ -34,7 +34,7 @@ from collections import deque
 from typing import List, Deque, Tuple, Optional
 
 
-class Node(object):
+class Node:
     def __init__(self, value, left=None, right=None):
         self.value = value
         self.left: Optional[Node] = left
