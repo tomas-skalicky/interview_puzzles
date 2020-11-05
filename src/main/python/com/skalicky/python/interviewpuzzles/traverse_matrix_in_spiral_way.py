@@ -26,7 +26,6 @@
 # matrix_spiral_print(grid)
 # # 1 2 3 4 5 10 15 20 19 18 17 16 11 6 7 8 9 14 13 12
 from enum import Enum
-
 from typing import List
 
 
@@ -37,7 +36,7 @@ class Direction(Enum):
     UP = 4
 
 
-def matrix_spiral_print(matrix: List[List[int]]) -> None:
+def traverse_matrix_in_spiral_way(matrix: List[List[int]]) -> str:
     matrix_visited: List[List[bool]] = []
     row_count: int = len(matrix)
     for i in range(0, row_count):
@@ -45,13 +44,14 @@ def matrix_spiral_print(matrix: List[List[int]]) -> None:
         for j in range(0, len(matrix[i])):
             matrix_visited[i].append(False)
     if row_count == 0 or len(matrix[0]) == 0:
-        return
+        return ''
     column_count: int = len(matrix[0])
     last_direction: Direction = Direction.LEFT
     i = 0
     j = 0
+    result_string: str = ''
     while 0 <= i < row_count and 0 <= j < column_count and not matrix_visited[i][j]:
-        print(matrix[i][j], end=' ')
+        result_string += '{} '.format(matrix[i][j])
         matrix_visited[i][j] = True
         if last_direction == Direction.DOWN:
             if i < row_count - 1 and not matrix_visited[i + 1][j]:
@@ -77,17 +77,4 @@ def matrix_spiral_print(matrix: List[List[int]]) -> None:
             else:
                 last_direction = Direction.UP
                 i = i - 1
-    print()
-
-
-matrix_spiral_print([[1, 2, 3, 4, 5],
-                     [6, 7, 8, 9, 10],
-                     [11, 12, 13, 14, 15],
-                     [16, 17, 18, 19, 20]])
-# 1 2 3 4 5 10 15 20 19 18 17 16 11 6 7 8 9 14 13 12
-
-matrix_spiral_print([[2]])
-# 2
-
-matrix_spiral_print([[]])
-#
+    return result_string
