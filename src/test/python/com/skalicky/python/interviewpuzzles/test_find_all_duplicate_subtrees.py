@@ -52,7 +52,7 @@ class Test(TestCase):
         #   2   2
         #  /   /
         # 3   3
-        self.assertEquals('[[(3), (3)], [(2, (3)), (2, (3))]]', str(dup_trees(root_node)))
+        self.assertEqual('[[(3), (3)], [(2, (3)), (2, (3))]]', str(dup_trees(root_node)))
         # Expected duplicates:
         #     2    and just the left    3
         #    /
@@ -80,8 +80,8 @@ class Test(TestCase):
         #           1   2   3    3
         #                  / \  / \
         #                  1 1  1 2
-        self.assertEquals('[[(1), (1), (1), (1), (1)], [(2), (2), (2)], [(3, (1), (2)), (3, (1), (2)), (3, (1), (2))]]',
-                          str(dup_trees(root_node)))
+        self.assertEqual('[[(1), (1), (1), (1), (1)], [(2), (2), (2)], [(3, (1), (2)), (3, (1), (2)), (3, (1), (2))]]',
+                         str(dup_trees(root_node)))
         # Expected duplicates:
         #     3    and just the leaves    1   and   2
         #    / \
