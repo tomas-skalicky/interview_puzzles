@@ -59,33 +59,3 @@ def is_bst(root: TreeNode) -> bool:
             else:
                 nodes_to_process.append((current_node.right, current_node.key + 1, max_allowed))
     return True
-
-
-a = TreeNode(5)
-a.left = TreeNode(3)
-a.right = TreeNode(7)
-a.left.left = TreeNode(1)
-a.left.right = TreeNode(4)
-a.right.left = TreeNode(6)
-print(is_bst(a))
-# True
-#
-#     5
-#    / \
-#   3   7
-#  / \ /
-# 1  4 6
-
-a = TreeNode(5)
-a.left = TreeNode(3)
-a.right = TreeNode(7)
-a.left.left = TreeNode(1)
-a.left.right = TreeNode(6)
-print(is_bst(a))
-# False
-#
-#     5
-#    / \
-#   3   7
-#  / \
-# 1  6
