@@ -36,12 +36,12 @@
 
 class Solution:
     @staticmethod
-    def is_valid(s: str) -> bool:
-        if len(s) == 0:
+    def validate_closing_of_parentheses(input_string: str) -> bool:
+        if len(input_string) == 0:
             return True
         else:
             valid_tuples = {'}': '{', ')': '(', ']': '['}
-            chars = list(s)
+            chars = list(input_string)
             stack = []
             for c in chars:
                 if valid_tuples.__contains__(c):
@@ -54,7 +54,4 @@ class Solution:
                             return False
                 else:
                     stack.insert(0, c)
-            if len(stack) == 0:
-                return True
-            else:
-                return False
+            return len(stack) == 0

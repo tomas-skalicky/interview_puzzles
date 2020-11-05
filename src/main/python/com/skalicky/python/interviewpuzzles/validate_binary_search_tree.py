@@ -39,9 +39,9 @@ class TreeNode:
         self.key: int = key
 
 
-def is_bst(root: TreeNode) -> bool:
+def validate_binary_search_tree(root_node: TreeNode) -> bool:
     nodes_to_process: Deque[Tuple[TreeNode, Optional[int], Optional[int]]] = deque()
-    nodes_to_process.append((root, None, None))
+    nodes_to_process.append((root_node, None, None))
     while len(nodes_to_process) > 0:
         current_node, min_allowed, max_allowed = nodes_to_process.popleft()
         if current_node.left is not None:
