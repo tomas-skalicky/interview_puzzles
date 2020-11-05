@@ -25,9 +25,9 @@ def find_longest_increasing_subsequence(numbers: List[int]) -> List[int]:
     if len(numbers) == 0:
         return []
     else:
-        candidates_by_lengths: Dict[int, List[int]] = dict()
+        candidates_by_lengths: Dict[int, List[int]] = {}
         for number in numbers:
-            new_candidates_by_lengths: Dict[int, List[int]] = dict()
+            new_candidates_by_lengths: Dict[int, List[int]] = {}
             add_new_candidate_to_dictionary_if_suitable([number], new_candidates_by_lengths)
             for candidate_length in candidates_by_lengths.keys():
                 candidate: List[int] = candidates_by_lengths[candidate_length]

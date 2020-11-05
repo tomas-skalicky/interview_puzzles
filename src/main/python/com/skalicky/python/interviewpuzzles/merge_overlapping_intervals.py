@@ -15,14 +15,14 @@
 #
 # print merge([(1, 3), (5, 8), (4, 10), (20, 25)])
 # # [(1, 3), (4, 10), (20, 25)]
-from typing import List, Tuple
+from typing import List, Tuple, Optional
 
 
 def merge(intervals: List[Tuple[int, int]]):
     sorted_intervals: List[Tuple[int, int]] = sorted(intervals)
-    result_intervals: List[Tuple[int, int]] = list()
-    start_to_persist: int = None
-    end_to_persist: int = None
+    result_intervals: List[Tuple[int, int]] = []
+    start_to_persist: Optional[int] = None
+    end_to_persist: Optional[int] = None
     for interval in sorted_intervals:
         if start_to_persist:
             if interval[0] > end_to_persist:

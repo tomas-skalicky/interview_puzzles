@@ -19,12 +19,12 @@ from typing import List, Dict
 
 
 def shortest_unique_prefix(input_words: List[str]) -> List[str]:
-    shortest_unique_prefixes_by_words: Dict[str, str] = dict()
+    shortest_unique_prefixes_by_words: Dict[str, str] = {}
     remaining_words_to_process: List[str] = list(input_words)
     prefix_length: int = 0
     while len(remaining_words_to_process) > 0:
         prefix_length += 1
-        words_by_prefix_candidates: Dict[str, List[str]] = dict()
+        words_by_prefix_candidates: Dict[str, List[str]] = {}
         for current_word in remaining_words_to_process:
             if prefix_length > len(current_word):
                 raise RuntimeError(

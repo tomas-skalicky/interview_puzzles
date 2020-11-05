@@ -41,8 +41,8 @@ class Node:
         self.subtree_sum: Optional[int] = subtree_sum
 
 
-def most_freq_subtree_sum(root: Node):
-    occurrence_counts_by_sums: Dict[int, int] = dict()
+def most_freq_subtree_sum(root: Node) -> Optional[int]:
+    occurrence_counts_by_sums: Dict[int, int] = {}
     nodes_to_process: Deque[Node] = deque()
     nodes_to_process.append(root)
     while len(nodes_to_process) > 0:
@@ -75,7 +75,7 @@ def most_freq_subtree_sum(root: Node):
             else:
                 occurrence_counts_by_sums[node_to_process.subtree_sum] = 0
 
-    sum_with_max_occurrence_count: int = None
+    sum_with_max_occurrence_count: Optional[int] = None
     max_occurrence_count: int = 0
     for current_sum in occurrence_counts_by_sums.keys():
         current_occurrence_count: int = occurrence_counts_by_sums[current_sum]

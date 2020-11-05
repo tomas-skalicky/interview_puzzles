@@ -44,8 +44,7 @@ class TreeNode:
 
 
 def lowest_common_ancestor(a_node: TreeNode, b_node: TreeNode) -> Optional[TreeNode]:
-    a_ancestors: Dict[TreeNode] = dict()
-    a_ancestors[a_node.val] = a_node
+    a_ancestors: Dict[TreeNode] = {a_node.val: a_node}
     a_node_to_process: TreeNode = a_node
     while a_node_to_process.parent is not None:
         a_node_to_process = a_node_to_process.parent

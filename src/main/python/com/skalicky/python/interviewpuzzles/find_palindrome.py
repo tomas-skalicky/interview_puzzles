@@ -12,18 +12,18 @@
 # # momom
 from collections import deque
 from math import floor
-from typing import List, Dict, Deque
+from typing import List, Dict, Deque, Optional
 
 
-def find_palindrome(s: str) -> str:
+def find_palindrome(s: str) -> Optional[str]:
     characters: List[str] = list(s)
-    occurrence_count_by_characters: Dict[str, int] = dict()
+    occurrence_count_by_characters: Dict[str, int] = {}
     for current_char in characters:
         occurrence_count_by_characters[current_char] = occurrence_count_by_characters[
                                                            current_char] + 1 if occurrence_count_by_characters.__contains__(
             current_char) else 1
 
-    char_with_odd_occurrences: str = None
+    char_with_odd_occurrences: Optional[str] = None
 
     for current_char in occurrence_count_by_characters.keys():
         if occurrence_count_by_characters[current_char] % 2 == 1:

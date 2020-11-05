@@ -26,7 +26,7 @@ from typing import List
 
 def get_bonuses(performance: List[int]) -> List[int]:
     employee_count: int = len(performance)
-    bonuses: List[int] = list()
+    bonuses: List[int] = []
     for i in range(0, len(performance)):
         current_bonus: int = 1
         current_performance: int = performance[i]

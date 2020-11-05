@@ -22,7 +22,7 @@ from typing import List, Dict
 class Solution:
     @staticmethod
     def top_k_frequent(words: List[str], k: int) -> List[str]:
-        frequencies_by_words: Dict[str, int] = dict()
+        frequencies_by_words: Dict[str, int] = {}
         max_frequency: int = 0
         for word in words:
             if frequencies_by_words.__contains__(word):
@@ -31,14 +31,14 @@ class Solution:
                 frequencies_by_words[word] = 1
             max_frequency = max(max_frequency, frequencies_by_words[word])
 
-        word_lists_by_frequencies: Dict[int, List[str]] = dict()
+        word_lists_by_frequencies: Dict[int, List[str]] = {}
         for word in frequencies_by_words.keys():
             frequency: int = frequencies_by_words[word]
             if not word_lists_by_frequencies.__contains__(frequency):
-                word_lists_by_frequencies[frequency] = list()
+                word_lists_by_frequencies[frequency] = []
             word_lists_by_frequencies[frequency].append(word)
 
-        result: List[str] = list()
+        result: List[str] = []
         current_frequency: int = max_frequency
         while len(result) < k and current_frequency > 0:
             if word_lists_by_frequencies.__contains__(current_frequency):

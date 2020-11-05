@@ -44,7 +44,7 @@ def values_at_height(root: Node, height: int):
     else:
         nodes_to_process: Deque[Tuple[Node, int]] = deque()
         nodes_to_process.append((root, 1))
-        collected_values: List[int] = list()
+        collected_values: List[int] = []
         while len(nodes_to_process) > 0:
             node_to_process, node_height = nodes_to_process.popleft()
             if node_height == height:

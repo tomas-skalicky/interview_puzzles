@@ -22,25 +22,25 @@ from typing import Dict
 
 
 def frac_to_dec(numerator: int, denominator: int) -> str:
-    result_str: str = ''
+    result_string: str = ''
     rest: int = numerator
     first_iteration: bool = True
     existing_rests_after_decimal_comma_and_position: Dict[int, int] = {}
     while True:
         partial_result: int = int(rest / denominator)
-        result_str += str(partial_result)
+        result_string += str(partial_result)
         rest = abs(rest - denominator * partial_result)
         if rest != 0:
             if first_iteration:
-                result_str += '.'
-                existing_rests_after_decimal_comma_and_position[rest] = len(result_str)
+                result_string += '.'
+                existing_rests_after_decimal_comma_and_position[rest] = len(result_string)
                 first_iteration = False
             else:
                 if existing_rests_after_decimal_comma_and_position.__contains__(rest):
                     position: int = existing_rests_after_decimal_comma_and_position[rest]
-                    return '{}({})'.format(result_str[:position], result_str[position:])
+                    return '{}({})'.format(result_string[:position], result_string[position:])
                 else:
-                    existing_rests_after_decimal_comma_and_position[rest] = len(result_str)
+                    existing_rests_after_decimal_comma_and_position[rest] = len(result_string)
             rest *= 10
         else:
-            return result_str
+            return result_string

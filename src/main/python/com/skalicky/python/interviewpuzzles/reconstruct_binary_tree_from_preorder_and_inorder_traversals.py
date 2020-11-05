@@ -79,7 +79,7 @@ def reconstruct(preorder: List[str], inorder: List[str]) -> Optional[Node]:
         return None
     else:
         # Auxiliary structure to reduce the time complexity from quadratic to linear.
-        order_by_value: Dict[str, int] = dict()
+        order_by_value: Dict[str, int] = {}
         for i in range(0, node_count):
             order_by_value[inorder[i]] = i
 

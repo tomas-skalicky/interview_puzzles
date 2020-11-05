@@ -17,7 +17,7 @@ from typing import List, Dict, Optional, Tuple
 
 
 def count_distinct_chars(chars: List[str], from_index: int, to_index: int):
-    distinct_chars: Dict[str, int] = dict()
+    distinct_chars: Dict[str, int] = {}
     for i in range(from_index, to_index + 1):
         current_char: str = chars[i]
         if distinct_chars.__contains__(current_char):

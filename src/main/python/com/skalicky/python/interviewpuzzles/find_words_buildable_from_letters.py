@@ -46,7 +46,7 @@ valid_words: List[str] = ['dog', 'fish', 'cat', 'fog']
 
 
 def count_letters(word: str) -> Dict[str, int]:
-    occurrences_by_letters: Dict[str, int] = dict()
+    occurrences_by_letters: Dict[str, int] = {}
     for letter in list(word):
         if occurrences_by_letters.__contains__(letter):
             occurrences_by_letters[letter] += 1
@@ -57,7 +57,7 @@ def count_letters(word: str) -> Dict[str, int]:
 
 def make_words(phone: str) -> List[str]:
     occurrences_by_digit_strings: Dict[str, int] = count_letters(phone)
-    occurrences_by_letters_in_phone_number: Dict[str, int] = dict()
+    occurrences_by_letters_in_phone_number: Dict[str, int] = {}
     for digit_string in occurrences_by_digit_strings.keys():
         digit_occurrence: int = occurrences_by_digit_strings[digit_string]
         for letter in letters_maps[int(digit_string)]:

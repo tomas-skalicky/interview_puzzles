@@ -45,7 +45,7 @@ class Solution:
 
     @staticmethod
     def find_parent_and_depth(tree_root: Node, node_value: int) -> Tuple[Node, int]:
-        nodes_to_process: Deque[Tuple[Node, Node, int]] = deque()
+        nodes_to_process: Deque[Tuple[Optional[Node], Node, int]] = deque()
         nodes_to_process.append((None, tree_root, 0))
         while len(nodes_to_process) > 0:
             current_parent_node, node_to_process, node_depth = nodes_to_process.pop()
@@ -60,8 +60,8 @@ class Solution:
 
     @staticmethod
     def find_parents_and_nodes_with_depth(tree_root: Node, depth: int) -> List[Tuple[Node, Node]]:
-        parents_and_nodes_with_depth: List[Tuple[Node, Node]] = list()
-        nodes_to_process: Deque[Tuple[Node, Node, int]] = deque()
+        parents_and_nodes_with_depth: List[Tuple[Node, Node]] = []
+        nodes_to_process: Deque[Tuple[Optional[Node], Node, int]] = deque()
         nodes_to_process.append((None, tree_root, 0))
         while len(nodes_to_process) > 0:
             current_parent_node, node_to_process, node_depth = nodes_to_process.popleft()
@@ -79,7 +79,7 @@ class Solution:
         parent, node_depth = Solution.find_parent_and_depth(tree_root, node_value)
         parents_and_nodes_with_depth: List[Tuple[Node, Node]] = Solution.find_parents_and_nodes_with_depth(tree_root,
                                                                                                            node_depth)
-        cousin_values: List[int] = list()
+        cousin_values: List[int] = []
         for parent_and_node_with_depth in parents_and_nodes_with_depth:
             if parent is not None and parent.value != parent_and_node_with_depth[0].value:
                 cousin_values.append(parent_and_node_with_depth[1].value)

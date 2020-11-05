@@ -31,7 +31,7 @@ class Solution:
             # Time complexity of sorting is O(n log n)
             sorted_numbers: List[int] = sorted(nums)
 
-            number_dictionary: Dict[int, int] = dict()
+            number_dictionary: Dict[int, int] = {}
             for i in range(0, number_count):
                 current_number: int = sorted_numbers[i]
                 if number_dictionary.__contains__(current_number):

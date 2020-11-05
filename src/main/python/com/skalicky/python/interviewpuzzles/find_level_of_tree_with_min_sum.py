@@ -40,9 +40,8 @@ class Node:
 
 
 def minimum_level_sum(root: Node) -> int:
-    sums_by_levels: Dict[int, int] = dict()
-    nodes_and_its_level_to_process: List[Tuple[Node, int]] = list()
-    nodes_and_its_level_to_process.append((root, 0))
+    sums_by_levels: Dict[int, int] = {}
+    nodes_and_its_level_to_process: List[Tuple[Node, int]] = [(root, 0)]
     while len(nodes_and_its_level_to_process) > 0:
         node_to_process, node_level = nodes_and_its_level_to_process.pop()
         if not sums_by_levels.__contains__(node_level):

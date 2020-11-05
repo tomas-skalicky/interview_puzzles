@@ -20,8 +20,6 @@
 #
 # print chainedWords(['apple', 'eggs', 'snack', 'karat', 'tuna'])
 # # True
-
-
 from typing import List, Dict
 
 
@@ -29,16 +27,16 @@ def chained_words(words: List[str]) -> bool:
     if len(words) < 2:
         return False
     else:
-        words_by_first_letters: Dict[str, List[str]] = dict()
-        words_by_last_letters: Dict[str, List[str]] = dict()
+        words_by_first_letters: Dict[str, List[str]] = {}
+        words_by_last_letters: Dict[str, List[str]] = {}
         for word in words:
             first_letter: str = word[0]
             if not words_by_first_letters.__contains__(first_letter):
-                words_by_first_letters[first_letter] = list()
+                words_by_first_letters[first_letter] = []
             words_by_first_letters[first_letter].append(word)
             last_letter: str = word[len(word) - 1]
             if not words_by_last_letters.__contains__(last_letter):
-                words_by_last_letters[last_letter] = list()
+                words_by_last_letters[last_letter] = []
             words_by_last_letters[last_letter].append(word)
         for first_letter in words_by_first_letters.keys():
             words_with_first_letter: List[str] = words_by_first_letters[first_letter]

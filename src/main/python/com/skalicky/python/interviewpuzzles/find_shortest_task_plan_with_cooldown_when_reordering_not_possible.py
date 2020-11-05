@@ -17,7 +17,7 @@ from typing import List, Dict
 
 # Assumption: tasks need to be executed in the given order, otherwise the task 2 could have been executed in the time 2.
 def find_time(arr: List[int], cooldown: int) -> int:
-    last_indices_by_tasks: Dict[int, int] = dict()
+    last_indices_by_tasks: Dict[int, int] = {}
     last_allocated_time: int = 0
     for task in arr:
         if last_indices_by_tasks.__contains__(task):

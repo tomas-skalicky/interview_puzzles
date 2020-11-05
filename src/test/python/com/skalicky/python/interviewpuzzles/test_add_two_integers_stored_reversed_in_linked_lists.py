@@ -18,7 +18,7 @@ class TestSolution(TestCase):
         l2.next.next.next.next = ListNode(2)
 
         result: Optional[ListNode] = Solution.add_two_numbers(l1, l2)
-        values: List = list()
+        values: List[int] = []
         while result:
             values.append(result.val)
             result = result.next

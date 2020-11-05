@@ -33,14 +33,12 @@
 #   print result.val,
 #   result = result.next
 # # 7 0 8
-
-
 from typing import Optional, Tuple
 
 
 class ListNode(object):
     def __init__(self, x: int):
-        self.val = x
+        self.val: int = x
         self.next: Optional[ListNode] = None
 
 

@@ -27,7 +27,7 @@ class HeightChange(Enum):
 
 
 def generate_skyline(buildings: List[Tuple[int, int, int]]) -> List[Tuple[int, int]]:
-    height_changes_by_x: Dict[int, Tuple[int, HeightChange]] = dict()
+    height_changes_by_x: Dict[int, Tuple[int, HeightChange]] = {}
     for building in buildings:
         height_changes_by_x[building[0]] = (building[2], HeightChange.START)
         height_changes_by_x[building[1]] = (building[2], HeightChange.END)
@@ -35,7 +35,7 @@ def generate_skyline(buildings: List[Tuple[int, int, int]]) -> List[Tuple[int, i
     sorted_xs: List[int] = sorted(height_changes_by_x.keys())
     previous_x: int = 0
     previous_height: int = 0
-    resulted_skyline: List[Tuple[int, int]] = list()
+    resulted_skyline: List[Tuple[int, int]] = []
     for x in sorted_xs:
         height, height_change = height_changes_by_x[x]
         if height_change == HeightChange.START:

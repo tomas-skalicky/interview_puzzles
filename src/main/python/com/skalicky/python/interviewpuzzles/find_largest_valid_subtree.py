@@ -64,9 +64,9 @@ def largest_bst_subtree(root: TreeNode):
 
     invalid_subtree_size: int = -1
 
-    subtree_sizes_by_keys: Dict[int, int] = dict()
-    subtree_mins_by_keys: Dict[int, int] = dict()
-    subtree_maxs_by_keys: Dict[int, int] = dict()
+    subtree_sizes_by_keys: Dict[int, int] = {}
+    subtree_mins_by_keys: Dict[int, int] = {}
+    subtree_maxs_by_keys: Dict[int, int] = {}
     while len(nodes_to_process) > 0:
         current_node: TreeNode = nodes_to_process.pop()
         current_key: int = current_node.key

@@ -21,7 +21,7 @@ class Solution:
     @staticmethod
     def reverse(x: int) -> int:
         input_digits: List[int] = list(str(x))
-        result_digits: List[int] = list()
+        result_digits: List[int] = []
         for i in reversed(range(0, len(input_digits))):
             result_digits.append(input_digits[i])
         result_string: str = ''.join([str(digit) for digit in result_digits])

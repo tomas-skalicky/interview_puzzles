@@ -43,7 +43,7 @@ def is_sorted(words: List[str], order: str) -> bool:
         return True
     else:
         order_chars: List[str] = list(order)
-        orders_by_chars: Dict[str, int] = dict()
+        orders_by_chars: Dict[str, int] = {}
         for i in range(0, len(order)):
             orders_by_chars[order_chars[i]] = i
         word_max_length: int = 0

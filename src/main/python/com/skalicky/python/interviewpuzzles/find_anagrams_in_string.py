@@ -19,7 +19,7 @@ def find_anagrams(text: str, substring: str) -> List[int]:
     if text_length < substring_length:
         return []
     else:
-        anagram_set: Dict[str, int] = dict()
+        anagram_set: Dict[str, int] = {}
         for character in substring:
             if anagram_set.__contains__(character):
                 anagram_set[character] += 1

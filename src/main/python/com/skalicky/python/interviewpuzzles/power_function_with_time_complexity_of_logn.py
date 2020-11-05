@@ -18,7 +18,7 @@ def power(x, n: int):
     if n == 0:
         return 1
     else:
-        powers: Dict[int,] = dict()
+        powers: Dict[int,] = {}
         current_exponent: int = 1
         powers[current_exponent] = x
         while n - current_exponent * 2 >= 0:

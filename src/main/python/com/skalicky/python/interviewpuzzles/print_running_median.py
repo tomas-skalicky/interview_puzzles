@@ -18,7 +18,7 @@ from typing import List
 
 # The method has a time complexity of O(n ^ 2)
 def running_median(stream: List[int]):
-    sorted_stream: List[int] = list()
+    sorted_stream: List[int] = []
     for i in range(0, len(stream)):
         current_number: int = stream[i]
         sorted_stream.append(current_number)

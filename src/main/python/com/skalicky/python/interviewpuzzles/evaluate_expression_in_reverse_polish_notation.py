@@ -40,7 +40,7 @@ def reverse_polish_notation(expr: List[object]) -> Optional[int]:
     if expression_length == 0:
         return None
     else:
-        queued_expression_parts: List[object] = list()
+        queued_expression_parts: List[object] = []
         next_index: int = 0
         queued_expression_parts.append(expr[next_index])
         next_index += 1

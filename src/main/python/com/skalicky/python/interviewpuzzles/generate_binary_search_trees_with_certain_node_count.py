@@ -65,8 +65,8 @@ class NodeForBuilding(Node):
 
 
 def build_tree(tree_in_preorder: List[int]) -> Node:
-    root: Node = None
-    nodes_with_min_and_max_ranges_included: Deque[Tuple[Node, int, int]] = deque()
+    root: Optional[Node] = None
+    nodes_with_min_and_max_ranges_included: Deque[Tuple[Node, Optional[int], Optional[int]]] = deque()
     for current_node_value in tree_in_preorder:
         new_node: Node = Node(current_node_value)
         if root is None:
@@ -101,7 +101,7 @@ def call_recursively_permutate_numbers_and_validate_trees(node_to_add: NodeForBu
 
 
 def permutate_numbers_and_validate_trees(rest_numbers: Set[int], tree_in_construction_in_preorder: List[int],
-                                         last_added_node_to_constructed_tree: NodeForBuilding,
+                                         last_added_node_to_constructed_tree: Optional[NodeForBuilding],
                                          trees_in_preorder: List[List[int]]) -> None:
     if len(rest_numbers) == 0:
         trees_in_preorder.append(tree_in_construction_in_preorder)
@@ -150,10 +150,10 @@ def generate_bst(n: int) -> List[Node]:
     if n == 1:
         return [Node(n)]
     else:
-        trees_in_preorder: List[List[int]] = list()
+        trees_in_preorder: List[List[int]] = []
         permutate_numbers_and_validate_trees(set(range(1, n + 1)), [], None, trees_in_preorder)
 
-        result_trees: List[Node] = list()
+        result_trees: List[Node] = []
         for tree_in_preorder in trees_in_preorder:
             result_trees.append(build_tree(tree_in_preorder))
         return result_trees

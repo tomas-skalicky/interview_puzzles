@@ -39,14 +39,14 @@
 # print(flatten_dictionary(d))
 # # {'a': 1, 'b.c': 2, 'b.d.e': 3}
 from collections import deque
-from typing import Dict, Deque, Tuple
+from typing import Dict, Deque, Tuple, Optional
 
 
 def flatten_dictionary(input_dictionary: Dict[str, object]) -> Dict[str, object]:
-    dictionary_prefix: Deque[Tuple[Dict[str, object], str]] = deque()
+    dictionary_prefix: Deque[Tuple[Dict[str, object], Optional[str]]] = deque()
     dictionary_prefix.append((input_dictionary, None))
 
-    result: Dict[str, object] = dict()
+    result: Dict[str, object] = {}
 
     while len(dictionary_prefix) > 0:
         current_dictionary, prefix = dictionary_prefix.pop()

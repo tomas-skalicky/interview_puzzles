@@ -20,7 +20,7 @@ from typing import List, Dict, Optional, Deque
 
 
 def schedule_tasks(tasks: List[str], n: int) -> List[Optional[str]]:
-    occurrence_counts_by_tasks: Dict[str, int] = dict()
+    occurrence_counts_by_tasks: Dict[str, int] = {}
     for task in tasks:
         if occurrence_counts_by_tasks.__contains__(task):
             occurrence_counts_by_tasks[task] += 1
@@ -28,7 +28,7 @@ def schedule_tasks(tasks: List[str], n: int) -> List[Optional[str]]:
             occurrence_counts_by_tasks[task] = 1
 
     max_occurrence_count: int = 0
-    task_list_by_occurrence_counts: Dict[int, List[str]] = dict()
+    task_list_by_occurrence_counts: Dict[int, List[str]] = {}
     for task in occurrence_counts_by_tasks.keys():
         occurrence_count: int = occurrence_counts_by_tasks[task]
         if task_list_by_occurrence_counts.__contains__(occurrence_count):
@@ -37,7 +37,7 @@ def schedule_tasks(tasks: List[str], n: int) -> List[Optional[str]]:
             task_list_by_occurrence_counts[occurrence_count] = [task]
         max_occurrence_count = max(max_occurrence_count, occurrence_count)
 
-    last_occurrence_indices_by_tasks: Dict[str, int] = dict()
+    last_occurrence_indices_by_tasks: Dict[str, int] = {}
     current_max_occurrence_count: int = max_occurrence_count
     schedule: List[Optional[str]] = []
     empty_slots: Deque[int] = deque()

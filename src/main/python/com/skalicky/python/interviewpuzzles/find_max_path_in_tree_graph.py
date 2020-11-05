@@ -73,7 +73,7 @@ def initialize_parents_and_ids(root_node: Node) -> None:
 # - time complexity O(n) where n is the number of nodes in the tree
 # - space complexity O(n)
 def retrieve_leaves(root_node: Node) -> List[Node]:
-    leaves: List[Node] = list()
+    leaves: List[Node] = []
     nodes_to_process: Deque[Node] = deque()
     nodes_to_process.append(root_node)
     while len(nodes_to_process) > 0:
@@ -132,10 +132,10 @@ def max_path_sum(root_node: Optional[Node]) -> int:
     else:
         initialize_parents_and_ids(root_node)
         leaves: List[Node] = retrieve_leaves(root_node)
-        all_sequences: List[List[int]] = list()
+        all_sequences: List[List[int]] = []
         leaves_of_all_sequences: Set[Tuple[int, int]] = set()
         for leaf in leaves:
-            generate_all_possible_sequences(leaf, None, list(), leaf, all_sequences, leaves_of_all_sequences)
+            generate_all_possible_sequences(leaf, None, [], leaf, all_sequences, leaves_of_all_sequences)
         current_max_sum: Optional[int] = None
         for sequence in all_sequences:
             current_sum: int = max_subarray_sum(sequence)

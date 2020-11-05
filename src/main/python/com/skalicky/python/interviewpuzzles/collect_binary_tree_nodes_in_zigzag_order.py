@@ -48,7 +48,7 @@ def zigzag_order(tree_root: Node) -> List[int]:
     nodes_to_process_on_current_level: Deque[Node] = deque()
     nodes_to_process_on_current_level.append(tree_root)
     nodes_to_process_on_next_level: Deque[Node] = deque()
-    collected_nodes: List[int] = list()
+    collected_nodes: List[int] = []
     level: int = 0
     while len(nodes_to_process_on_current_level) > 0 or len(nodes_to_process_on_next_level) > 0:
         while len(nodes_to_process_on_current_level) > 0:

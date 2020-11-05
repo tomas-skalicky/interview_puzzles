@@ -97,8 +97,8 @@ def persist_node_level_to_dictionaries(node: Node, level: int, node_lists_by_lev
 
 
 def calculate_node_levels(root_node: Node) -> Tuple[Dict[int, List[Node]], int]:
-    node_lists_by_levels: Dict[int, List[Node]] = dict()
-    levels_by_nodes: Dict[Node, int] = dict()
+    node_lists_by_levels: Dict[int, List[Node]] = {}
+    levels_by_nodes: Dict[Node, int] = {}
 
     nodes_to_process: Deque[Tuple[Node, bool]] = deque()
     nodes_to_process.append((root_node, False))
@@ -124,7 +124,7 @@ def calculate_node_levels(root_node: Node) -> Tuple[Dict[int, List[Node]], int]:
 
 
 def give_all_nodes_subtree_id(root_node: Node) -> Dict[Node, int]:
-    subtrees_by_nodes: Dict[Node, int] = dict()
+    subtrees_by_nodes: Dict[Node, int] = {}
 
     next_subtree_id: int = 1
     nodes_to_process: Deque[Node] = deque()

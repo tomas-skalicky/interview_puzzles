@@ -47,7 +47,7 @@ class Node:
 
 
 def is_height_balanced(tree: Node) -> bool:
-    max_heights_in_subtree_by_node_values: Dict[Node, int] = dict()
+    max_heights_in_subtree_by_node_values: Dict[Node, int] = {}
     nodes_to_process: Deque[Node] = deque()
     nodes_to_process.append(tree)
     while len(nodes_to_process) > 0:

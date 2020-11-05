@@ -72,9 +72,9 @@ class CellOccupation(Enum):
 
 class TicTacToe(object):
     def __init__(self, n: int):
-        self.matrix: List[List[CellOccupation]] = list()
+        self.matrix: List[List[CellOccupation]] = []
         for i in range(0, n):
-            self.matrix.append(list())
+            self.matrix.append([])
             for j in range(0, n):
                 self.matrix[i].append(CellOccupation.EMPTY)
 

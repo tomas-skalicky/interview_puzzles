@@ -53,7 +53,7 @@ class Node:
 
 
 def reverse_graph(graph_input: Dict[object, Node]) -> Dict[object, Node]:
-    reversed_graph: Dict[object, Node] = dict()
+    reversed_graph: Dict[object, Node] = {}
     for current_node_value in graph_input.keys():
         reversed_graph[current_node_value] = Node(current_node_value)
     for current_node_value in graph_input.keys():

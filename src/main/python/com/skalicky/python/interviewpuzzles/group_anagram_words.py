@@ -23,7 +23,7 @@ from typing import List, Tuple, Set, Dict
 
 
 def word_to_frequencies_by_chars(word: str):
-    frequencies_by_chars: Dict[str, int] = dict()
+    frequencies_by_chars: Dict[str, int] = {}
     for c in list(word):
         if frequencies_by_chars.__contains__(c):
             frequencies_by_chars[c] += 1
@@ -41,8 +41,8 @@ def identical_frequencies_by_chars_for_words_having_the_same_length(one: Dict[st
 
 def group_anagram_words(strs: List[str]):
     next_group_id: int = 0
-    group_ids_and_frequencies_by_chars_by_word_length: Dict[int, List[Tuple[int, Dict[str, int]]]] = dict()
-    anagram_words_by_group_ids: Dict[int, List[str]] = dict()
+    group_ids_and_frequencies_by_chars_by_word_length: Dict[int, List[Tuple[int, Dict[str, int]]]] = {}
+    anagram_words_by_group_ids: Dict[int, List[str]] = {}
     for word in strs:
         current_length: int = len(word)
         current_frequencies_by_chars: Dict[str, int] = word_to_frequencies_by_chars(word)

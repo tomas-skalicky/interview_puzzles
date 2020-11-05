@@ -15,8 +15,8 @@ from typing import List, Tuple, Dict
 
 
 def num_connected_components(edges: List[Tuple[int, int]]) -> int:
-    graphs_by_vertices: Dict[int, int] = dict()
-    list_of_vertices_by_graphs: Dict[int, List[int]] = dict()
+    graphs_by_vertices: Dict[int, int] = {}
+    list_of_vertices_by_graphs: Dict[int, List[int]] = {}
     graph_id_generator: int = 1
     for edge in edges:
         vertex_1: int = edge[0]

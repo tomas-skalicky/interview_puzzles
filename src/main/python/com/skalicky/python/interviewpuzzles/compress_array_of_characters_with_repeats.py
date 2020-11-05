@@ -24,7 +24,7 @@ class Solution:
         if char_count < 2:
             return chars
         else:
-            result: List[str] = list()
+            result: List[str] = []
             previous_char: str = chars[0]
             previous_char_count: int = 1
             for i in range(1, char_count):

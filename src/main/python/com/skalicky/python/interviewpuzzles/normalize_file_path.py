@@ -19,7 +19,7 @@ def shortest_path(file_path: str) -> str:
     if len(file_path) == 1:
         return file_path
     else:
-        result_parts: List[str] = list()
+        result_parts: List[str] = []
         for part in file_parts:
             if part == '.':
                 if len(result_parts) == 0:

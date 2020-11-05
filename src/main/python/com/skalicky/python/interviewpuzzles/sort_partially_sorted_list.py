@@ -26,8 +26,7 @@ def sort_partially_sorted(nums: List[int], k: int) -> List[int]:
     if num_size < 2 or k == 0:
         return nums
     else:
-        sorted_list: List[int] = list()
-        sorted_list.append(nums[0])
+        sorted_list: List[int] = [nums[0]]
         for i in range(1, num_size):
             current_number: int = nums[i]
             if current_number > sorted_list[i - 1]:

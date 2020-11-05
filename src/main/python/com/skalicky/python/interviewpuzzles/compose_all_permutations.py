@@ -32,7 +32,7 @@ def permute(nums: List[int]) -> List[List[int]]:
     if num_count == 0:
         return []
     else:
-        collected_permutations: List[List[int]] = list()
+        collected_permutations: List[List[int]] = []
         current_permutation: List[Optional[int]] = [None] * num_count
         permute_recursively(nums[0], nums[1:], current_permutation, set(), collected_permutations)
         return collected_permutations
