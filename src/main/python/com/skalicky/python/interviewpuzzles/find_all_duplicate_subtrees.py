@@ -149,11 +149,14 @@ def find_all_duplicate_subtrees(root_node: Node) -> List[List[Node]]:
     all_duplicates: List[List[Node]] = []
     for current_level in range(0, level_of_root_node + 1):
         nodes_with_current_level: List[Node] = node_lists_by_levels[current_level]
-        nodes_sorted_by_value: List[Node] = sorted(nodes_with_current_level, key=get_node_value)
+        # List is sorted descendingly because the removal operation from the end of List has a time complexity of O(1).
+        # The removal operation from the beginning of List has a time complexity of O(n).
+        nodes_sorted_by_value_descendingly: List[Node] = sorted(nodes_with_current_level, key=get_node_value,
+                                                                reverse=True)
 
         current_duplicates: List[Node] = []
-        while len(nodes_sorted_by_value) > 0:
-            current_node: Node = nodes_sorted_by_value.pop(0)
+        while len(nodes_sorted_by_value_descendingly) > 0:
+            current_node: Node = nodes_sorted_by_value_descendingly.pop()
             if len(current_duplicates) == 0:
                 current_duplicates.append(current_node)
             else:

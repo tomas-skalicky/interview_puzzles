@@ -41,7 +41,7 @@ class Solution:
             return None
         else:
             # We need both
-            # - to efficiently remove the head of the collection and
+            # - to efficiently remove from the beginning of the collection and
             # - to efficiently append to the end of the collection,
             # hence we use Deque having a time complexity of O(1) for both of these operations.
             substrings_to_check: Deque[Tuple[int, int]] = deque()

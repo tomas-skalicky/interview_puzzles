@@ -19,8 +19,8 @@ def find_all_primes_less_than_n(n: int) -> List[int]:
     else:
         # Exclusion is a small optimization which does not change the asymptotic time complexity.
         result_primes: List[int] = [2]
-        # Deque used because we can profit from an efficient removal of the head of the collection (in case of Deque
-        # O(1)).
+        # Deque used because we can profit from an efficient removal from the beginning of the collection (in case of
+        # Deque O(1)).
         candidates: Deque[int] = deque()
         for candidate in range(3, n, 2):
             candidates.append(candidate)
