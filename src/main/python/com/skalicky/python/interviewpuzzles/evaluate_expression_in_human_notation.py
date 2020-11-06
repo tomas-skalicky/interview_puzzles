@@ -14,7 +14,8 @@
 # print eval('- (3 + ( 2 - 1 ) )')
 # # -4
 from abc import ABC, abstractmethod
-from typing import List
+from collections import deque
+from typing import List, Deque
 
 
 # Abstract Base Class
@@ -43,19 +44,20 @@ class BinaryMinus(AbstractBinaryOperator):
         return operand_one.value - operand_two.value
 
 
-def squash_stacked_items_by_evaluation_of_binary_operator(stacked_items: List[AbstractItem]) -> None:
-    stack_size = len(stacked_items)
-    operand_two = stacked_items.pop(stack_size - 1)
+def squash_stacked_items_by_evaluation_of_binary_operator(stacked_items: Deque[AbstractItem]) -> None:
+    operand_two = stacked_items.pop()
     assert isinstance(operand_two, Number)
-    operator = stacked_items.pop(stack_size - 2)
+    operator = stacked_items.pop()
     assert isinstance(operator, AbstractBinaryOperator)
-    operand_one = stacked_items.pop(stack_size - 3)
+    operand_one = stacked_items.pop()
     assert isinstance(operand_one, Number)
     stacked_items.append(Number(operator.apply(operand_one, operand_two)))
 
 
 def evaluate_expression_without_parentheses(expression: List[str]) -> int:
-    stacked_items = []
+    # We need a collection which offers an efficient remove from the beginning and end and efficient add at the end,
+    # hence Deque.
+    stacked_items: Deque[AbstractItem] = deque()
     item_index = 0
     while item_index < len(expression):
         item: str = expression[item_index]
@@ -83,7 +85,7 @@ def evaluate_expression_without_parentheses(expression: List[str]) -> int:
                 squash_stacked_items_by_evaluation_of_binary_operator(stacked_items)
         item_index = item_index + 1
     assert len(stacked_items) == 1
-    number = stacked_items.pop(0)
+    number = stacked_items.popleft()
     assert isinstance(number, Number)
     return number.value
 
