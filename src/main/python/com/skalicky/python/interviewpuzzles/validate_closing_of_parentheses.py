@@ -32,6 +32,8 @@
 # s = "([{}])()"
 # # should return True
 # print(Solution().isValid(s))
+from collections import deque
+from typing import Deque
 
 
 class Solution:
@@ -41,17 +43,17 @@ class Solution:
             return True
         else:
             valid_tuples = {'}': '{', ')': '(', ']': '['}
-            chars = list(input_string)
-            stack = []
-            for c in chars:
-                if valid_tuples.__contains__(c):
-                    expected_opening_char = valid_tuples.get(c)
+            characters = list(input_string)
+            stack: Deque[str] = deque()
+            for current_character in characters:
+                if valid_tuples.__contains__(current_character):
+                    expected_opening_character = valid_tuples.get(current_character)
                     if len(stack) == 0:
                         return False
                     else:
-                        actual_opening_char = stack.pop(0)
-                        if actual_opening_char != expected_opening_char:
+                        actual_opening_character: str = stack.popleft()
+                        if actual_opening_character != expected_opening_character:
                             return False
                 else:
-                    stack.insert(0, c)
+                    stack.appendleft(current_character)
             return len(stack) == 0
