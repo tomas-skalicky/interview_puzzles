@@ -88,7 +88,7 @@ def evaluate_expression_without_parentheses(expression: List[str]) -> int:
     return number.value
 
 
-def evaluate_expression(expression: str) -> int:
+def evaluate_expression_in_human_notation(expression: str) -> int:
     stacked_expressions = []
     current_expression = []
     for c in list(expression):
@@ -105,19 +105,3 @@ def evaluate_expression(expression: str) -> int:
         elif c != ' ':
             current_expression.append(c)
     return evaluate_expression_without_parentheses(current_expression)
-
-
-print(evaluate_expression('1'))
-# 1
-print(evaluate_expression('- 1'))
-# -1
-print(evaluate_expression('2 - 1'))
-# 1
-print(evaluate_expression('( 2 - 1 )'))
-# 1
-print(evaluate_expression('3 + ( 2 - 1 )'))
-# 4
-print(evaluate_expression('- (3 + ( 2 - 1 ) )'))
-# -4
-print(evaluate_expression('- (-3 + 1 + -( 2 - -(-1) ) - 2 )'))
-# 5
