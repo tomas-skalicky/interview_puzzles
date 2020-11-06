@@ -18,16 +18,17 @@
 # s = "tracecars"
 # print(str(Solution().longestPalindrome(s)))
 # # racecar
-from typing import Optional
+from collections import deque
+from typing import Optional, Deque, Tuple
 
 
 class Solution:
     @staticmethod
-    def check_if_palindrome(chars: list, left_pointer: int, right_pointer: int) -> bool:
-        current_left_pointer: int = left_pointer
-        current_right_pointer: int = right_pointer
+    def check_if_palindrome(input_string: str, lowest_index: int, greatest_index_included: int) -> bool:
+        current_left_pointer: int = lowest_index
+        current_right_pointer: int = greatest_index_included
         while current_left_pointer < current_right_pointer:
-            if chars[current_left_pointer] != chars[current_right_pointer]:
+            if input_string[current_left_pointer] != input_string[current_right_pointer]:
                 return False
             else:
                 current_left_pointer = current_left_pointer + 1
@@ -35,31 +36,22 @@ class Solution:
         return True
 
     @staticmethod
-    def longest_palindrome(s: Optional[str]) -> Optional[str]:
-        if s is None or len(s) == 0:
+    def find_longest_palindromic_substring(input_string: Optional[str]) -> Optional[str]:
+        if input_string is None or len(input_string) == 0:
             return None
-        chars: list = list(s)
-        substrings_to_check: list = [(0, len(chars) - 1)]
-        while len(substrings_to_check) > 0:
-            left_pointer, right_pointer = substrings_to_check.pop(0)
-            if Solution.check_if_palindrome(chars, left_pointer, right_pointer):
-                return s[left_pointer:right_pointer + 1]
-            else:
-                substrings_to_check.append((left_pointer, right_pointer - 1))
-                substrings_to_check.append((left_pointer + 1, right_pointer))
-        return None
-
-
-# Test program
-print(str(Solution.longest_palindrome('tracecars')))
-# racecar
-print(str(Solution.longest_palindrome('banana')))
-# anana
-print(str(Solution.longest_palindrome('million')))
-# illi
-print(str(Solution.longest_palindrome('mh')))
-# 'm'
-print(str(Solution.longest_palindrome('')))
-# <None>
-print(str(Solution.longest_palindrome(None)))
-# <None>
+        else:
+            # We need both
+            # - to efficiently remove the head of the collection and
+            # - to efficiently append to the end of the collection,
+            # hence we use Deque having a time complexity of O(1) for both of these operations.
+            substrings_to_check: Deque[Tuple[int, int]] = deque()
+            substrings_to_check.append((0, len(input_string) - 1))
+            while len(substrings_to_check) > 0:
+                # Picks the longest remaining string to investigate.
+                lowest_index, greatest_index_included = substrings_to_check.popleft()
+                if Solution.check_if_palindrome(input_string, lowest_index, greatest_index_included):
+                    return input_string[lowest_index:greatest_index_included + 1]
+                else:
+                    substrings_to_check.append((lowest_index, greatest_index_included - 1))
+                    substrings_to_check.append((lowest_index + 1, greatest_index_included))
+            return None
