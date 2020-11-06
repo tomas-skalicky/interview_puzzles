@@ -9,10 +9,11 @@
 from typing import List, Dict
 
 
-# Time complexity ... maximum of O(n) and O(d log d) where
-#   n is a size of input list of numbers and
-#   d is the number of different distances
 def find_k_closest_elements_to_pivot(input_numbers: List[int], k: int, pivot: int) -> List[int]:
+    """Time complexity ... maximum of O(n) and O(d log d) where *n* is a size of input list of numbers and *d* is
+     the number of different distances
+    """
+
     if len(input_numbers) < k:
         raise RuntimeError('There is not enough input numbers in {} to return {} elements.'.format(input_numbers, k))
     else:

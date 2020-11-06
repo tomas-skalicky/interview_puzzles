@@ -38,7 +38,7 @@ def insort_left_for_descendingly_sorted_list(input_list, searched_element):
 
 
 def find_indices_of_next_larger_number(input_numbers: List[int]) -> List[int]:
-    """Time complexity ... O(n log n) where n is a size of the input list
+    """Time complexity ... O(n log n) where *n* is a size of the input list
     """
 
     result_indices: List[int] = [-1 for i in range(0, len(input_numbers))]

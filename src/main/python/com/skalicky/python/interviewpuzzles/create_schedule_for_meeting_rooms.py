@@ -42,9 +42,11 @@ class RoomAllocation:
                 self.start_of_first_meeting == other.start_of_first_meeting and self.end_of_last_meeting < other.end_of_last_meeting)
 
 
-# Time complexity ... O(n log n) where n is the number of meetings because n >= r where r is the number of necessary
-# meeting rooms
 def create_schedule_for_meeting_rooms(meeting_times: List[Tuple[int, int]]) -> int:
+    """Time complexity ... O(n log n) where *n* is the number of meetings because *n >= r* where *r* is the number of
+     necessary meeting rooms.
+    """
+
     # Time complexity ... O(n log n) where n is the number of meetings
     sorted_meeting_times: List[Tuple[int, int]] = sorted(meeting_times)
     next_meeting_room_number: int = 1

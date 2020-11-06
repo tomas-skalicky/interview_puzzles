@@ -20,8 +20,10 @@
 from typing import Tuple, List
 
 
-# Time complexity of the algorithm is O(n) where n is a length of the chessboard side.
 def find_1_solution_how_to_place_queens_on_chessboard(queen_count: int) -> List[Tuple[int, int]]:
+    """Time complexity of the algorithm is O(n) where *n* is a length of the chessboard side.
+    """
+
     result: List[Tuple[int, int]] = []
     offset_by_next_row_reset: int = 0
     row_of_last_placed_queen: int = queen_count

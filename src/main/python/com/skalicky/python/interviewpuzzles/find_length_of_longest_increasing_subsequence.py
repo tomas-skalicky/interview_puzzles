@@ -19,9 +19,11 @@ def add_new_candidate_to_dictionary_if_suitable(candidate: List[int],
         candidates_by_length[current_candidate_new_length] = candidate
 
 
-# Trivial algorithm would have a time complexity of O (2 ^ n) where n is a size of input list.
-# This one has a time complexity of O (n * min(n, len(longest_subsequence))) which is in the worst case O (n ^ 2)
 def find_longest_increasing_subsequence(numbers: List[int]) -> List[int]:
+    """Trivial algorithm would have a time complexity of O(2^n) where *n* is a size of input list.
+    This one has a time complexity of O(n * min(n, len(longest_subsequence))) which is in the worst case O(n^2).
+    """
+
     if len(numbers) == 0:
         return []
     else:

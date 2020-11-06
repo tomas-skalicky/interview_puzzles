@@ -20,10 +20,13 @@
 from typing import List, Optional
 
 
-# Complexities of this method:
-# - time complexity O(n) where n is a length of the input array "arr"
-# - space complexity O(1)
 def max_subarray_sum(arr: List[int]) -> int:
+    """Complexities of this method:
+
+    - time complexity O(n) where *n* is a length of the input array *arr*
+    - space complexity O(1)
+    """
+
     if len(arr) == 0:
         return 0
     else:
@@ -35,7 +38,7 @@ def max_subarray_sum(arr: List[int]) -> int:
             current_sum = current_sum + current_num if current_sum else current_num
             if not current_max_sum:
                 current_max_sum = current_sum
-            if (current_max_sum >= 0 and current_sum < 0) or (current_sum < current_max_sum < 0):
+            if (current_max_sum >= 0 > current_sum) or (current_sum < current_max_sum < 0):
                 current_sum = None
             else:
                 current_max_sum = current_sum

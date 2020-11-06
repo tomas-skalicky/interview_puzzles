@@ -51,8 +51,10 @@ def calculate_square_root_intern(x_string: str, overflow: int, rest_from_previou
     return result, overflow, rest_from_previous_iteration
 
 
-# Using a long division technique. See https://www.youtube.com/watch?v=Ga1_wuLz0QM
 def calculate_square_root(x: int) -> float:
+    """Use a long division technique. See https://www.youtube.com/watch?v=Ga1_wuLz0QM
+    """
+
     result, overflow, rest_from_previous_iteration = calculate_square_root_intern(str(x), 0, 0)
     if rest_from_previous_iteration > 0:
         result_decimal, overflow, rest_from_previous_iteration = calculate_square_root_intern('00' * 3, overflow,

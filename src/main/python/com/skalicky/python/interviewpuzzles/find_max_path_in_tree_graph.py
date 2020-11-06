@@ -50,10 +50,13 @@ class Node:
         return '[id={}, val={}]'.format(self.id, self.val)
 
 
-# Complexities of this method:
-# - time complexity O(n) where n is the number of nodes in the tree
-# - space complexity O(n)
 def initialize_parents_and_ids(root_node: Node) -> None:
+    """Complexities of this method:
+
+    - time complexity O(n) where *n* is the number of nodes in the tree
+    - space complexity O(n)
+    """
+
     next_id: int = 1
     nodes_to_process: Deque[Node] = deque()
     nodes_to_process.append(root_node)
@@ -69,10 +72,13 @@ def initialize_parents_and_ids(root_node: Node) -> None:
             nodes_to_process.append(node_to_process.right)
 
 
-# Complexities of this method:
-# - time complexity O(n) where n is the number of nodes in the tree
-# - space complexity O(n)
 def retrieve_leaves(root_node: Node) -> List[Node]:
+    """Complexities of this method:
+
+    - time complexity O(n) where *n* is the number of nodes in the tree
+    - space complexity O(n)
+    """
+
     leaves: List[Node] = []
     nodes_to_process: Deque[Node] = deque()
     nodes_to_process.append(root_node)
@@ -88,12 +94,15 @@ def retrieve_leaves(root_node: Node) -> List[Node]:
     return leaves
 
 
-# Complexities of this method:
-# - time complexity O(n^2) where n is the number of nodes in the tree. One "n" is from copy of arrays.
-# - space complexity O(n^2). One "n" is from copy of arrays.
 def generate_all_possible_sequences(node_to_process: Node, previous_node_id: Optional[int], current_sequence: List[int],
                                     current_sequence_start_node: Node, all_sequences: List[List[int]],
                                     leaves_of_all_sequences: Set[Tuple[int, int]]) -> None:
+    """Complexities of this method:
+
+    - time complexity O(n^2) where *n* is the number of nodes in the tree. One *n* is from copy of arrays.
+    - space complexity O(n^2). One *n* is from copy of arrays.
+    """
+
     current_sequence.append(node_to_process.val)
     copy_of_current_sequence_necessary: bool = False
     if node_to_process.parent is not None and node_to_process.parent.id != previous_node_id:
@@ -122,11 +131,13 @@ def generate_all_possible_sequences(node_to_process: Node, previous_node_id: Opt
             leaves_of_all_sequences.add((start_node_id, end_node_id))
 
 
-# Complexities of this method:
-# - time complexity O(n^3) where n is the number of nodes in the tree. Reason: the number of leaves can be
-# asymptotically approximated to n.
-# - space complexity O(n^3)
 def max_path_sum(root_node: Optional[Node]) -> int:
+    """Complexities of this method:
+
+    - time complexity O(n^3) where *n* is the number of nodes in the tree. Reason: the number of leaves can be asymptotically approximated to *n*.
+    - space complexity O(n^3)
+    """
+
     if root_node is None:
         return 0
     else:
