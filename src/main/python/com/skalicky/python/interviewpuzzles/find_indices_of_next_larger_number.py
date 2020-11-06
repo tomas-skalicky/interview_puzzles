@@ -15,12 +15,12 @@ from typing import List, Dict
 
 
 # Time complexity ... O(n log n) where n is a size of the input list
-def larger_number(nums: List[int]) -> List[int]:
-    result_indices: List[int] = [-1 for i in range(0, len(nums))]
+def find_indices_of_next_larger_number(input_numbers: List[int]) -> List[int]:
+    result_indices: List[int] = [-1 for i in range(0, len(input_numbers))]
     index_lists_by_searched_closest_larger_numbers: Dict[int, List[int]] = {}
     searched_closest_larger_numbers: List[int] = []
-    for i in range(0, len(nums)):
-        current_number: int = nums[i]
+    for i in range(0, len(input_numbers)):
+        current_number: int = input_numbers[i]
         # Each element in the list will be processed by the inner for loop at most once.
         while len(searched_closest_larger_numbers) > 0:
             searched_number: int = searched_closest_larger_numbers.pop(0)

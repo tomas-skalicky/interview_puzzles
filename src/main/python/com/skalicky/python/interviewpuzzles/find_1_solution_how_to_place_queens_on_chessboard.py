@@ -21,12 +21,12 @@ from typing import Tuple, List
 
 
 # Time complexity of the algorithm is O(n) where n is a length of the chessboard side.
-def n_queens(n: int) -> List[Tuple[int, int]]:
+def find_1_solution_how_to_place_queens_on_chessboard(queen_count: int) -> List[Tuple[int, int]]:
     result: List[Tuple[int, int]] = []
     offset_by_next_row_reset: int = 0
-    row_of_last_placed_queen: int = n
-    for column in range(0, n):
-        if row_of_last_placed_queen + 2 < n:
+    row_of_last_placed_queen: int = queen_count
+    for column in range(0, queen_count):
+        if row_of_last_placed_queen + 2 < queen_count:
             row_of_last_placed_queen += 2
         else:
             row_of_last_placed_queen = offset_by_next_row_reset

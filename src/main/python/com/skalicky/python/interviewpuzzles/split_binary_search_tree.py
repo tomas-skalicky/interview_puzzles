@@ -49,8 +49,7 @@
 # #   2          4
 # #               \
 # #                5
-from collections import deque
-from typing import Tuple, Optional, Deque, Dict, List
+from typing import Tuple, Optional, List
 
 
 class Node:
@@ -79,7 +78,7 @@ def find_path_from_root_to_node(node_value: int, root_node: Node) -> List[Node]:
     return path
 
 
-def split_bst(root_node: Node, split_value: int) -> Tuple[Node, Optional[Node]]:
+def split_binary_search_tree(root_node: Node, split_value: int) -> Tuple[Node, Optional[Node]]:
     path: List[Node] = find_path_from_root_to_node(split_value, root_node)
 
     current_node: Node = path.pop()

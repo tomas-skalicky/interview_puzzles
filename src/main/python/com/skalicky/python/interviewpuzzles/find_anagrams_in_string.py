@@ -9,11 +9,11 @@
 #
 # print(find_anagrams('acdbacdacb', 'abc'))
 # # [3, 7]
-from typing import List, Set, Dict
+from typing import List, Dict
 
 
 # Time complexity of the function is O(n) where n is the length of the given text.
-def find_anagrams(text: str, substring: str) -> List[int]:
+def find_anagrams_in_string(text: str, substring: str) -> List[int]:
     text_length: int = len(text)
     substring_length: int = len(substring)
     if text_length < substring_length:

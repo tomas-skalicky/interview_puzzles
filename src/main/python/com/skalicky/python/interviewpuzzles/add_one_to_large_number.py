@@ -19,11 +19,11 @@ from typing import List
 
 class Solution:
     @staticmethod
-    def add_one_to_large_number(digits: List[int]) -> List[int]:
-        new_digits: List[int] = []
+    def add_one_to_large_number(large_number_digits: List[int]) -> List[int]:
+        new_large_number_digits: List[int] = []
         overflow: int = 0
         first: bool = True
-        for n in reversed(digits):
+        for n in reversed(large_number_digits):
             new_numbers: int = n
             if first:
                 first = False
@@ -31,8 +31,8 @@ class Solution:
             else:
                 new_numbers += overflow
             overflow = int(new_numbers / 10)
-            new_digits.append(new_numbers % 10)
+            new_large_number_digits.append(new_numbers % 10)
         if overflow > 0:
-            new_digits.append(overflow)
-        new_digits.reverse()
-        return new_digits
+            new_large_number_digits.append(overflow)
+        new_large_number_digits.reverse()
+        return new_large_number_digits

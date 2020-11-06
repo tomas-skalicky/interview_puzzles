@@ -16,12 +16,12 @@ from typing import List, Dict
 
 
 # Assumption: tasks need to be executed in the given order, otherwise the task 2 could have been executed in the time 2.
-def find_time(arr: List[int], cooldown: int) -> int:
+def find_time(tasks: List[int], cool_down_time: int) -> int:
     last_indices_by_tasks: Dict[int, int] = {}
     last_allocated_time: int = 0
-    for task in arr:
+    for task in tasks:
         if last_indices_by_tasks.__contains__(task):
-            last_allocated_time = max(last_allocated_time + 1, last_indices_by_tasks[task] + cooldown + 1)
+            last_allocated_time = max(last_allocated_time + 1, last_indices_by_tasks[task] + cool_down_time + 1)
         else:
             last_allocated_time += 1
         last_indices_by_tasks[task] = last_allocated_time

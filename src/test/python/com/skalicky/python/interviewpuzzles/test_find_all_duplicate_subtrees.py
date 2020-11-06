@@ -1,7 +1,8 @@
 from typing import Dict, List
 from unittest import TestCase
 
-from src.main.python.com.skalicky.python.interviewpuzzles.find_all_duplicate_subtrees import Node, dup_trees, \
+from src.main.python.com.skalicky.python.interviewpuzzles.find_all_duplicate_subtrees import Node, \
+    find_all_duplicate_subtrees, \
     calculate_node_levels, give_all_nodes_subtree_id
 
 
@@ -42,7 +43,7 @@ class Test(TestCase):
         self.assertEqual(3, subtrees_by_nodes[left_child])
         self.assertEqual(4, subtrees_by_nodes[left_left_child])
 
-    def test_dup_trees__when_2node_subtree_is_duplicated__then_duplicates_are_found(self):
+    def test_find_all_duplicate_subtrees__when_2node_subtree_is_duplicated__then_duplicates_are_found(self):
         left_child: Node = Node(2, Node(3))
         right_child: Node = Node(2, Node(3))
         root_node: Node = Node(1, left_child, right_child)
@@ -52,13 +53,13 @@ class Test(TestCase):
         #   2   2
         #  /   /
         # 3   3
-        self.assertEqual('[[(3), (3)], [(2, (3)), (2, (3))]]', str(dup_trees(root_node)))
+        self.assertEqual('[[(3), (3)], [(2, (3)), (2, (3))]]', str(find_all_duplicate_subtrees(root_node)))
         # Expected duplicates:
         #     2    and just the left    3
         #    /
         #   3
 
-    def test_dup_trees__when_node_value_equals_and_left_children_are_duplicates_but_right_childrens_are_not__then_not_duplicate(
+    def test_find_all_duplicate_subtrees__when_node_value_equals_and_left_children_are_duplicates_but_right_childrens_are_not__then_not_duplicate(
             self):
         left_child: Node = Node(3, Node(1), Node(2))
         right_right_left_child: Node = Node(3, Node(1), Node(2))
@@ -81,7 +82,7 @@ class Test(TestCase):
         #                  / \  / \
         #                  1 1  1 2
         self.assertEqual('[[(1), (1), (1), (1), (1)], [(2), (2), (2)], [(3, (1), (2)), (3, (1), (2)), (3, (1), (2))]]',
-                         str(dup_trees(root_node)))
+                         str(find_all_duplicate_subtrees(root_node)))
         # Expected duplicates:
         #     3    and just the leaves    1   and   2
         #    / \

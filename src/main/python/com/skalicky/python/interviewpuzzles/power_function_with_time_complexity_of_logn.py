@@ -14,23 +14,23 @@
 from typing import Dict
 
 
-def power(x, n: int):
-    if n == 0:
+def power_function_with_time_complexity_of_logn(base, exponent: int):
+    if exponent == 0:
         return 1
     else:
         powers: Dict[int,] = {}
         current_exponent: int = 1
-        powers[current_exponent] = x
-        while n - current_exponent * 2 >= 0:
+        powers[current_exponent] = base
+        while exponent - current_exponent * 2 >= 0:
             powers[current_exponent * 2] = powers[current_exponent] * powers[current_exponent]
             current_exponent = current_exponent * 2
-        n_rest: int = n
+        remaining_exponent: int = exponent
         result = 1
         while current_exponent >= 0:
-            if n_rest == current_exponent:
+            if remaining_exponent == current_exponent:
                 return result * powers[current_exponent]
-            elif n_rest > current_exponent:
+            elif remaining_exponent > current_exponent:
                 result *= powers[current_exponent]
-                n_rest -= current_exponent
+                remaining_exponent -= current_exponent
             current_exponent /= 2
         raise RuntimeError('Unreachable code')

@@ -22,13 +22,13 @@
 from typing import List
 
 
-def rotate(mat: List[List[int]]) -> List[List[int]]:
-    matrix_size: int = len(mat)
+def rotate_2d_nxn_matrix_by_90_degree_clockwise(matrix: List[List[int]]) -> List[List[int]]:
+    matrix_size: int = len(matrix)
     if matrix_size == 0:
         return []
     else:
         result: List[List[int]] = [[0 for i in range(0, matrix_size)] for j in range(0, matrix_size)]
         for i in range(0, matrix_size):
             for j in range(0, matrix_size):
-                result[i][matrix_size - 1 - j] = mat[j][i]
+                result[i][matrix_size - 1 - j] = matrix[j][i]
         return result

@@ -12,14 +12,14 @@ from typing import List, Dict
 # Time complexity ... maximum of O(n) and O(d log d) where
 #   n is a size of input list of numbers and
 #   d is the number of different distances
-def closest_nums(nums: List[int], k: int, x: int) -> List[int]:
-    if len(nums) < k:
-        raise RuntimeError('There is not enough elements in {} to return {} elements.'.format(nums, k))
+def find_k_closest_elements_to_pivot(input_numbers: List[int], k: int, pivot: int) -> List[int]:
+    if len(input_numbers) < k:
+        raise RuntimeError('There is not enough input numbers in {} to return {} elements.'.format(input_numbers, k))
     else:
         number_lists_by_distances: Dict[int, List[int]] = {}
         distances: List[int] = []
-        for number in nums:
-            distance: int = abs(x - number)
+        for number in input_numbers:
+            distance: int = abs(pivot - number)
             if distances.__contains__(distance):
                 number_lists_by_distances[distance].append(number)
             else:

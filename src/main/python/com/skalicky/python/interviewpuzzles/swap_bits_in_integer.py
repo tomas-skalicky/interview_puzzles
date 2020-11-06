@@ -12,8 +12,8 @@
 from typing import List
 
 
-def swap_bits(num: int) -> int:
-    digits_as_strings: List[str] = list(bin(num).split('b')[1])
+def swap_bits_in_integer(input_integer: int) -> int:
+    digits_as_strings: List[str] = list(bin(input_integer).split('b')[1])
     number_length: int = len(digits_as_strings)
     for i in range(0, number_length, +2):
         if i + 1 < number_length:

@@ -16,8 +16,8 @@
 from typing import Dict, List
 
 
-def base_2(n: int) -> str:
-    if n == 0:
+def convert_to_binary_representation(input_number: int) -> str:
+    if input_number == 0:
         return '0'
     else:
         possible_exponents_asc: List[int] = [0]
@@ -25,13 +25,13 @@ def base_2(n: int) -> str:
 
         next_number: int = 1
         current_result: int = 1
-        while current_result * 2 <= n:
+        while current_result * 2 <= input_number:
             current_result *= 2
             possible_exponents_asc.append(next_number)
             results_by_exponents[next_number] = current_result
             next_number += 1
 
-        rest: int = n
+        rest: int = input_number
         binary_representation: str = ''
         while len(possible_exponents_asc) > 0:
             greatest_remaining_exponent: int = possible_exponents_asc.pop()

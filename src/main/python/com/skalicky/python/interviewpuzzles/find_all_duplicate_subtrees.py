@@ -140,11 +140,11 @@ def give_all_nodes_subtree_id(root_node: Node) -> Dict[Node, int]:
     return subtrees_by_nodes
 
 
-def dup_trees(root: Node) -> List[List[Node]]:
+def find_all_duplicate_subtrees(root_node: Node) -> List[List[Node]]:
     node_lists_by_levels: Dict[int, List[Node]]
     level_of_root_node: int
-    node_lists_by_levels, level_of_root_node = calculate_node_levels(root)
-    subtrees_by_nodes: Dict[Node, int] = give_all_nodes_subtree_id(root)
+    node_lists_by_levels, level_of_root_node = calculate_node_levels(root_node)
+    subtrees_by_nodes: Dict[Node, int] = give_all_nodes_subtree_id(root_node)
 
     all_duplicates: List[List[Node]] = []
     for current_level in range(0, level_of_root_node + 1):

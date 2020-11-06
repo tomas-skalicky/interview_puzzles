@@ -19,7 +19,8 @@ from collections import deque
 from typing import List, Dict, Optional, Deque
 
 
-def schedule_tasks(tasks: List[str], n: int) -> List[Optional[str]]:
+def find_shortest_task_plan_with_cool_down_time_and_with_reordering(tasks: List[str], cool_down_time: int) -> List[
+    Optional[str]]:
     occurrence_counts_by_tasks: Dict[str, int] = {}
     for task in tasks:
         if occurrence_counts_by_tasks.__contains__(task):
@@ -58,15 +59,15 @@ def schedule_tasks(tasks: List[str], n: int) -> List[Optional[str]]:
 
                 elif last_occurrence_indices_by_tasks.__contains__(task):
                     if len(empty_slots) > 0 and empty_slots[len(empty_slots) - 1] - last_occurrence_indices_by_tasks[
-                        task] >= n:
+                        task] >= cool_down_time:
                         current_index: int = 0
-                        while empty_slots[current_index] - last_occurrence_indices_by_tasks[task] < n:
+                        while empty_slots[current_index] - last_occurrence_indices_by_tasks[task] < cool_down_time:
                             current_index += 1
                         last_occurrence_indices_by_tasks[task] = empty_slots[current_index]
                         empty_slots.__delitem__(current_index)
 
                     else:
-                        while (len(schedule) - 1) - last_occurrence_indices_by_tasks[task] < n:
+                        while (len(schedule) - 1) - last_occurrence_indices_by_tasks[task] < cool_down_time:
                             empty_slots.append(len(schedule))
                             schedule.append(None)
                         last_occurrence_indices_by_tasks[task] = len(schedule)

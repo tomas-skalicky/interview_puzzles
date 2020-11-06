@@ -19,9 +19,9 @@ ZERO_ORDINAL: int = 48
 NINE_ORDINAL: int = ZERO_ORDINAL + 9
 
 
-def convert_to_int(s: str) -> Optional[int]:
+def convert_string_to_integer_with_ord_function(input_string: str) -> Optional[int]:
     result: Optional[int] = None
-    characters: List[str] = list(s)
+    characters: List[str] = list(input_string)
     negative: bool = False
     for i in range(0, len(characters)):
         character: str = characters[i]
