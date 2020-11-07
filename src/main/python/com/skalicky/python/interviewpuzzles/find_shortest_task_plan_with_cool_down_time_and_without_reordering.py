@@ -15,20 +15,17 @@
 from typing import List, Dict
 
 
-# Assumption: tasks need to be executed in the given order, otherwise the task 2 could have been executed in the time 2.
-def find_time(tasks: List[int], cool_down_time: int) -> int:
+def find_shortest_task_plan_with_cool_down_time_and_without_reordering(tasks: List[int], cool_down_time: int) -> int:
+    """Assumption: tasks need to be executed in the given order, otherwise the task 2 could have been executed in
+     the time 2.
+    """
+
     last_indices_by_tasks: Dict[int, int] = {}
     last_allocated_time: int = 0
     for task in tasks:
-        if last_indices_by_tasks.__contains__(task):
+        if task in last_indices_by_tasks:
             last_allocated_time = max(last_allocated_time + 1, last_indices_by_tasks[task] + cool_down_time + 1)
         else:
             last_allocated_time += 1
         last_indices_by_tasks[task] = last_allocated_time
     return last_allocated_time
-
-
-print(find_time([1, 1, 2, 1], 2))
-# 7
-print(find_time([1, 2, 3, 1], 1))
-# 4

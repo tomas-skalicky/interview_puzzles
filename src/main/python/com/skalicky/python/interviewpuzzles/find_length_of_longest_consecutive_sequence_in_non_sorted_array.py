@@ -15,7 +15,7 @@
 from typing import List, Set, Optional
 
 
-def longest_consecutive(nums: List[int]) -> int:
+def find_length_of_longest_consecutive_sequence_in_non_sorted_array(nums: List[int]) -> int:
     if len(nums) < 1:
         return 0
     else:
@@ -34,7 +34,7 @@ def longest_consecutive(nums: List[int]) -> int:
         current_consecutive_sequence_length: int = 1
         previous_num: int = min_num
         for n in range(min_num + 1, max_num + 1):
-            if num_set.__contains__(n) and n == previous_num + 1:
+            if n in num_set and n == previous_num + 1:
                 current_consecutive_sequence_length += 1
             else:
                 max_consecutive_sequence_length = max(max_consecutive_sequence_length,
@@ -42,9 +42,3 @@ def longest_consecutive(nums: List[int]) -> int:
                 current_consecutive_sequence_length = 0
             previous_num = n
         return max_consecutive_sequence_length
-
-
-print(longest_consecutive([]))
-# 0
-print(longest_consecutive([100, 4, 200, 1, 3, 2]))
-# 4
