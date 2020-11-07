@@ -21,24 +21,14 @@
 from typing import List
 
 
-def h_index(publications: List[int]) -> int:
-    """Time complexity is O(n * log n) due to sorting of input list.
+def calculate_h_index_as_metric_of_scholar_impact(paper_citation_counts: List[int]) -> int:
+    """Time complexity is O(n * log n) due to sorting of input List.
     """
 
-    sorted_publications_descendingly: List[int] = sorted(publications, reverse=True)
-    publication_count: int = 0
-    for publication in sorted_publications_descendingly:
-        publication_count += 1
-        if publication <= publication_count:
-            return publication
+    paper_citation_counts_sorted_descendingly: List[int] = sorted(paper_citation_counts, reverse=True)
+    paper_count: int = 0
+    for paper_citation_count in paper_citation_counts_sorted_descendingly:
+        paper_count += 1
+        if paper_citation_count <= paper_count:
+            return paper_citation_count
     return 0
-
-
-print(h_index([]))
-# 0
-print(h_index([5, 3, 3, 1, 0]))
-# 3
-print(h_index([3, 5, 0, 1, 3]))
-# 3
-print(h_index([3, 5, 0, 1, 3, 3]))
-# 3
