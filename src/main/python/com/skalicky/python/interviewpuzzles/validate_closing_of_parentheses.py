@@ -46,7 +46,7 @@ class Solution:
             characters = list(input_string)
             stack: Deque[str] = deque()
             for current_character in characters:
-                if valid_tuples.__contains__(current_character):
+                if current_character in valid_tuples:
                     expected_opening_character = valid_tuples.get(current_character)
                     if len(stack) == 0:
                         return False

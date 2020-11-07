@@ -90,7 +90,7 @@ LEAF_LEVEL: int = 0
 def persist_node_level_to_dictionaries(node: Node, level: int, node_lists_by_levels: Dict[int, List[Node]],
                                        levels_by_nodes: Dict[Node, int]):
     levels_by_nodes[node] = level
-    if node_lists_by_levels.__contains__(level):
+    if level in node_lists_by_levels:
         node_lists_by_levels[level].append(node)
     else:
         node_lists_by_levels[level] = [node]

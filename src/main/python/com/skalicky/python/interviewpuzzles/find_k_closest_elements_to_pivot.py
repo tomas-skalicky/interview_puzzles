@@ -21,7 +21,7 @@ def find_k_closest_elements_to_pivot(input_numbers: List[int], k: int, pivot: in
         distances: List[int] = []
         for number in input_numbers:
             distance: int = abs(pivot - number)
-            if distances.__contains__(distance):
+            if distance in distances:
                 number_lists_by_distances[distance].append(number)
             else:
                 distances.append(distance)

@@ -21,7 +21,7 @@ def find_number_of_graphs(edges: List[Tuple[int, int]]) -> int:
     for edge in edges:
         vertex_1: int = edge[0]
         vertex_2: int = edge[1]
-        if graphs_by_vertices.__contains__(vertex_1) and graphs_by_vertices.__contains__(vertex_2):
+        if vertex_1 in graphs_by_vertices and vertex_2 in graphs_by_vertices:
             old_graph_1: int = graphs_by_vertices[vertex_1]
             old_graph_2: int = graphs_by_vertices[vertex_2]
             if old_graph_1 != old_graph_2:
@@ -34,10 +34,10 @@ def find_number_of_graphs(edges: List[Tuple[int, int]]) -> int:
                     list_of_vertices_by_graphs[destination_graph].append(source_graph_vertex)
                     graphs_by_vertices[source_graph_vertex] = destination_graph
 
-        elif graphs_by_vertices.__contains__(vertex_1):
+        elif vertex_1 in graphs_by_vertices:
             graphs_by_vertices[vertex_2] = graphs_by_vertices[vertex_1]
             list_of_vertices_by_graphs[graphs_by_vertices[vertex_1]].append(vertex_2)
-        elif graphs_by_vertices.__contains__(vertex_2):
+        elif vertex_2 in graphs_by_vertices:
             graphs_by_vertices[vertex_1] = graphs_by_vertices[vertex_2]
             list_of_vertices_by_graphs[graphs_by_vertices[vertex_1]].append(vertex_1)
         else:

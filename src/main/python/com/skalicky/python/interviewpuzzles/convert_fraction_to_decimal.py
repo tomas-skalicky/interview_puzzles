@@ -25,7 +25,7 @@ def convert_fraction_to_decimal(numerator: int, denominator: int) -> str:
     result_string: str = ''
     rest: int = numerator
     first_iteration: bool = True
-    existing_rests_after_decimal_comma_and_position: Dict[int, int] = {}
+    indices_when_rests_calculated_by_rests_after_decimal_comma: Dict[int, int] = {}
     while True:
         partial_result: int = int(rest / denominator)
         result_string += str(partial_result)
@@ -33,14 +33,14 @@ def convert_fraction_to_decimal(numerator: int, denominator: int) -> str:
         if rest != 0:
             if first_iteration:
                 result_string += '.'
-                existing_rests_after_decimal_comma_and_position[rest] = len(result_string)
+                indices_when_rests_calculated_by_rests_after_decimal_comma[rest] = len(result_string)
                 first_iteration = False
             else:
-                if existing_rests_after_decimal_comma_and_position.__contains__(rest):
-                    position: int = existing_rests_after_decimal_comma_and_position[rest]
+                if rest in indices_when_rests_calculated_by_rests_after_decimal_comma:
+                    position: int = indices_when_rests_calculated_by_rests_after_decimal_comma[rest]
                     return '{}({})'.format(result_string[:position], result_string[position:])
                 else:
-                    existing_rests_after_decimal_comma_and_position[rest] = len(result_string)
+                    indices_when_rests_calculated_by_rests_after_decimal_comma[rest] = len(result_string)
             rest *= 10
         else:
             return result_string

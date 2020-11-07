@@ -21,30 +21,31 @@ def find_anagrams_in_string(text: str, substring: str) -> List[int]:
     if text_length < substring_length:
         return []
     else:
-        anagram_set: Dict[str, int] = {}
+        substring_character_occurrence_counts_by_text_characters: Dict[str, int] = {}
         for character in substring:
-            if anagram_set.__contains__(character):
-                anagram_set[character] += 1
+            if character in substring_character_occurrence_counts_by_text_characters:
+                substring_character_occurrence_counts_by_text_characters[character] += 1
             else:
-                anagram_set[character] = 1
+                substring_character_occurrence_counts_by_text_characters[character] = 1
 
         beginnings_of_anagrams: List[int] = []
-        remaining_chars_from_substring: Dict[str, int] = anagram_set.copy()
+        remaining_chars_from_substring: Dict[str, int] = substring_character_occurrence_counts_by_text_characters.copy()
         for i in range(0, text_length):
             before_head_index: int = i - substring_length
             if before_head_index >= 0:
                 before_head_character: str = text[before_head_index]
-                if anagram_set.__contains__(before_head_character):
-                    if remaining_chars_from_substring.__contains__(before_head_character):
-                        if anagram_set[before_head_character] > remaining_chars_from_substring[before_head_character]:
+                if before_head_character in substring_character_occurrence_counts_by_text_characters:
+                    if before_head_character in remaining_chars_from_substring:
+                        if substring_character_occurrence_counts_by_text_characters[before_head_character] > \
+                                remaining_chars_from_substring[before_head_character]:
                             remaining_chars_from_substring[before_head_character] += 1
                     else:
-                        if anagram_set[before_head_character] > 0:
+                        if substring_character_occurrence_counts_by_text_characters[before_head_character] > 0:
                             remaining_chars_from_substring[before_head_character] = 1
 
             current_character: str = text[i]
-            if remaining_chars_from_substring.__contains__(current_character) \
-                    and remaining_chars_from_substring[current_character] > 0:
+            if current_character in remaining_chars_from_substring and remaining_chars_from_substring[
+                current_character] > 0:
                 remaining_chars_from_substring[current_character] -= 1
                 if remaining_chars_from_substring[current_character] == 0:
                     remaining_chars_from_substring.pop(current_character)

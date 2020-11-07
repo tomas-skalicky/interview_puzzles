@@ -23,7 +23,7 @@ def find_shortest_task_plan_with_cool_down_time_and_with_reordering(tasks: List[
     Optional[str]]:
     occurrence_counts_by_tasks: Dict[str, int] = {}
     for task in tasks:
-        if occurrence_counts_by_tasks.__contains__(task):
+        if task in occurrence_counts_by_tasks:
             occurrence_counts_by_tasks[task] += 1
         else:
             occurrence_counts_by_tasks[task] = 1
@@ -32,7 +32,7 @@ def find_shortest_task_plan_with_cool_down_time_and_with_reordering(tasks: List[
     task_list_by_occurrence_counts: Dict[int, List[str]] = {}
     for task in occurrence_counts_by_tasks.keys():
         occurrence_count: int = occurrence_counts_by_tasks[task]
-        if task_list_by_occurrence_counts.__contains__(occurrence_count):
+        if occurrence_count in task_list_by_occurrence_counts:
             task_list_by_occurrence_counts[occurrence_count].append(task)
         else:
             task_list_by_occurrence_counts[occurrence_count] = [task]
@@ -44,12 +44,12 @@ def find_shortest_task_plan_with_cool_down_time_and_with_reordering(tasks: List[
     empty_slots: Deque[int] = deque()
     while len(task_list_by_occurrence_counts) > 0:
         new_max_occurrence_count: int = current_max_occurrence_count - 1
-        if task_list_by_occurrence_counts.__contains__(current_max_occurrence_count):
+        if current_max_occurrence_count in task_list_by_occurrence_counts:
             tasks_with_current_occurrence_count: List[str] = task_list_by_occurrence_counts.pop(
                 current_max_occurrence_count)
             for task in tasks_with_current_occurrence_count:
 
-                if not last_occurrence_indices_by_tasks.__contains__(task):
+                if task not in last_occurrence_indices_by_tasks:
                     if len(empty_slots) > 0:
                         last_occurrence_indices_by_tasks[task] = empty_slots.popleft()
                     else:
@@ -57,7 +57,7 @@ def find_shortest_task_plan_with_cool_down_time_and_with_reordering(tasks: List[
                         # Will be overwritten by "task" right away.
                         schedule.append(None)
 
-                elif last_occurrence_indices_by_tasks.__contains__(task):
+                elif task in last_occurrence_indices_by_tasks:
                     if len(empty_slots) > 0 and empty_slots[len(empty_slots) - 1] - last_occurrence_indices_by_tasks[
                         task] >= cool_down_time:
                         current_index: int = 0
@@ -77,7 +77,7 @@ def find_shortest_task_plan_with_cool_down_time_and_with_reordering(tasks: List[
                 schedule[last_occurrence_indices_by_tasks[task]] = task
 
                 if new_max_occurrence_count > 0:
-                    if task_list_by_occurrence_counts.__contains__(new_max_occurrence_count):
+                    if new_max_occurrence_count in task_list_by_occurrence_counts:
                         task_list_by_occurrence_counts[new_max_occurrence_count].append(task)
                     else:
                         task_list_by_occurrence_counts[new_max_occurrence_count] = [task]

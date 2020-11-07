@@ -59,11 +59,12 @@ def find_indices_of_next_larger_number(input_numbers: List[int]) -> List[int]:
                 break
 
         searched_closest_larger_number: int = current_number + 1
-        if index_lists_by_searched_closest_larger_numbers.__contains__(searched_closest_larger_number):
+        if searched_closest_larger_number in index_lists_by_searched_closest_larger_numbers:
             index_lists_by_searched_closest_larger_numbers[searched_closest_larger_number].append(i)
         else:
             # Time complexity ... O(log n)
-            insort_left_for_descendingly_sorted_list(sorted_searched_closest_larger_numbers_ordered_desc, searched_closest_larger_number)
+            insort_left_for_descendingly_sorted_list(sorted_searched_closest_larger_numbers_ordered_desc,
+                                                     searched_closest_larger_number)
             index_lists_by_searched_closest_larger_numbers[searched_closest_larger_number] = [i]
 
     return result_indices
