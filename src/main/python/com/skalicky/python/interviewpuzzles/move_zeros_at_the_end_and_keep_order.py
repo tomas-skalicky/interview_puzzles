@@ -23,39 +23,23 @@ from typing import List
 
 
 class Solution:
-    def move_zeros(self, nums: List[int]):
-        num_count: int = len(nums)
-        if num_count == 0:
+    @staticmethod
+    def move_zeros_at_the_end_and_keep_order(numbers: List[int]) -> None:
+        number_count: int = len(numbers)
+        if number_count == 0:
             return
         else:
             current_index_of_nonzero_to_swap: int = 0
             current_index_of_zero_to_swap: int = 0
-            while current_index_of_nonzero_to_swap < num_count and current_index_of_zero_to_swap < num_count:
-                while current_index_of_nonzero_to_swap < num_count and nums[current_index_of_nonzero_to_swap] == 0:
+            while current_index_of_nonzero_to_swap < number_count and current_index_of_zero_to_swap < number_count:
+                while current_index_of_nonzero_to_swap < number_count and numbers[
+                    current_index_of_nonzero_to_swap] == 0:
                     current_index_of_nonzero_to_swap = current_index_of_nonzero_to_swap + 1
-                while current_index_of_zero_to_swap < num_count and nums[current_index_of_zero_to_swap] != 0:
+                while current_index_of_zero_to_swap < number_count and numbers[current_index_of_zero_to_swap] != 0:
                     current_index_of_zero_to_swap = current_index_of_zero_to_swap + 1
-                if current_index_of_nonzero_to_swap < num_count and current_index_of_zero_to_swap < num_count:
-                    temporary: int = nums[current_index_of_zero_to_swap]
-                    nums[current_index_of_zero_to_swap] = nums[current_index_of_nonzero_to_swap]
-                    nums[current_index_of_nonzero_to_swap] = temporary
+                if current_index_of_nonzero_to_swap < number_count and current_index_of_zero_to_swap < number_count:
+                    temporary: int = numbers[current_index_of_zero_to_swap]
+                    numbers[current_index_of_zero_to_swap] = numbers[current_index_of_nonzero_to_swap]
+                    numbers[current_index_of_nonzero_to_swap] = temporary
                     current_index_of_zero_to_swap = current_index_of_zero_to_swap + 1
                     current_index_of_nonzero_to_swap = current_index_of_nonzero_to_swap + 1
-
-
-nums = [0, 0, 0, 2, 0, 1, 3, 4, 0, 0]
-Solution().move_zeros(nums)
-print(nums)
-# [2, 1, 3, 4, 0, 0, 0, 0, 0, 0]
-nums2 = []
-Solution().move_zeros(nums2)
-print(nums2)
-# []
-nums3 = [2, 1]
-Solution().move_zeros(nums3)
-print(nums3)
-# [2, 1]
-nums4 = [0, 0]
-Solution().move_zeros(nums4)
-print(nums4)
-# [0, 0]

@@ -14,7 +14,7 @@
 from typing import List
 
 
-def shortest_path(file_path: str) -> str:
+def normalize_file_path(file_path: str) -> str:
     file_parts: List[str] = file_path.split('/')
     if len(file_path) == 1:
         return file_path
@@ -32,13 +32,3 @@ def shortest_path(file_path: str) -> str:
             else:
                 result_parts.append(part)
         return '/'.join(result_parts)
-
-
-print(shortest_path('/Users/Joma/Documents/../Desktop/./../'))
-# /Users/Joma/
-print(shortest_path('./'))
-# ./
-print(shortest_path('../'))
-# ../
-print(shortest_path('../Desktop/./../'))
-# ../
