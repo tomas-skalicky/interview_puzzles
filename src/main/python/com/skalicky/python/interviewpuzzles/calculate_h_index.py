@@ -21,11 +21,13 @@
 from typing import List
 
 
-# Time complexity is O(n * log n) due to sorting of input list.
 def h_index(publications: List[int]) -> int:
-    sorted_publications_desc: List[int] = sorted(publications, reverse=True)
+    """Time complexity is O(n * log n) due to sorting of input list.
+    """
+
+    sorted_publications_descendingly: List[int] = sorted(publications, reverse=True)
     publication_count: int = 0
-    for publication in sorted_publications_desc:
+    for publication in sorted_publications_descendingly:
         publication_count += 1
         if publication <= publication_count:
             return publication

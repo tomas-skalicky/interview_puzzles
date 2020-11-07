@@ -24,19 +24,15 @@
 from typing import List
 
 
-def get_bonuses(performance: List[int]) -> List[int]:
-    employee_count: int = len(performance)
+def calculate_employees_bonuses(employees_performance: List[int]) -> List[int]:
+    employee_count: int = len(employees_performance)
     bonuses: List[int] = []
-    for i in range(0, len(performance)):
+    for i in range(0, employee_count):
         current_bonus: int = 1
-        current_performance: int = performance[i]
-        if i != 0 and performance[i - 1] < current_performance:
+        current_performance: int = employees_performance[i]
+        if i != 0 and employees_performance[i - 1] < current_performance:
             current_bonus += 1
-        if i != employee_count - 1 and performance[i + 1] < current_performance:
+        if i != employee_count - 1 and employees_performance[i + 1] < current_performance:
             current_bonus += 1
         bonuses.append(current_bonus)
     return bonuses
-
-
-print(get_bonuses([1, 2, 3, 2, 3, 5, 1]))
-# [1, 2, 3, 1, 2, 3, 1]
