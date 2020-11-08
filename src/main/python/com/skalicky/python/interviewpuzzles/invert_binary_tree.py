@@ -47,42 +47,29 @@
 # invert(root)
 # root.preorder()
 # # a c f b e d
+from typing import Optional
 
 
 class Node:
     def __init__(self, value):
-        self.left = None
-        self.right = None
         self.value = value
+        self.left: Optional[Node] = None
+        self.right: Optional[Node] = None
 
-    def preorder(self):
-        print(self.value, end=' ')
-        if self.left:
-            self.left.preorder()
-        if self.right:
-            self.right.preorder()
-
-
-def invert(node: Node):
-    backup: Node = node.right
-    node.right = node.left
-    node.left = backup
-    if node.left is not None:
-        invert(node.left)
-    if node.right is not None:
-        invert(node.right)
+    def preorder(self) -> str:
+        preorder_string: str = '{} '.format(self.value)
+        if self.left is not None:
+            preorder_string += self.left.preorder()
+        if self.right is not None:
+            preorder_string += self.right.preorder()
+        return preorder_string
 
 
-root = Node('a')
-root.left = Node('b')
-root.right = Node('c')
-root.left.left = Node('d')
-root.left.right = Node('e')
-root.right.left = Node('f')
-
-root.preorder()
-# a b d e c f
-print("\n")
-invert(root)
-root.preorder()
-# a c f b e d
+def invert_binary_tree(root_node: Node):
+    backup: Node = root_node.right
+    root_node.right = root_node.left
+    root_node.left = backup
+    if root_node.left is not None:
+        invert_binary_tree(root_node.left)
+    if root_node.right is not None:
+        invert_binary_tree(root_node.right)

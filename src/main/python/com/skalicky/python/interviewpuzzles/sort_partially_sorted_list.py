@@ -21,22 +21,21 @@ from math import floor
 from typing import List
 
 
-def sort_partially_sorted(nums: List[int], k: int) -> List[int]:
-    num_size: int = len(nums)
-    if num_size < 2 or k == 0:
-        return nums
+def sort_partially_sorted_list(input_numbers: List[int], k: int) -> List[int]:
+    input_list_length: int = len(input_numbers)
+    if input_list_length < 2 or k == 0:
+        return input_numbers
     else:
-        sorted_list: List[int] = [nums[0]]
-        for i in range(1, num_size):
-            current_number: int = nums[i]
+        sorted_list: List[int] = [input_numbers[0]]
+        for i in range(1, input_list_length):
+            current_number: int = input_numbers[i]
             if current_number > sorted_list[i - 1]:
                 sorted_list.append(current_number)
                 continue
             else:
                 min_index: int = max(0, i - k)
                 if ((min_index > 0 and current_number >= sorted_list[
-                    min_index - 1]) or min_index == 0) and current_number <= \
-                        sorted_list[min_index]:
+                    min_index - 1]) or min_index == 0) and current_number <= sorted_list[min_index]:
                     sorted_list.insert(min_index, current_number)
                 else:
                     max_index: int = i
@@ -51,17 +50,3 @@ def sort_partially_sorted(nums: List[int], k: int) -> List[int]:
                         else:
                             min_index = middle_index
         return sorted_list
-
-
-print(sort_partially_sorted([], 0))
-# []
-print(sort_partially_sorted([2], 0))
-# [2]
-print(sort_partially_sorted([3, 2, 7, 5, 4], 2))
-# [2, 3, 4, 5, 7]
-print(sort_partially_sorted([3, 2, 7, 5, 4], 3))
-# [2, 3, 4, 5, 7]
-print(sort_partially_sorted([2, 3, 4, 5, 7], 0))
-# [2, 3, 4, 5, 7]
-print(sort_partially_sorted([7, 2, 5, 4, 3], 4))
-# [2, 3, 4, 5, 7]

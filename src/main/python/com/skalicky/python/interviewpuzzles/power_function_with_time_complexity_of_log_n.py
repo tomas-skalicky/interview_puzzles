@@ -14,7 +14,7 @@
 from typing import Dict
 
 
-def power_function_with_time_complexity_of_logn(base, exponent: int):
+def power_function_with_time_complexity_of_log_n(base, exponent: int):
     if exponent == 0:
         return 1
     else:

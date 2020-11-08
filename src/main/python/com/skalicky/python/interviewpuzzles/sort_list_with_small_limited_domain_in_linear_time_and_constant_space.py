@@ -16,16 +16,12 @@
 from typing import List
 
 
-def sort_nums(nums: List[int]) -> List[int]:
+def sort_list_with_small_limited_domain_in_linear_time_and_constant_space(input_numbers: List[int]) -> List[int]:
     frequency: List[int] = [0, 0, 0]
-    for n in nums:
-        frequency[n - 1] = frequency[n - 1] + 1
-    result = []
-    for n in range(0, 3):
-        for i in range(0, frequency[n]):
-            result.append(n + 1)
+    for current_number in input_numbers:
+        frequency[current_number - 1] = frequency[current_number - 1] + 1
+    result: List[int] = []
+    for current_number in range(0, 3):
+        for i in range(0, frequency[current_number]):
+            result.append(current_number + 1)
     return result
-
-
-print(sort_nums([3, 3, 2, 1, 3, 2, 1]))
-# [1, 1, 2, 2, 3, 3, 3]
