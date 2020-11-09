@@ -29,21 +29,6 @@
 # # ['dog', 'fog']
 from typing import List, Dict
 
-letters_maps: Dict[int, List[str]] = {
-    1: [],
-    2: ['a', 'b', 'c'],
-    3: ['d', 'e', 'f'],
-    4: ['g', 'h', 'i'],
-    5: ['j', 'k', 'l'],
-    6: ['m', 'n', 'o'],
-    7: ['p', 'q', 'r', 's'],
-    8: ['t', 'u', 'v'],
-    9: ['w', 'x', 'y', 'z'],
-    0: []
-}
-
-valid_words: List[str] = ['dog', 'fish', 'cat', 'fog']
-
 
 def count_letters(word: str) -> Dict[str, int]:
     occurrences_by_letters: Dict[str, int] = {}
@@ -55,12 +40,12 @@ def count_letters(word: str) -> Dict[str, int]:
     return occurrences_by_letters
 
 
-def make_words(phone: str) -> List[str]:
-    occurrences_by_digit_strings: Dict[str, int] = count_letters(phone)
+def find_words_buildable_from_letters(phone_number: str, letter_lists_by_digits, valid_words) -> List[str]:
+    occurrences_by_digit_strings: Dict[str, int] = count_letters(phone_number)
     occurrences_by_letters_in_phone_number: Dict[str, int] = {}
     for digit_string in occurrences_by_digit_strings.keys():
         digit_occurrence: int = occurrences_by_digit_strings[digit_string]
-        for letter in letters_maps[int(digit_string)]:
+        for letter in letter_lists_by_digits[int(digit_string)]:
             if occurrences_by_letters_in_phone_number.__contains__(letter):
                 occurrences_by_letters_in_phone_number[letter] += digit_occurrence
             else:
@@ -80,7 +65,3 @@ def make_words(phone: str) -> List[str]:
             buildable_words.append(valid_word)
 
     return buildable_words
-
-
-print(make_words('364'))
-# ['dog', 'fog']

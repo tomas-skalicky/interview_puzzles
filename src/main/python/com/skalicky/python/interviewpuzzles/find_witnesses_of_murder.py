@@ -25,22 +25,16 @@
 from typing import List
 
 
-def witnesses(heights: List[int]):
-    if len(heights) == 0:
+def find_witnesses_of_murder(people_heights: List[int]):
+    people_count: int = len(people_heights)
+    if people_count == 0:
         return 0
-    count: int = 1
-    height_of_currently_tallest_witness = heights[len(heights) - 1]
-    for i in range(0, len(heights) - 1).__reversed__():
-        current_height: int = heights[i]
-        if current_height > height_of_currently_tallest_witness:
-            count = count + 1
-            height_of_currently_tallest_witness = current_height
-    return count
-
-
-print(witnesses([]))
-# 0
-print(witnesses([3]))
-# 1
-print(witnesses([3, 6, 3, 4, 1]))
-# 3
+    else:
+        witness_count: int = 1
+        height_of_currently_tallest_witness = people_heights[people_count - 1]
+        for i in reversed(range(0, people_count - 1)):
+            current_height: int = people_heights[i]
+            if current_height > height_of_currently_tallest_witness:
+                witness_count += 1
+                height_of_currently_tallest_witness = current_height
+        return witness_count
