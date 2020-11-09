@@ -49,7 +49,7 @@
 # print("List after reversal: ")
 # testTail.printList()
 # # 0 1 2 3 4
-from typing import Optional, Tuple
+from typing import Optional
 
 
 class ListNode:
@@ -57,18 +57,15 @@ class ListNode:
         self.val = x
         self.next: Optional[ListNode] = None
 
-    # Function to print the list
-    def print_list(self) -> None:
+    def serialize_to_string(self) -> str:
         node = self
         output = ''
         while node is not None:
-            output += str(node.val)
-            output += " "
+            output += '{} '.format(node.val)
             node = node.next
-        print(output)
+        return output
 
-    # Iterative Solution
-    def reverse_iteratively(self) -> None:
+    def reverse_linked_list_iteratively(self) -> None:
         previous_node: Optional[ListNode] = None
         current_node: ListNode = self
         next_node: ListNode = current_node.next
@@ -81,45 +78,8 @@ class ListNode:
             else:
                 next_node: Optional[ListNode] = None
 
-    # Recursive Solution
-    def reverse_recursively(self, previous_node=None) -> None:
+    def reverse_linked_list_recursively(self, previous_node=None) -> None:
         next_node: ListNode = self.next
         self.next = previous_node
         if next_node is not None:
-            next_node.reverse_recursively(self)
-
-
-def create_test_linked_list() -> Tuple[ListNode, ListNode]:
-    test_head = ListNode(4)
-    node1 = ListNode(3)
-    test_head.next = node1
-    node2 = ListNode(2)
-    node1.next = node2
-    node3 = ListNode(1)
-    node2.next = node3
-    test_tail = ListNode(0)
-    node3.next = test_tail
-    return test_head, test_tail
-
-
-def main() -> None:
-    test_head1, test_tail1 = create_test_linked_list()
-    print("Initial list: ")
-    test_head1.print_list()
-    # 4 3 2 1 0
-    test_head1.reverse_iteratively()
-    print("List after reversal: ")
-    test_tail1.print_list()
-    # 0 1 2 3 4
-
-    test_head2, test_tail2 = create_test_linked_list()
-    print("Initial list: ")
-    test_head2.print_list()
-    # 4 3 2 1 0
-    test_head2.reverse_recursively()
-    print("List after reversal: ")
-    test_tail2.print_list()
-    # 0 1 2 3 4
-
-
-main()
+            next_node.reverse_linked_list_recursively(self)
