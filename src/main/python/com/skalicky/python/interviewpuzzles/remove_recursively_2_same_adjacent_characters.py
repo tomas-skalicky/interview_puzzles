@@ -16,6 +16,10 @@
 
 
 def remove_recursively_2_same_adjacent_characters(input_string: str) -> str:
+    """Time complexity ... O(n) where *n* is the length of the input string because the algorithm visits every element
+    maximum three times, two times when going from the left to the right and once when going from the right to the left.
+    """
+
     remaining_string: str = input_string
     index_to_process: int = 0
     while index_to_process < len(remaining_string) - 1:
