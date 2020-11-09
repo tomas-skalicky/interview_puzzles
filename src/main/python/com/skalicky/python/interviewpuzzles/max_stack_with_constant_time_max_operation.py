@@ -35,45 +35,24 @@ class MaxStack:
         self.stack = []
         self.maximums = []
 
-    def push(self, val):
-        self.stack.append(val)
+    def push(self, value):
+        self.stack.append(value)
         if len(self.maximums) == 0:
-            self.maximums.append(val)
-        elif val > self.maximums[len(self.maximums) - 1]:
-            self.maximums.append(val)
+            self.maximums.append(value)
+        elif value > self.maximums[len(self.maximums) - 1]:
+            self.maximums.append(value)
         else:
             self.maximums.append(self.maximums[len(self.maximums) - 1])
 
     def pop(self):
         if len(self.maximums) == 0:
-            raise Exception('empty stack')
+            raise RuntimeError('empty stack')
         else:
             self.maximums.pop()
             return self.stack.pop()
 
     def max(self):
-        if len(self.maximums) == 0:
-            return None
-        else:
-            return self.maximums[len(self.maximums) - 1]
+        """Idea taken from https://www.geeksforgeeks.org/design-a-stack-that-supports-getmin-in-o1-time-and-o1-extra-space/
+        """
 
-
-s = MaxStack()
-s.push(1)
-s.push(2)
-s.push(3)
-s.push(2)
-print(s.max())
-# 3
-s.pop()
-s.pop()
-print(s.max())
-# 2
-s.pop()
-s.pop()
-print(s.max())
-# None
-s.pop()
-# Exception
-
-# Idea taken from https://www.geeksforgeeks.org/design-a-stack-that-supports-getmin-in-o1-time-and-o1-extra-space/
+        return self.maximums[len(self.maximums) - 1] if len(self.maximums) > 0 else None
