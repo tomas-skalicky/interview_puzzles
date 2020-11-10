@@ -32,7 +32,7 @@
 # # 42
 from collections import deque
 from typing import Deque, List, Tuple, Set, Optional
-from src.main.python.com.skalicky.python.interviewpuzzles.find_max_sum_of_contiguous_subarray import max_subarray_sum
+from src.main.python.com.skalicky.python.interviewpuzzles.find_max_sum_of_non_empty_contiguous_sub_array import find_max_sum_of_non_empty_contiguous_sub_array
 
 print('------------------------------')
 print('find_max_path_in_tree_graph:')
@@ -149,7 +149,7 @@ def max_path_sum(root_node: Optional[Node]) -> int:
             generate_all_possible_sequences(leaf, None, [], leaf, all_sequences, leaves_of_all_sequences)
         current_max_sum: Optional[int] = None
         for sequence in all_sequences:
-            current_sum: int = max_subarray_sum(sequence)
+            current_sum: int = find_max_sum_of_non_empty_contiguous_sub_array(sequence)
             current_max_sum = max(current_max_sum, current_sum) if current_max_sum is not None else current_sum
         return current_max_sum
 
