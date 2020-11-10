@@ -20,13 +20,9 @@ from typing import List, Set
 
 class Solution:
     @staticmethod
-    def find_disappeared_numbers(nums: List[int]) -> List[int]:
-        complement_to_domain: Set[int] = set(range(1, len(nums) + 1))
-        for n in nums:
-            if complement_to_domain.__contains__(n):
+    def find_complement_to_domain(input_integers: List[int]) -> Set[int]:
+        complement_to_domain: Set[int] = set(range(1, len(input_integers) + 1))
+        for n in input_integers:
+            if n in complement_to_domain:
                 complement_to_domain.remove(n)
-        return list(complement_to_domain)
-
-
-print(Solution.find_disappeared_numbers([4, 6, 2, 6, 7, 2, 1]))
-# [3, 5]
+        return complement_to_domain
