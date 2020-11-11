@@ -10,10 +10,10 @@
 # # [2, 5, 7]
 #
 # Can you do this in linear time?
-from typing import List
+from typing import List, Optional
 
 
-def find_continuous_k(input_list: List[int], k: int) -> List[int]:
+def find_continuous_sub_array_with_target_sum(input_list: List[int], k: int) -> Optional[List[int]]:
     current_start_index_included: int = 0
     current_end_index_included: int = 0
     current_sum: int = input_list[current_start_index_included]
@@ -28,9 +28,3 @@ def find_continuous_k(input_list: List[int], k: int) -> List[int]:
         return input_list[current_start_index_included:current_end_index_included + 1]
     else:
         return None
-
-
-print(find_continuous_k([1, 3, 2, 5, 7, 2], 14))
-# [2, 5, 7]
-print(find_continuous_k([1, 3, 2, 5, 6, 2], 14))
-# None
