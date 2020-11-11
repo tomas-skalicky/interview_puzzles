@@ -43,17 +43,17 @@ class Node:
         return str(self.value)
 
 
-def remove_consecutive_sum_to_0(node_arg: Node) -> Optional[Node]:
+def remove_consecutive_linked_list_items_which_sum_to_0(list_head_node: Node) -> Optional[Node]:
     all_possible_previous_sums_from_last_cut: Dict[int, Node] = {}
     previous_node: Optional[Node] = None
-    first_node: Node = node_arg
-    current_node: Node = node_arg
+    first_node: Node = list_head_node
+    current_node: Node = list_head_node
     while current_node:
         if current_node.value == 0 and len(all_possible_previous_sums_from_last_cut) == 0:
             first_node = current_node.next
         else:
             complement = 0 - current_node.value
-            if all_possible_previous_sums_from_last_cut.__contains__(complement):
+            if complement in all_possible_previous_sums_from_last_cut:
                 node_before_first_of_consecutive_nodes: Node = all_possible_previous_sums_from_last_cut[complement]
                 if node_before_first_of_consecutive_nodes:
                     node_before_first_of_consecutive_nodes.next = current_node.next
@@ -75,57 +75,3 @@ def remove_consecutive_sum_to_0(node_arg: Node) -> Optional[Node]:
 
         current_node = current_node.next
     return first_node
-
-
-def print_out_linked_list(node_arg: Optional[Node]) -> None:
-    if node_arg is None:
-        print('None', end='')
-    current_node: Node = node_arg
-    while current_node:
-        if current_node != node_arg:
-            print(' -> ', end='')
-        print(current_node.value, end='')
-        current_node = current_node.next
-    print()
-
-
-node = Node(10)
-node.next = Node(5)
-node.next.next = Node(-3)
-node.next.next.next = Node(-3)
-node.next.next.next.next = Node(1)
-node.next.next.next.next.next = Node(4)
-node.next.next.next.next.next.next = Node(-4)
-print_out_linked_list(node)
-print_out_linked_list(remove_consecutive_sum_to_0(node))
-print()
-# 10
-
-node2 = Node(-10)
-node2.next = Node(10)
-print_out_linked_list(node2)
-print_out_linked_list(remove_consecutive_sum_to_0(node2))
-print()
-# None
-
-node3 = Node(0)
-print_out_linked_list(node3)
-print_out_linked_list(remove_consecutive_sum_to_0(node3))
-print()
-# None
-
-node4 = Node(-10)
-node4.next = Node(10)
-node4.next.next = Node(-3)
-node4.next.next.next = Node(-3)
-print_out_linked_list(node4)
-print_out_linked_list(remove_consecutive_sum_to_0(node4))
-print()
-# -3 -> -3
-
-node5 = Node(0)
-node5.next = Node(10)
-print_out_linked_list(node5)
-print_out_linked_list(remove_consecutive_sum_to_0(node5))
-print()
-# 10
