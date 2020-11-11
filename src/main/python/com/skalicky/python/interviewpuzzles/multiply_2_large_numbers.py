@@ -8,6 +8,9 @@
 #
 # def multiply(str1, str2):
 #   # Fill this in.
+#
+# print(multiply("11", "13"))
+# # 143
 from collections import deque
 from typing import List, Deque
 
