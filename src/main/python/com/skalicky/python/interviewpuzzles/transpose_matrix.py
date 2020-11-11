@@ -16,8 +16,14 @@
 # # [[1, 4],
 # #  [2, 5],
 # #  [3, 6]]
-from typing import List
+from typing import List, Optional
 
 
 def transpose_matrix(matrix: List[List[int]]) -> List[List[int]]:
-    return
+    initial_row_count: int = len(matrix)
+    initial_column_count: int = len(matrix[0])
+    output_matrix: List[List[Optional[int]]] = [[None] * initial_row_count for i in range(0, initial_column_count)]
+    for i in range(0, initial_row_count):
+        for j in range(0, initial_column_count):
+            output_matrix[j][i] = matrix[i][j]
+    return output_matrix
