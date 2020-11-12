@@ -13,6 +13,10 @@ from typing import List
 
 
 def find_intersection_of_3_sorted_lists(list1: List[object], list2: List[object], list3: List[object]) -> List[object]:
+    """Time complexity ... O(n) where *n* is the length of the longest input list. Reason: we are vising each element
+    in each input list only constant number of times.
+    """
+
     list1_length: int = len(list1)
     list2_length: int = len(list2)
     list3_length: int = len(list3)
