@@ -18,7 +18,7 @@
 from typing import List, Tuple, Optional
 
 
-def merge(intervals: List[Tuple[int, int]]):
+def merge_overlapping_intervals(intervals: List[Tuple[int, int]]):
     sorted_intervals: List[Tuple[int, int]] = sorted(intervals)
     result_intervals: List[Tuple[int, int]] = []
     start_to_persist: Optional[int] = None
@@ -37,9 +37,3 @@ def merge(intervals: List[Tuple[int, int]]):
     if start_to_persist:
         result_intervals.append((start_to_persist, end_to_persist))
     return result_intervals
-
-
-print(merge([(1, 3), (5, 8), (4, 10), (20, 25)]))
-# [(1, 3), (4, 10), (20, 25)]
-print(merge([(1, 3), (3, 3), (3, 4), (18, 20), (5, 8), (4, 10), (20, 25), (-1, 0)]))
-# [(-1, 0), (1, 10), (18, 25)]
