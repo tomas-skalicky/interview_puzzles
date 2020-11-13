@@ -21,21 +21,15 @@
 #
 # print Solution().intersection([4, 9, 5], [9, 4, 9, 8, 4])
 # # [9, 4]
-from collections.abc import Set, MutableSet
+from typing import Set, List
 
 
 class Solution:
     @staticmethod
-    def intersection(nums1, nums2):
-        nums1_set: Set[int] = set(nums1)
-        result_set: MutableSet[int] = set()
-        for n in nums2:
-            if nums1_set.__contains__(n):
-                result_set.add(n)
-        return list(result_set)
-
-
-print(Solution.intersection([1, 2, 2, 1], [2, 2]))
-# [2]
-print(Solution.intersection([4, 9, 5], [9, 4, 9, 8, 4]))
-# [9, 4]
+    def find_intersection_set_of_two_arrays(array1: List[int], array2: List[int]) -> Set[int]:
+        set1: Set[int] = set(array1)
+        result_set: Set[int] = set()
+        for number2 in array2:
+            if number2 in set1:
+                result_set.add(number2)
+        return result_set
