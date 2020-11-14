@@ -19,61 +19,60 @@ from collections import deque
 from typing import List, Deque, Tuple
 
 
-def identify_bottom_of_puddle(current_index: int,
+def identify_bottom_of_puddle(initial_elevation_index: int,
                               landscape: List[int],
-                              bottom_of_puddles_to_process: Deque[Tuple]) -> int:
-    i: int = current_index
-    current_value = landscape[current_index]
-    while i > 0 and landscape[i] == current_value:
-        i = i - 1
-    if i >= 0 and landscape[i] > current_value:
-        start_index: int = i + 1
-        i = current_index
-        while i < len(landscape) - 1 and landscape[i] == current_value:
-            i = i + 1
-        if i < len(landscape) and landscape[i] > current_value:
-            bottom_of_puddles_to_process.append((start_index, i - 1))
-            i = i + 1
-        return i
+                              bottoms_of_puddles_to_process: Deque[Tuple]) -> int:
+    landscape_length: int = len(landscape)
+    initial_elevation = landscape[initial_elevation_index]
+
+    candidate_elevation_index_for_start: int = initial_elevation_index
+    while candidate_elevation_index_for_start > 0 and landscape[
+        candidate_elevation_index_for_start] == initial_elevation:
+        candidate_elevation_index_for_start -= 1
+
+    if landscape[candidate_elevation_index_for_start] > initial_elevation:
+        puddle_bottom_start_index: int = candidate_elevation_index_for_start + 1
+
+        candidate_elevation_index_for_end: int = initial_elevation_index
+        while candidate_elevation_index_for_end < landscape_length - 1 and landscape[
+            candidate_elevation_index_for_end] == initial_elevation:
+            candidate_elevation_index_for_end += 1
+
+        if landscape[candidate_elevation_index_for_end] > initial_elevation:
+            bottoms_of_puddles_to_process.append((puddle_bottom_start_index, candidate_elevation_index_for_end - 1))
+            return candidate_elevation_index_for_end + 1
+        else:
+            return candidate_elevation_index_for_end
     else:
-        return current_index + 1
+        return initial_elevation_index + 1
 
 
-# Time complexity O(n ^ 2)
-def capacity(arr: List[int]) -> int:
-    if len(arr) < 3:
+def calculate_rainwater_in_puddles(input_landscape: List[int]) -> int:
+    """Time complexity ... O(n ^ 2) where *n* is the length of the input List
+    """
+
+    # We create a copy of input List because we modify the List in the method.
+    landscape: List[int] = input_landscape.copy()
+    landscape_length: int = len(landscape)
+    if landscape_length < 3:
         return 0
     else:
-        result_count: int = 0
-        bottom_of_puddles_to_process: Deque[Tuple] = deque()
-        i: int = 1
-        while i < len(arr) - 1:
-            i = identify_bottom_of_puddle(i, arr, bottom_of_puddles_to_process)
-        while len(bottom_of_puddles_to_process) > 0:
-            start_index, end_index = bottom_of_puddles_to_process.popleft()
-            min_depth: int = min(arr[start_index - 1], arr[end_index + 1])
-            current_value: int = arr[start_index]
-            diff_depth: int = min_depth - current_value
-            for j in range(start_index, end_index + 1):
-                result_count = result_count + diff_depth
-                arr[j] = min_depth
-            identify_bottom_of_puddle(start_index - 1, arr, bottom_of_puddles_to_process)
-        return result_count
+        total_rainwater: int = 0
+        bottoms_of_puddles_to_process: Deque[Tuple[int, int]] = deque()
+        current_elevation_index: int = 1
+        # O(n) where n is the length of the input list because each element of the list is visited at most twice
+        while current_elevation_index < landscape_length - 1:
+            current_elevation_index = identify_bottom_of_puddle(current_elevation_index, landscape,
+                                                                bottoms_of_puddles_to_process)
 
-
-print(capacity([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]))
-# 6
-print(capacity([2, 0, 0, 0, 3]))
-# 6
-print(capacity([2, 2, 2]))
-# 0
-print(capacity([0, 1, 4]))
-# 0
-print(capacity([4, 1, 0]))
-# 0
-print(capacity([0, 2]))
-# 0
-print(capacity([0]))
-# 0
-print(capacity([]))
-# 0
+        while len(bottoms_of_puddles_to_process) > 0:
+            puddle_bottom_start_index, puddle_bottom_end_index = bottoms_of_puddles_to_process.popleft()
+            sides_min_elevation: int = min(landscape[puddle_bottom_start_index - 1],
+                                           landscape[puddle_bottom_end_index + 1])
+            bottom_elevation: int = landscape[puddle_bottom_start_index]
+            elevation_difference: int = sides_min_elevation - bottom_elevation
+            for elevation_index in range(puddle_bottom_start_index, puddle_bottom_end_index + 1):
+                total_rainwater += elevation_difference
+                landscape[elevation_index] = sides_min_elevation
+            identify_bottom_of_puddle(puddle_bottom_start_index - 1, landscape, bottoms_of_puddles_to_process)
+        return total_rainwater
