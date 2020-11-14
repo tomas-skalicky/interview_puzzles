@@ -21,7 +21,7 @@ class Test(TestCase):
             self):
         head_node: Node = Node(0)
         head_node.next = Node(10)
-        self.assertEqual('10', serialize_linked_list_in_string(
+        self.assertEqual('10', self.serialize_linked_list_in_string(
             remove_consecutive_linked_list_items_which_sum_to_0(head_node)))
 
     def test_remove_consecutive_linked_list_items_which_sum_to_0__when_list_contains_2_consecutive_nodes_not_summing_to_0__then_result_contains_both_nodes(
@@ -30,7 +30,7 @@ class Test(TestCase):
         head_node.next = Node(10)
         head_node.next.next = Node(-3)
         head_node.next.next.next = Node(-3)
-        self.assertEqual('-3 -> -3', serialize_linked_list_in_string(
+        self.assertEqual('-3 -> -3', self.serialize_linked_list_in_string(
             remove_consecutive_linked_list_items_which_sum_to_0(head_node)))
 
     def test_remove_consecutive_linked_list_items_which_sum_to_0__when_list_contains_more_than_2_consecutive_nodes_summing_to_0__then_result_does_not_contain_these_nodes(
@@ -42,19 +42,19 @@ class Test(TestCase):
         head_node.next.next.next.next = Node(1)
         head_node.next.next.next.next.next = Node(4)
         head_node.next.next.next.next.next.next = Node(-4)
-        self.assertEqual('10', serialize_linked_list_in_string(
+        self.assertEqual('10', self.serialize_linked_list_in_string(
             remove_consecutive_linked_list_items_which_sum_to_0(head_node)))
 
-
-def serialize_linked_list_in_string(list_head_node: Optional[Node]) -> str:
-    if list_head_node is None:
-        return 'None'
-    else:
-        result_string: str = ''
-        current_node: Node = list_head_node
-        while current_node is not None:
-            if current_node != list_head_node:
-                result_string += ' -> '
-            result_string += str(current_node.value)
-            current_node = current_node.next
-        return result_string
+    @staticmethod
+    def serialize_linked_list_in_string(list_head_node: Optional[Node]) -> str:
+        if list_head_node is None:
+            return 'None'
+        else:
+            result_string: str = ''
+            current_node: Node = list_head_node
+            while current_node is not None:
+                if current_node != list_head_node:
+                    result_string += ' -> '
+                result_string += str(current_node.value)
+                current_node = current_node.next
+            return result_string
