@@ -26,48 +26,36 @@
 #   ['M', 'A', 'S', 'S']]
 # print word_search(matrix, 'FOAM')
 # # True
-from collections.abc import MutableSet
-from typing import List
+from typing import List, Set
 
 
-def word_search(input_matrix: List[List[str]], word: str) -> bool:
-    if len(word) == 0:
+def find_string_in_2d_matrix(matrix: List[List[str]], searched_string: str) -> bool:
+    if len(searched_string) == 0:
         return True
-    if len(input_matrix) == 0 or len(input_matrix[0]) == 0:
-        return False
-    all_strings_in_matrix: MutableSet[str] = set()
-    row_count = len(input_matrix)
-    for row_index in range(0, row_count):
-        all_strings_in_matrix.add(''.join(input_matrix[row_index][:]))
-    column_count = len(input_matrix[0])
-    for column_index in range(0, column_count):
-        column_string = ''
-        for row_index in range(0, row_count):
-            column_string = column_string + input_matrix[row_index][column_index]
-        all_strings_in_matrix.add(column_string)
-    for string_in_matrix in all_strings_in_matrix:
-        if string_in_matrix.__contains__(word):
-            return True
-    return False
+    else:
+        row_count = len(matrix)
+        if row_count == 0:
+            return False
+        else:
+            column_count = len(matrix[0])
+            if column_count == 0:
+                return False
+            else:
+                all_strings_in_matrix: Set[str] = set()
 
+                # Time complexity ... O(n ^ 2) where n is the size of matrix
+                for row_index in range(0, row_count):
+                    all_strings_in_matrix.add(''.join(matrix[row_index][:]))
 
-matrix = [
-    ['F', 'A', 'C', 'I'],
-    ['O', 'B', 'Q', 'P'],
-    ['A', 'N', 'O', 'B'],
-    ['M', 'A', 'S', 'S'],
-    ['M', 'X', 'S', 'S']]
-print(word_search(matrix, 'FOAMM'))
-# True
-print(word_search(matrix, 'BQP'))
-# True
-print(word_search(matrix, 'OSS'))
-# True
-print(word_search(matrix, 'BP'))
-# False
-print(word_search([[]], ''))
-# True
-print(word_search([[]], 'F'))
-# False
-print(word_search([[]], 'OSSS'))
-# False
+                # Time complexity ... O(n ^ 2) where n is the size of matrix
+                for column_index in range(0, column_count):
+                    column_string = ''
+                    for row_index in range(0, row_count):
+                        column_string += matrix[row_index][column_index]
+                    all_strings_in_matrix.add(column_string)
+
+                # Time complexity ... O(n ^ 3) due to the complexity of str.__contains__
+                for string_in_matrix in all_strings_in_matrix:
+                    if searched_string in string_in_matrix:
+                        return True
+                return False
