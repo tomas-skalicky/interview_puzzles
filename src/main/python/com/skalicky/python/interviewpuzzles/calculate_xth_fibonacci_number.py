@@ -26,15 +26,15 @@
 
 class Solution:
     @staticmethod
-    def calculate_xth_fibonacci_number(n: int) -> int:
-        if n == 0:
+    def calculate_xth_fibonacci_number(x: int) -> int:
+        if x == 0:
             return 0
-        elif n == 1:
+        elif x == 1:
             return 1
         else:
             fibonacci_number_n_minus_2: int = 0
             fibonacci_number_n_minus_1: int = 1
-            for i in range(2, n + 1):
+            for n in range(2, x + 1):
                 current_fibonacci_number: int = fibonacci_number_n_minus_2 + fibonacci_number_n_minus_1
                 fibonacci_number_n_minus_2 = fibonacci_number_n_minus_1
                 fibonacci_number_n_minus_1 = current_fibonacci_number
