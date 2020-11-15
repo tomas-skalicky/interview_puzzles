@@ -26,26 +26,16 @@
 
 class Solution:
     @staticmethod
-    def fibonacci(n: int) -> int:
+    def calculate_xth_fibonacci_number(n: int) -> int:
         if n == 0:
             return 0
         elif n == 1:
             return 1
         else:
-            fib_number_minus_1: int = 0
-            fib_number: int = 1
+            fibonacci_number_n_minus_2: int = 0
+            fibonacci_number_n_minus_1: int = 1
             for i in range(2, n + 1):
-                current_fib_number: int = fib_number_minus_1 + fib_number
-                fib_number_minus_1 = fib_number
-                fib_number = current_fib_number
-            return fib_number
-
-
-print(Solution.fibonacci(0))
-# 0
-print(Solution.fibonacci(1))
-# 1
-print(Solution.fibonacci(2))
-# 1
-print(Solution.fibonacci(9))
-# 34
+                current_fibonacci_number: int = fibonacci_number_n_minus_2 + fibonacci_number_n_minus_1
+                fibonacci_number_n_minus_2 = fibonacci_number_n_minus_1
+                fibonacci_number_n_minus_1 = current_fibonacci_number
+            return fibonacci_number_n_minus_1
