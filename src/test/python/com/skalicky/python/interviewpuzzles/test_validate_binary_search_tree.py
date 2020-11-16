@@ -1,7 +1,7 @@
 from unittest import TestCase
 
-from src.main.python.com.skalicky.python.interviewpuzzles.validate_binary_search_tree import \
-    validate_binary_search_tree, TreeNode
+from src.main.python.com.skalicky.python.interviewpuzzles.validate_binary_search_tree import TreeNode, \
+    validate_binary_search_tree
 
 
 class Test(TestCase):

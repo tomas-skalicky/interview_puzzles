@@ -19,7 +19,7 @@
 # # [['efg'], ['bcd', 'cbd'], ['abc', 'cba']]
 
 
-from typing import List, Tuple, Set, Dict
+from typing import Dict, List, Tuple
 
 
 def word_to_frequencies_by_chars(word: str):

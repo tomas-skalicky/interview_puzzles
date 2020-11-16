@@ -12,7 +12,7 @@
 # # momom
 from collections import deque
 from math import floor
-from typing import List, Dict, Deque, Optional
+from typing import Deque, Dict, List, Optional
 
 
 def find_palindrome(s: str) -> Optional[str]:

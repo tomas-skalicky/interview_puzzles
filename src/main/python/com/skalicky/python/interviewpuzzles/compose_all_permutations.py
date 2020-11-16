@@ -7,7 +7,7 @@
 #
 # print permute([1, 2, 3])
 # # [[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]
-from typing import List, Set, Optional
+from typing import List, Optional, Set
 
 
 def permute_recursively(num: int, remaining_nums: List[int], current_permutation: List[Optional[int]],

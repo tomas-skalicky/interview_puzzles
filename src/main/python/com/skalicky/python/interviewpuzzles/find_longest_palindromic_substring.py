@@ -19,7 +19,7 @@
 # print(str(Solution().longestPalindrome(s)))
 # # racecar
 from collections import deque
-from typing import Optional, Deque, Tuple
+from typing import Deque, Optional, Tuple
 
 
 class Solution:

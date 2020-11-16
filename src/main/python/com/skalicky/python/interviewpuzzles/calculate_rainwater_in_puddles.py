@@ -16,7 +16,7 @@
 # print capacity([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1])
 # # 6
 from collections import deque
-from typing import List, Deque, Tuple
+from typing import Deque, List, Tuple
 
 
 def identify_bottom_of_puddle(initial_elevation_index: int,

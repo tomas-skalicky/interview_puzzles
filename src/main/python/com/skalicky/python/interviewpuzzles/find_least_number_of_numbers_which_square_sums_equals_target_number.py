@@ -10,7 +10,7 @@
 # print(square_sum(13))
 # # Min sum is 32 + 22
 # # 2
-from math import sqrt, floor
+from math import floor, sqrt
 
 
 def find_least_number_of_numbers_which_square_sums_equals_target_number(target_number: int) -> int:

@@ -15,7 +15,7 @@
 #
 # print merge([(1, 3), (5, 8), (4, 10), (20, 25)])
 # # [(1, 3), (4, 10), (20, 25)]
-from typing import List, Tuple, Optional
+from typing import List, Optional, Tuple
 
 
 def merge_overlapping_intervals(intervals: List[Tuple[int, int]]):

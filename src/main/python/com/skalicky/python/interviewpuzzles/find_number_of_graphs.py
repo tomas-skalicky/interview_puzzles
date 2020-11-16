@@ -11,7 +11,7 @@
 #
 # In the above example, vertices 1, 2, 3, 4 are all connected, and 5, 6 are connected, and thus there are 2 connected
 # components in the graph above.
-from typing import List, Tuple, Dict
+from typing import Dict, List, Tuple
 
 
 def find_number_of_graphs(edges: List[Tuple[int, int]]) -> int:

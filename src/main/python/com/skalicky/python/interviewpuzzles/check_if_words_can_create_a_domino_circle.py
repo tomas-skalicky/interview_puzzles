@@ -20,7 +20,7 @@
 #
 # print chainedWords(['apple', 'eggs', 'snack', 'karat', 'tuna'])
 # # True
-from typing import List, Dict
+from typing import Dict, List
 
 
 def chained_words(words: List[str]) -> bool:

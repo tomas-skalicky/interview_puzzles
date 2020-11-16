@@ -25,7 +25,7 @@
 #                           [0, 0, 0]]))
 # # 2
 from collections import deque
-from typing import List, Tuple, Deque, Set
+from typing import Deque, List, Set, Tuple
 
 
 # Time and spacial complexity ... O(row_count! * column_count!). See

@@ -19,7 +19,7 @@
 # # 13
 from collections import deque
 from enum import Enum
-from typing import List, Optional, Tuple, Deque
+from typing import Deque, List, Optional, Tuple
 
 
 class MoveType(Enum):

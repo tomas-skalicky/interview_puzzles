@@ -26,7 +26,7 @@
 # print(largest_path_sum(tree))
 # # [1, 3, 5]
 from collections import deque
-from typing import Optional, List, Deque, Tuple
+from typing import Deque, List, Optional, Tuple
 
 
 class Node:

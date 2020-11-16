@@ -11,8 +11,7 @@
 #
 # print rearrangeString('abbccc')
 # # cbcabc
-from collections import deque
-from typing import List, Dict, Tuple, Optional
+from typing import Dict, List, Optional, Tuple
 
 
 def multiple_letter(letter: str, occurrence_count: int) -> List[str]:

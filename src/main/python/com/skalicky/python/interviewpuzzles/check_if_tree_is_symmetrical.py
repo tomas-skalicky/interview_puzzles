@@ -29,7 +29,7 @@
 # # True
 from collections import deque
 from math import floor
-from typing import List, Deque, Tuple, Optional
+from typing import Deque, List, Optional, Tuple
 
 
 class Node:

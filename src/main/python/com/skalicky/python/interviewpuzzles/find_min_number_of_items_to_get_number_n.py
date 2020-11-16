@@ -12,7 +12,7 @@
 # # 3 coins (25 + 10 + 1)
 import sys
 from collections import deque
-from typing import List, Deque, Tuple, Optional
+from typing import Deque, List, Optional, Tuple
 
 
 def make_change(coins: List[int], n: int) -> Optional[int]:

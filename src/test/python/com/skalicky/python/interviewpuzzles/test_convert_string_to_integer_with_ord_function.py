@@ -1,4 +1,5 @@
 from unittest import TestCase
+
 from src.main.python.com.skalicky.python.interviewpuzzles.convert_string_to_integer_with_ord_function import \
     convert_string_to_integer_with_ord_function
 

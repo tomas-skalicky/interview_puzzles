@@ -12,7 +12,7 @@
 # print(multiply("11", "13"))
 # # 143
 from collections import deque
-from typing import List, Deque
+from typing import Deque, List
 
 
 def multiply_2_large_numbers(number1_string: str, number2_string: str) -> str:

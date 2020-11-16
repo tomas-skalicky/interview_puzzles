@@ -15,7 +15,7 @@
 # # -4
 from abc import ABC, abstractmethod
 from collections import deque
-from typing import List, Deque
+from typing import Deque, List
 
 
 # Abstract Base Class

@@ -11,7 +11,6 @@
 #
 # running_median([2, 1, 4, 7, 2, 0, 5])
 # # 2 1.5 2 3.0 2 2.0 2
-import sys
 from math import floor
 from typing import List
 

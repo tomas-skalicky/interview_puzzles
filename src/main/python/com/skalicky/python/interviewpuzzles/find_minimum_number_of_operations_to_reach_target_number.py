@@ -12,7 +12,7 @@
 # # (((6 - 1) * 2) * 2) = 20 : 3 operations needed only
 # # print 3
 from collections import deque
-from typing import Deque, Tuple, Set
+from typing import Deque, Set, Tuple
 
 
 def find_minimum_number_of_operations_to_reach_target_number(start: int, target: int) -> int:

@@ -21,7 +21,7 @@
 #
 # print Solution().intersection([4, 9, 5], [9, 4, 9, 8, 4])
 # # [9, 4]
-from typing import Set, List
+from typing import List, Set
 
 
 class Solution:

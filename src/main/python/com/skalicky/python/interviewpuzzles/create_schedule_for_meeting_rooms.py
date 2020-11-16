@@ -21,7 +21,7 @@
 from bisect import insort_left
 from collections import deque
 from functools import total_ordering
-from typing import Tuple, List, Deque
+from typing import Deque, List, Tuple
 
 
 @total_ordering

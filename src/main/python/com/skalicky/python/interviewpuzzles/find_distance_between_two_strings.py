@@ -14,7 +14,7 @@
 # # 2
 
 
-from typing import Dict, Any
+from typing import Any, Dict
 
 
 # Time complexity O(3^max(len(s1), len(s2))) because the algorithm evaluates the complete tree of possibilities.

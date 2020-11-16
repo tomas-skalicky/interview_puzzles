@@ -10,8 +10,8 @@
 #
 # print largestNum([17, 7, 2, 45, 72])
 # # 77245217
-from typing import List
 from functools import cmp_to_key
+from typing import List
 
 
 def compare(num1_str: str, num2_str: str) -> int:

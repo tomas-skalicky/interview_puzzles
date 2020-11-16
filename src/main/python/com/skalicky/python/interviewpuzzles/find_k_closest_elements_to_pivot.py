@@ -6,7 +6,7 @@
 #
 # def closest_nums(nums, k, x):
 #  # Fill this in.
-from typing import List, Dict
+from typing import Dict, List
 
 
 def find_k_closest_elements_to_pivot(input_numbers: List[int], k: int, pivot: int) -> List[int]:

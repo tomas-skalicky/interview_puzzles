@@ -12,7 +12,7 @@
 # # 4
 #
 # Can you do this in linear time?
-from typing import List, Set, Optional
+from typing import List, Optional, Set
 
 
 def find_length_of_longest_consecutive_sequence_in_non_sorted_array(nums: List[int]) -> int:

@@ -29,7 +29,7 @@
 # # / \ /
 # #1  4 6
 from collections import deque
-from typing import Deque, Tuple, Optional
+from typing import Deque, Optional, Tuple
 
 
 class TreeNode:

@@ -15,7 +15,7 @@
 #
 # print(shortest_unique_prefix(['joma', 'john', 'jack', 'techlead']))
 # # ['jom', 'joh', 'ja', 't']
-from typing import List, Dict
+from typing import Dict, List
 
 
 def shortest_unique_prefix(input_words: List[str]) -> List[str]:

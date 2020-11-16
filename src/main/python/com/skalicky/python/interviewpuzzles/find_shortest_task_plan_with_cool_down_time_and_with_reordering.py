@@ -16,7 +16,7 @@
 # # one of the possible orders to run the task would be
 # # 'q', 'w', 's', idle, 'q', 'w'
 from collections import deque
-from typing import List, Dict, Optional, Deque
+from typing import Deque, Dict, List, Optional
 
 
 def find_shortest_task_plan_with_cool_down_time_and_with_reordering(tasks: List[str], cool_down_time: int) -> List[

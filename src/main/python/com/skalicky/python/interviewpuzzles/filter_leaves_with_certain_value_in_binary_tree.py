@@ -39,7 +39,7 @@
 # # value: 1, left: (value: 1, left: (value: 2, left: (None), right: (None)), right: (None)), right: (None)
 from collections import deque
 from enum import Enum
-from typing import Deque, Tuple, Optional
+from typing import Deque, Optional, Tuple
 
 
 class Node:

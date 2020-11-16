@@ -19,7 +19,7 @@
 # # 1 - (2 + 3) * 2
 # print(reverse_polish_notation([1, 2, 3, '+', 2, '*', '-']))
 # # -9
-from typing import List, Set, Optional
+from typing import List, Optional, Set
 
 BINARY_OPERATORS: Set[str] = {'+', '-', '*', '/'}
 

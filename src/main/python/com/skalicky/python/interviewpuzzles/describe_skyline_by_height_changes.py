@@ -18,7 +18,7 @@
 # print generate_skyline([(2, 8, 3), (4, 6, 5)])
 # # [(2, 3), (4, 5), (7, 3), (9, 0)]
 from enum import Enum
-from typing import List, Tuple, Dict
+from typing import Dict, List, Tuple
 
 
 class HeightChange(Enum):

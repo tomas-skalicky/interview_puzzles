@@ -17,7 +17,7 @@
 # # . Q . . .
 # # . . . . Q
 # # . . Q . .
-from typing import Tuple, List
+from typing import List, Tuple
 
 
 def find_1_solution_how_to_place_queens_on_chessboard(queen_count: int) -> List[Tuple[int, int]]:

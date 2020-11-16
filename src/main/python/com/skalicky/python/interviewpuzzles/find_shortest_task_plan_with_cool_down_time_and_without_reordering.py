@@ -12,7 +12,7 @@
 #
 # print findTime([1, 1, 2, 1], 2)
 # # 7
-from typing import List, Dict
+from typing import Dict, List
 
 
 def find_shortest_task_plan_with_cool_down_time_and_without_reordering(tasks: List[int], cool_down_time: int) -> int:

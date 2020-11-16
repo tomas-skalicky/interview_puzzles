@@ -17,7 +17,7 @@
 # nums = [1, -2, 1, 0, 5]
 # print(Solution().threeSum(nums))
 # # [[-2, 1, 1]]
-from typing import List, Dict, Tuple, Set
+from typing import Dict, List, Set, Tuple
 
 
 # Total time complexity is O(n^2)

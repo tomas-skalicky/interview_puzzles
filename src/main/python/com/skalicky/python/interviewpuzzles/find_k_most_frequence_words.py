@@ -16,7 +16,7 @@
 # k = 2
 # print(Solution().topKFrequent(words, k))
 # # ['pro', 'daily']
-from typing import List, Dict
+from typing import Dict, List
 
 
 class Solution:

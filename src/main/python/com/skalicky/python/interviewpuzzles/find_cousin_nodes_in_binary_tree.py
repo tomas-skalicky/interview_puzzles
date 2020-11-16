@@ -31,7 +31,7 @@
 # print Solution().list_cousins(root, 5)
 # # [4, 6]
 from collections import deque
-from typing import List, Deque, Tuple, Optional
+from typing import Deque, List, Optional, Tuple
 
 
 class Node:

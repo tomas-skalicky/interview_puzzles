@@ -13,7 +13,7 @@
 #
 # print longest_substring_with_k_distinct_characters('aabcdefff', 3)
 # # 5 (because 'defff' has length 5 with 3 characters)
-from typing import List, Dict, Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 
 
 def count_distinct_chars(chars: List[str], from_index: int, to_index: int):

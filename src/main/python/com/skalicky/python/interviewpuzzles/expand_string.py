@@ -11,7 +11,7 @@
 # print decodeString('2[a2[b]c]')
 # # abbcabbc
 from collections import deque
-from typing import Tuple, Deque
+from typing import Deque, Tuple
 
 
 def decode_string(s: str) -> str:

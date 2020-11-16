@@ -28,7 +28,7 @@
 # print valuesAtHeight(a, 3)
 # # [4, 5, 7]
 from collections import deque
-from typing import Tuple, Deque, List, Optional
+from typing import Deque, List, Optional, Tuple
 
 
 class Node:

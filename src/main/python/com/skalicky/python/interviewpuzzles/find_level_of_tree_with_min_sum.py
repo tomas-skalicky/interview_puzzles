@@ -29,7 +29,7 @@
 #
 # print minimum_level_sum(node)
 import sys
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Optional, Tuple
 
 
 class Node:

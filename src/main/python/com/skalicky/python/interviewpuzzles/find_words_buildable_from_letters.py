@@ -27,7 +27,7 @@
 #
 # print(makeWords('364'))
 # # ['dog', 'fog']
-from typing import List, Dict
+from typing import Dict, List
 
 
 def count_letters(word: str) -> Dict[str, int]:

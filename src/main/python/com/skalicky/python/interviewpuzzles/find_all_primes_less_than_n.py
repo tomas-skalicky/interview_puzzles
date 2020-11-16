@@ -10,7 +10,7 @@
 # print(find_primes(14))
 # # [2, 3, 5, 7, 11, 13]
 from collections import deque
-from typing import List, Deque
+from typing import Deque, List
 
 
 def find_all_primes_less_than_n(n: int) -> List[int]:

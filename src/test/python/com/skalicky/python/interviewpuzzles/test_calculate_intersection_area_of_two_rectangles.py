@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from src.main.python.com.skalicky.python.interviewpuzzles.calculate_intersection_area_of_two_rectangles import \
-    calculate_intersection_area_of_two_rectangles, Rectangle
+    Rectangle, calculate_intersection_area_of_two_rectangles
 
 
 class Test(TestCase):

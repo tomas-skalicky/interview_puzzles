@@ -30,7 +30,7 @@
 # print Solution().buddyStrings('aaaaaabbc', 'aaaaaaacb')
 # # False
 from collections import Counter
-from typing import List, Dict
+from typing import Dict, List
 
 
 class Solution:

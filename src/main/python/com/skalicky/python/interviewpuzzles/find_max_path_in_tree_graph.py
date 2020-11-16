@@ -31,8 +31,10 @@
 # print maxPathSum(root)
 # # 42
 from collections import deque
-from typing import Deque, List, Tuple, Set, Optional
-from src.main.python.com.skalicky.python.interviewpuzzles.find_max_sum_of_non_empty_contiguous_sub_array import find_max_sum_of_non_empty_contiguous_sub_array
+from typing import Deque, List, Optional, Set, Tuple
+
+from src.main.python.com.skalicky.python.interviewpuzzles.find_max_sum_of_non_empty_contiguous_sub_array import \
+    find_max_sum_of_non_empty_contiguous_sub_array
 
 print('------------------------------')
 print('find_max_path_in_tree_graph:')

@@ -2,8 +2,7 @@ from typing import Dict, List
 from unittest import TestCase
 
 from src.main.python.com.skalicky.python.interviewpuzzles.find_all_duplicate_subtrees import Node, \
-    find_all_duplicate_subtrees, \
-    calculate_node_levels, give_all_nodes_subtree_id
+    calculate_node_levels, find_all_duplicate_subtrees, give_all_nodes_subtree_id
 
 
 class Test(TestCase):

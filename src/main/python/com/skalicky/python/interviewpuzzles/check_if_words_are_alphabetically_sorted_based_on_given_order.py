@@ -28,7 +28,7 @@
 # print isSorted(["zyx", "zyxw", "zyxwy"],
 #                "zyxwvutsrqponmlkjihgfedcba")
 # # True
-from typing import List, Dict
+from typing import Dict, List
 
 
 def get_character_order(index: int, word: str, orders_by_chars: Dict[str, int]) -> int:

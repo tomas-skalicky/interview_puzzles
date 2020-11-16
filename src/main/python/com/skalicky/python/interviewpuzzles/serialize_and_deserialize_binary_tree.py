@@ -48,7 +48,7 @@
 # # 132547
 from collections import deque
 from enum import Enum
-from typing import List, Deque, Tuple, Optional
+from typing import Deque, List, Optional, Tuple
 
 
 class Node:

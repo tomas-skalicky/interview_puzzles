@@ -9,7 +9,7 @@
 #
 # print(find_anagrams('acdbacdacb', 'abc'))
 # # [3, 7]
-from typing import List, Dict
+from typing import Dict, List
 
 
 def find_anagrams_in_string(text: str, substring: str) -> List[int]:

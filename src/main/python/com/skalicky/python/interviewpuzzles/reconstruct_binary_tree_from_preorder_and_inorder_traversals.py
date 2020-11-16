@@ -48,7 +48,7 @@
 # print tree
 # # abcdefg
 from collections import deque
-from typing import Deque, List, Dict, Optional, Tuple
+from typing import Deque, Dict, List, Optional, Tuple
 
 
 class Node:

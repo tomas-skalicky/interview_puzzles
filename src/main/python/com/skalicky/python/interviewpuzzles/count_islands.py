@@ -32,7 +32,7 @@
 #         [0, 0, 0, 0, 0]]
 # print(Solution().numIslands(grid))
 # # 3
-from typing import List, Tuple, Set
+from typing import List, Set, Tuple
 
 
 class Solution:

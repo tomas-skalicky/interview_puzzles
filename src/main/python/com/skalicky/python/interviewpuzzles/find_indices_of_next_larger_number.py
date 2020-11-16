@@ -11,7 +11,7 @@
 # # print [2, 2, 3, 4, -1, -1]
 # print(larger_number([3, 2, 5, 6, 9, 8]))
 from math import floor
-from typing import List, Dict
+from typing import Dict, List
 
 
 def bisect_left_for_descendingly_sorted_list(input_list, searched_element):

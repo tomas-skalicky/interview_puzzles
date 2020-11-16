@@ -39,7 +39,7 @@
 # print(flatten_dictionary(d))
 # # {'a': 1, 'b.c': 2, 'b.d.e': 3}
 from collections import deque
-from typing import Dict, Deque, Tuple, Optional
+from typing import Deque, Dict, Optional, Tuple
 
 
 def flatten_dictionary(input_dictionary: Dict[str, object]) -> Dict[str, object]:

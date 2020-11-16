@@ -1,4 +1,4 @@
-from typing import Optional, List
+from typing import List, Optional
 from unittest import TestCase
 
 from src.main.python.com.skalicky.python.interviewpuzzles.add_two_integers_stored_reversed_in_linked_lists import \

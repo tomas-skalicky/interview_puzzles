@@ -24,7 +24,7 @@
 # print(closest_points(points, 2, Point(0, 2)))
 # # [(0, 0), (1, 1)]
 from math import sqrt
-from typing import List, Dict
+from typing import Dict, List
 
 
 class Point:

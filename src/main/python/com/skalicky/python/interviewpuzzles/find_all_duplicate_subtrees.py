@@ -46,7 +46,7 @@
 # #
 # # 3
 from collections import deque
-from typing import Optional, List, Dict, Tuple, Deque
+from typing import Deque, Dict, List, Optional, Tuple
 
 
 class Node:

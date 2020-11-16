@@ -34,7 +34,7 @@
 # print(zigzag_order(n1))
 # # [1, 3, 2, 4, 5, 6, 7]
 from collections import deque
-from typing import List, Deque, Optional
+from typing import Deque, List, Optional
 
 
 class Node:

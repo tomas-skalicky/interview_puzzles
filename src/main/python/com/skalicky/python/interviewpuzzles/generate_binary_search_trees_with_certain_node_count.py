@@ -37,7 +37,7 @@
 # #      \    /           \    /
 # #       3  2             2  1
 from collections import deque
-from typing import List, Deque, Tuple, Set, Optional
+from typing import Deque, List, Optional, Set, Tuple
 
 
 class Node:
