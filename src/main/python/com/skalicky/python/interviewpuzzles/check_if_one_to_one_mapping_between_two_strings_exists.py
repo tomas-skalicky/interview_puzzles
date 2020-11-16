@@ -22,24 +22,18 @@
 from typing import Dict
 
 
-def has_character_map(str1: str, str2: str) -> bool:
-    str1_length: int = len(str1)
-    if str1_length != len(str2):
-        raise RuntimeError('Input strings [{}, {}] do have have the same length.'.format(str1, str2))
+def check_if_one_to_one_mapping_between_two_strings_exists(string1: str, string2: str) -> bool:
+    string1_length: int = len(string1)
+    if string1_length != len(string2):
+        raise RuntimeError('Input strings [{}, {}] do have have the same length.'.format(string1, string2))
     else:
         character_map: Dict[str, str] = {}
-        for i in range(0, str1_length):
-            char1: str = str1[i:i + 1]
-            char2: str = str2[i:i + 1]
-            if character_map.__contains__(char1):
-                if character_map[char1] != char2:
+        for i in range(0, string1_length):
+            character_in_string1: str = string1[i:i + 1]
+            character_in_string2: str = string2[i:i + 1]
+            if character_map.__contains__(character_in_string1):
+                if character_map[character_in_string1] != character_in_string2:
                     return False
             else:
-                character_map[char1] = char2
+                character_map[character_in_string1] = character_in_string2
         return True
-
-
-print(has_character_map('abc', 'def'))
-# True
-print(has_character_map('aac', 'def'))
-# False
