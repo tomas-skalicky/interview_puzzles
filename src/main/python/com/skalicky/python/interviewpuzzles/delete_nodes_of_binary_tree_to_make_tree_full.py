@@ -85,7 +85,7 @@ class Node:
                     q.append(n.right)
                 num = num - 1
             if len(q):
-                result += "\n"
+                result += '\n'
 
         return result
 
@@ -95,13 +95,13 @@ class ChildType(Enum):
     RIGHT = 2
 
 
-def full_binary_tree(node: Optional[Node]) -> Optional[Node]:
-    if node is None:
+def delete_nodes_of_binary_tree_to_make_tree_full(root_node: Optional[Node]) -> Optional[Node]:
+    if root_node is None:
         return None
     else:
-        root: Node = node
+        new_root_node: Node = root_node
         nodes_to_process: Deque[Tuple[Node, Optional[Node], Optional[ChildType]]] = deque()
-        nodes_to_process.append((node, None, None))
+        nodes_to_process.append((root_node, None, None))
         while len(nodes_to_process) > 0:
             node_to_process, parent, parent_child_type = nodes_to_process.pop()
             right_to_replace_this: bool = node_to_process.left is None and node_to_process.right is not None
@@ -109,8 +109,8 @@ def full_binary_tree(node: Optional[Node]) -> Optional[Node]:
             if right_to_replace_this or left_to_replace_this:
                 non_none_child: Node = node_to_process.right if right_to_replace_this else node_to_process.left
                 if parent is None:
-                    root = non_none_child
-                    nodes_to_process.append((root, None, None))
+                    new_root_node = non_none_child
+                    nodes_to_process.append((new_root_node, None, None))
                 else:
                     if parent_child_type == ChildType.LEFT:
                         parent.left = non_none_child
@@ -121,76 +121,4 @@ def full_binary_tree(node: Optional[Node]) -> Optional[Node]:
             elif node_to_process.left is not None and node_to_process.right is not None:
                 nodes_to_process.append((node_to_process.left, node_to_process, ChildType.LEFT))
                 nodes_to_process.append((node_to_process.right, node_to_process, ChildType.RIGHT))
-        return root
-
-
-# Given this tree:
-#     1
-#    / \
-#   2   3
-#  /   / \
-# 0   9   4
-#
-# We want a tree like:
-#     1
-#    / \
-#   0   3
-#      / \
-#     9   4
-#
-tree = Node(1)
-tree.left = Node(2)
-tree.right = Node(3)
-tree.right.right = Node(4)
-tree.right.left = Node(9)
-tree.left.left = Node(0)
-print(full_binary_tree(tree))
-# 1
-# 03
-# 94
-
-
-# Given this tree:
-#     5
-#    / \
-#   3   7
-#      /
-#     6
-#
-# We want a tree like:
-#     5
-#    / \
-#   3   6
-#
-tree2 = Node(5)
-tree2.left = Node(3)
-tree2.right = Node(7)
-tree2.right.left = Node(6)
-print(full_binary_tree(tree2))
-# 5
-# 36
-
-
-# Given this tree:
-#     5
-#      \
-#       7
-#      /
-#     6
-#
-# We want a tree like:
-#     6
-#
-tree3 = Node(5)
-tree3.right = Node(7)
-tree3.right.left = Node(6)
-print(full_binary_tree(tree3))
-# 6
-
-
-# Given this tree:
-#
-# We want a tree like:
-#
-print(full_binary_tree(None))
-# None
+        return new_root_node
