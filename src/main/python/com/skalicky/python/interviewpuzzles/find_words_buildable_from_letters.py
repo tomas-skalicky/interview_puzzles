@@ -33,7 +33,7 @@ from typing import Dict, List
 def count_letters(word: str) -> Dict[str, int]:
     occurrences_by_letters: Dict[str, int] = {}
     for letter in list(word):
-        if occurrences_by_letters.__contains__(letter):
+        if letter in occurrences_by_letters:
             occurrences_by_letters[letter] += 1
         else:
             occurrences_by_letters[letter] = 1
@@ -46,7 +46,7 @@ def find_words_buildable_from_letters(phone_number: str, letter_lists_by_digits,
     for digit_string in occurrences_by_digit_strings.keys():
         digit_occurrence: int = occurrences_by_digit_strings[digit_string]
         for letter in letter_lists_by_digits[int(digit_string)]:
-            if occurrences_by_letters_in_phone_number.__contains__(letter):
+            if letter in occurrences_by_letters_in_phone_number:
                 occurrences_by_letters_in_phone_number[letter] += digit_occurrence
             else:
                 occurrences_by_letters_in_phone_number[letter] = digit_occurrence
@@ -57,7 +57,7 @@ def find_words_buildable_from_letters(phone_number: str, letter_lists_by_digits,
         can_by_built: bool = True
         for letter_in_valid_word in occurrences_by_letters_in_valid_word.keys():
             letter_occurrence: int = occurrences_by_letters_in_valid_word[letter_in_valid_word]
-            if not occurrences_by_letters_in_phone_number.__contains__(letter_in_valid_word) or \
+            if letter_in_valid_word not in occurrences_by_letters_in_phone_number or \
                     occurrences_by_letters_in_phone_number[letter_in_valid_word] < letter_occurrence:
                 can_by_built = False
                 break
