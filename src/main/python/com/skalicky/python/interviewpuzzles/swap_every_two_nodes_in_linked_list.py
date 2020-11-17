@@ -26,14 +26,14 @@ class Node:
         self.value = value
         self.next: Optional[Node] = next_node
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"{self.value}, ({self.next.__repr__()})"
 
 
-def swap_every_two(llist: Optional[Node]) -> Optional[Node]:
-    root: Optional[Node] = None
+def swap_every_two_nodes_in_linked_list(input_head_node: Optional[Node]) -> Optional[Node]:
+    head: Optional[Node] = None
     previous_already_swapped: Optional[Node] = None
-    current: Node = llist
+    current: Node = input_head_node
     while current is not None and current.next is not None:
         old_next: Node = current.next
         new_current: Node = old_next.next
@@ -41,27 +41,17 @@ def swap_every_two(llist: Optional[Node]) -> Optional[Node]:
         if previous_already_swapped is not None:
             previous_already_swapped.next = old_next
         else:
-            root = old_next
+            head = old_next
         old_next.next = new_next
         previous_already_swapped = new_next
         new_next.next = None
         current = new_current
 
     if current is None:
-        return root
+        return head
     else:
-        if root is None:
+        if head is None:
             return current
         else:
             previous_already_swapped.next = current
-            return root
-
-
-print(swap_every_two(Node(1, Node(2, Node(3, Node(4, Node(5)))))))
-# 2, (1, (4, (3, (5, (None)))))
-print(swap_every_two(None))
-# None
-print(swap_every_two(Node(1)))
-# 1, (None)
-print(swap_every_two(Node(1, Node(2, Node(3, Node(4, Node(5, Node(6))))))))
-# 2, (1, (4, (3, (6, (5, (None))))))
+            return head

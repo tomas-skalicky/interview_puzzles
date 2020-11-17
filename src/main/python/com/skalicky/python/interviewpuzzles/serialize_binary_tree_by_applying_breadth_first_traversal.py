@@ -33,23 +33,16 @@ class Node:
         self.right: Optional[Node] = right
 
 
-def print_level_order(root_node: Optional[Node]) -> None:
+def serialize_binary_tree_by_applying_breadth_first_traversal(root_node: Optional[Node]) -> str:
+    result: str = ''
     if root_node is not None:
         nodes_to_process: Deque[Node] = deque()
         nodes_to_process.append(root_node)
         while len(nodes_to_process) > 0:
             node_to_process: Node = nodes_to_process.popleft()
-            print(node_to_process.val, end=' ')
+            result += '{} '.format(node_to_process.val)
             if node_to_process.left is not None:
                 nodes_to_process.append(node_to_process.left)
             if node_to_process.right is not None:
                 nodes_to_process.append(node_to_process.right)
-    print(end='\n')
-
-
-print_level_order(None)
-#
-print_level_order(Node(1))
-# 1
-print_level_order(Node(1, Node(2), Node(3, Node(4), Node(5))))
-# 1 2 3 4 5
+    return result
