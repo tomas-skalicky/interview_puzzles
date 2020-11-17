@@ -68,12 +68,12 @@ def evaluate_expression_without_parentheses(expression: List[str]) -> int:
             if stack_size == 0 or isinstance(stacked_items[stack_size - 1], AbstractBinaryOperator):
                 unary_minus_count = 0
                 while item == '-':
-                    unary_minus_count = unary_minus_count + 1
-                    item_index = item_index + 1
+                    unary_minus_count += 1
+                    item_index += 1
                     item = expression[item_index]
                 number = int(item)
                 if unary_minus_count % 2 == 1:
-                    number = number * -1
+                    number *= -1
                 stacked_items.append(Number(number))
                 if stack_size != 0:
                     squash_stacked_items_by_evaluation_of_binary_operator(stacked_items)
@@ -83,7 +83,7 @@ def evaluate_expression_without_parentheses(expression: List[str]) -> int:
             stacked_items.append(Number(int(item)))
             if len(stacked_items) > 1:
                 squash_stacked_items_by_evaluation_of_binary_operator(stacked_items)
-        item_index = item_index + 1
+        item_index += 1
     assert len(stacked_items) == 1
     number = stacked_items.popleft()
     assert isinstance(number, Number)

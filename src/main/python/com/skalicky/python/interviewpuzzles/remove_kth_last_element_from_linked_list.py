@@ -61,9 +61,9 @@ def remove_kth_from_linked_list(head_arg: Optional[Node], k: int) -> Optional[No
             elif kth_last:
                 before_kth_last = kth_last
                 kth_last = kth_last.next
-                index_of_kth_last = index_of_kth_last + 1
+                index_of_kth_last += 1
             current = current.next
-            index_of_current = index_of_current + 1
+            index_of_current += 1
         if index_of_current == k:
             return kth_last.next
         elif index_of_current < k:

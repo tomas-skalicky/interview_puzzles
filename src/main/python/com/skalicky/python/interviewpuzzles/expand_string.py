@@ -14,12 +14,12 @@ from collections import deque
 from typing import Deque, Tuple
 
 
-def decode_string(s: str) -> str:
+def expand_string(input_string: str) -> str:
     evaluation_deque: Deque[Tuple[int, str]] = deque()
     evaluation_deque.append((0, ''))
     last_times_string: str = ''
     last_times: int = 0
-    for c in list(s):
+    for c in list(input_string):
         if c == '[':
             evaluation_deque.append((last_times, ''))
             last_times_string = ''
@@ -42,17 +42,3 @@ def decode_string(s: str) -> str:
             current_string += c
             evaluation_deque.append((current_times, current_string))
     return evaluation_deque.pop()[1]
-
-
-print(decode_string(''))
-#
-print(decode_string('0[b]'))
-#
-print(decode_string('22[b]'))
-# bbbbbbbbbbbbbbbbbbbbbb
-print(decode_string('2a2[b]'))
-# 2abb
-print(decode_string('2[a]1[b]'))
-# aab
-print(decode_string('2[a2[b]c]'))
-# abbcabbc
