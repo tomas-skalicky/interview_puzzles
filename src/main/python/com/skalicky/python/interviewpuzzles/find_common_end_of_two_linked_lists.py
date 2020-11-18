@@ -73,7 +73,7 @@ class Node:
         return current
 
     def __eq__(self, other) -> bool:
-        return self.val == other.val
+        return self.val == other.value
 
     def __str__(self) -> str:
         return str(self.val)
