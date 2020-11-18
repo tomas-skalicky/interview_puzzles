@@ -24,7 +24,7 @@ def reshape_matrix(matrix: List[List[object]], new_row_size: int, new_column_siz
     if old_row_size * old_column_size != new_row_size * new_column_size:
         return None
     else:
-        new_matrix: List[List[Optional[object]]] = [[None] * new_column_size for i in range(0, new_row_size)]
+        new_matrix: List[List[object]] = [[None] * new_column_size for i in range(0, new_row_size)]
         for i in range(0, old_row_size):
             for j in range(0, old_column_size):
                 current_element: object = matrix[i][j]
