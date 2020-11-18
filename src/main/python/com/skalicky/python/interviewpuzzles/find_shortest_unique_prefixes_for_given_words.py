@@ -31,7 +31,7 @@ def shortest_unique_prefix(input_words: List[str]) -> List[str]:
                     'There is no list of shortest unique prefixes for the given list [{}].'.format(input_words))
             else:
                 prefix_candidate: str = current_word[0:prefix_length]
-                if words_by_prefix_candidates.__contains__(prefix_candidate):
+                if prefix_candidate in words_by_prefix_candidates:
                     words_by_prefix_candidates[prefix_candidate].append(current_word)
                 else:
                     words_by_prefix_candidates[prefix_candidate] = [current_word]

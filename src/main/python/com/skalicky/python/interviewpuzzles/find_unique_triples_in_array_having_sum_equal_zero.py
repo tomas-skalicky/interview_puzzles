@@ -20,10 +20,12 @@
 from typing import Dict, List, Set, Tuple
 
 
-# Total time complexity is O(n^2)
 class Solution:
     @staticmethod
     def three_sum(nums: List[int]) -> Set[Tuple[int, int, int]]:
+        """Time complexity is O(n^2)
+        """
+
         number_count: int = len(nums)
         if number_count < 3:
             return set()
@@ -34,7 +36,7 @@ class Solution:
             number_dictionary: Dict[int, int] = {}
             for i in range(0, number_count):
                 current_number: int = sorted_numbers[i]
-                if number_dictionary.__contains__(current_number):
+                if current_number in number_dictionary:
                     number_dictionary[current_number] += 1
                 else:
                     number_dictionary[current_number] = 1

@@ -14,7 +14,7 @@ def add_new_candidate_to_dictionary_if_suitable(candidate: List[int],
                                                 candidates_by_length: Dict[int, List[int]]) -> None:
     current_candidate_new_length: int = len(candidate)
     index_of_last: int = current_candidate_new_length - 1
-    if not candidates_by_length.__contains__(current_candidate_new_length) or \
+    if current_candidate_new_length not in candidates_by_length or \
             candidates_by_length[current_candidate_new_length][index_of_last] > candidate[index_of_last]:
         candidates_by_length[current_candidate_new_length] = candidate
 

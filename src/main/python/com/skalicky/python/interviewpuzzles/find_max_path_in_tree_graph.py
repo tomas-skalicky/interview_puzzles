@@ -126,9 +126,8 @@ def generate_all_possible_sequences(node_to_process: Node, previous_node_id: Opt
     if not copy_of_current_sequence_necessary:
         start_node_id: int = current_sequence_start_node.id
         end_node_id: int = node_to_process.id
-        if not leaves_of_all_sequences.__contains__(
-                (start_node_id, end_node_id)) and not leaves_of_all_sequences.__contains__(
-            (end_node_id, start_node_id)):
+        if (start_node_id, end_node_id) not in leaves_of_all_sequences and (
+        end_node_id, start_node_id) not in leaves_of_all_sequences:
             all_sequences.append(current_sequence)
             leaves_of_all_sequences.add((start_node_id, end_node_id))
 

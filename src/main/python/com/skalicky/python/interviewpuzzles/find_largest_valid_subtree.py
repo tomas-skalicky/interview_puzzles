@@ -56,7 +56,7 @@ class TreeNode:
         return answer
 
 
-def largest_bst_subtree(root: TreeNode):
+def largest_bst_subtree(root: TreeNode) -> Optional[TreeNode]:
     current_root_with_max_subtree: Optional[TreeNode] = None
 
     nodes_to_process: Deque[TreeNode] = deque()
@@ -79,8 +79,8 @@ def largest_bst_subtree(root: TreeNode):
         right_present: bool = right_node is not None
         right_key: int = right_node.key if right_present else None
 
-        left_not_processed_yet: bool = left_present and not subtree_sizes_by_keys.__contains__(left_key)
-        right_not_processed_yet: bool = right_present and not subtree_sizes_by_keys.__contains__(right_key)
+        left_not_processed_yet: bool = left_present and left_key not in subtree_sizes_by_keys
+        right_not_processed_yet: bool = right_present and right_key not in subtree_sizes_by_keys
         if left_not_processed_yet or right_not_processed_yet:
             # The parent needs to be processed once again after its children will have a calculated size of their
             # subtrees.

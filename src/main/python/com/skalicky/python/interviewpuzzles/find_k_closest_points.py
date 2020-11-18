@@ -46,7 +46,7 @@ def find_closest_points(points: List[Point], k: int, p: Point) -> List[Point]:
         points_by_distances: Dict[float, List[Point]] = {}
         for current_point in points:
             distance = sqrt(abs(p.x - current_point.x) ** 2 + abs(p.y - current_point.y) ** 2)
-            if points_by_distances.__contains__(distance):
+            if distance in points_by_distances:
                 points_by_distances[distance].append(current_point)
             else:
                 points_by_distances[distance] = [current_point]
@@ -58,7 +58,7 @@ def find_closest_points(points: List[Point], k: int, p: Point) -> List[Point]:
             current_point_size: int = len(current_points)
             remaining_number: int = k - len(closest_points)
             subset_size: int = current_point_size if remaining_number >= current_point_size else remaining_number
-            closest_points = closest_points + current_points[0:subset_size]
+            closest_points += current_points[0:subset_size]
             if len(closest_points) == k:
                 return closest_points
         raise RuntimeError("Unreachable code")

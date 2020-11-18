@@ -24,7 +24,7 @@ def bubble_sort_iteration(start_index: int, nums: List[int]):
     while j < len(nums):
         if nums[j - 1] > nums[j]:
             swap_items_in_list(j - 1, j, nums)
-        j = j + 1
+        j += 1
 
 
 def find_kth_largest(nums: List[int], k: int):

@@ -23,7 +23,7 @@ class Solution:
         current_length: int = 0
         current_char_set: Set[str] = set()
         for current_char in list(s):
-            if current_char_set.__contains__(current_char):
+            if current_char in current_char_set:
                 if current_length > current_max_length:
                     current_max_length = current_length
                 current_char_set.clear()
@@ -31,7 +31,7 @@ class Solution:
                 current_length = 1
             else:
                 current_char_set.add(current_char)
-                current_length = current_length + 1
+                current_length += 1
         return current_max_length
 
 

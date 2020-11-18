@@ -55,26 +55,26 @@ def traverse_matrix_in_spiral_way(matrix: List[List[int]]) -> str:
         matrix_visited[i][j] = True
         if last_direction == Direction.DOWN:
             if i < row_count - 1 and not matrix_visited[i + 1][j]:
-                i = i + 1
+                i += 1
             else:
                 last_direction = Direction.RIGHT
-                j = j - 1
+                j -= 1
         elif last_direction == Direction.UP:
             if i > 0 and not matrix_visited[i - 1][j]:
-                i = i - 1
+                i -= 1
             else:
                 last_direction = Direction.LEFT
-                j = j + 1
+                j += 1
         elif last_direction == Direction.LEFT:
             if j < column_count - 1 and not matrix_visited[i][j + 1]:
-                j = j + 1
+                j += 1
             else:
                 last_direction = Direction.DOWN
-                i = i + 1
+                i += 1
         elif last_direction == Direction.RIGHT:
             if j > 0 and not matrix_visited[i][j - 1]:
-                j = j - 1
+                j -= 1
             else:
                 last_direction = Direction.UP
-                i = i - 1
+                i -= 1
     return result_string

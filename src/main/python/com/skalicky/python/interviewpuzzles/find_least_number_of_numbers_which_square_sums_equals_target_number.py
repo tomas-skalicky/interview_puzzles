@@ -17,6 +17,6 @@ def find_least_number_of_numbers_which_square_sums_equals_target_number(target_n
     rest: int = target_number
     count: int = 0
     while rest != 0:
-        rest = rest - floor(sqrt(rest)) ** 2
+        rest -= (floor(sqrt(rest)) ** 2)
         count += 1
     return count

@@ -25,7 +25,7 @@ from typing import Dict, List, Tuple
 def word_to_frequencies_by_chars(word: str):
     frequencies_by_chars: Dict[str, int] = {}
     for c in list(word):
-        if frequencies_by_chars.__contains__(c):
+        if c in frequencies_by_chars:
             frequencies_by_chars[c] += 1
         else:
             frequencies_by_chars[c] = 0
@@ -34,7 +34,7 @@ def word_to_frequencies_by_chars(word: str):
 
 def identical_frequencies_by_chars_for_words_having_the_same_length(one: Dict[str, int], two: Dict[str, int]):
     for c in one.keys():
-        if not two.__contains__(c) or one[c] != two[c]:
+        if c not in two or one[c] != two[c]:
             return False
     return True
 
@@ -47,7 +47,7 @@ def group_anagram_words(strs: List[str]):
         current_length: int = len(word)
         current_frequencies_by_chars: Dict[str, int] = word_to_frequencies_by_chars(word)
 
-        current_length_exists: bool = group_ids_and_frequencies_by_chars_by_word_length.__contains__(current_length)
+        current_length_exists: bool = current_length in group_ids_and_frequencies_by_chars_by_word_length
         found: bool = False
         if current_length_exists:
             # Searches only in groups having the same length.

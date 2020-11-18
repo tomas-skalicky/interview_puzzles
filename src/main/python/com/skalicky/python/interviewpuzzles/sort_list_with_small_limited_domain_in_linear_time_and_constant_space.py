@@ -19,7 +19,7 @@ from typing import List
 def sort_list_with_small_limited_domain_in_linear_time_and_constant_space(input_numbers: List[int]) -> List[int]:
     frequency: List[int] = [0, 0, 0]
     for current_number in input_numbers:
-        frequency[current_number - 1] = frequency[current_number - 1] + 1
+        frequency[current_number - 1] += 1
     result: List[int] = []
     for current_number in range(0, 3):
         for i in range(0, frequency[current_number]):

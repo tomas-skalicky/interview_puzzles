@@ -34,7 +34,7 @@ DIGIT_CHARACTERS = set([str(i) for i in range(0, 10)])
 
 
 def is_digit(character: str) -> bool:
-    return DIGIT_CHARACTERS.__contains__(character)
+    return character in DIGIT_CHARACTERS
 
 
 def is_negative_sign(character: str) -> bool:

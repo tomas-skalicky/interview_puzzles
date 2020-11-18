@@ -34,7 +34,7 @@ def staircase_combinatorics(n: int) -> int:
     total_count: int = 0
     for two_count in range(0, floor(n / 2) + 1):
         items_to_permutate: int = n - two_count
-        total_count = total_count + floor(
+        total_count += floor(
             factorial(items_to_permutate) / (factorial(items_to_permutate - two_count) * factorial(two_count)))
     return total_count
 

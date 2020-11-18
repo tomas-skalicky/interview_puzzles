@@ -15,61 +15,63 @@
 #
 # print singleNumber([4, 3, 2, 4, 1, 3, 2])
 # # 1
+from typing import List, Optional, Set
 
 
-def single_number_in_time_complexity_o_n(nums: list):
-    seen_numbers = set()
-    for n in nums:
-        if seen_numbers.__contains__(n):
+def find_single_occurrence_in_list_with_time_complexity_o_n(input_numbers: List[int]) -> Optional[int]:
+    seen_numbers: Set[int] = set()
+    for n in input_numbers:
+        if n in seen_numbers:
             seen_numbers.remove(n)
         else:
             seen_numbers.add(n)
     if len(seen_numbers) == 0:
         return None
     else:
-        return list(seen_numbers)[0]
+        return seen_numbers.pop()
 
 
-def single_number_in_space_complexity_o_1(nums: list):
-    if len(nums) == 0:
+def find_single_occurrence_in_list_with_space_complexity_o_1(input_numbers: List[Optional[int]]) -> Optional[int]:
+    number_count: int = len(input_numbers)
+    if number_count == 0:
         return None
-    i = 0
-    while i < len(nums):
-        first = nums[i]
-        if first is not None:
-            j = i + 1
-            while j < len(nums):
-                if nums[j] == first:
-                    nums[i] = None
-                    nums[j] = None
+    else:
+        i: int = 0
+        while i < number_count:
+            first: int = input_numbers[i]
+            j: int = i + 1
+            while j < number_count:
+                if input_numbers[j] == first:
+                    input_numbers[i] = None
+                    input_numbers[j] = None
                     break
-                j = j + 1
-            if nums[i] is not None:
+                j += 1
+            if input_numbers[i] is not None:
                 return first
-        i = i + 1
-    return None
+            i += 1
+        return None
 
 
-print(single_number_in_time_complexity_o_n([4, 3, 2, 4, 1, 3, 2]))
+print(find_single_occurrence_in_list_with_time_complexity_o_n([4, 3, 2, 4, 1, 3, 2]))
 # 1
 
-print(single_number_in_space_complexity_o_1([4, 3, 2, 4, 1, 3, 2]))
+print(find_single_occurrence_in_list_with_space_complexity_o_1([4, 3, 2, 4, 1, 3, 2]))
 # 1
 
-print(single_number_in_time_complexity_o_n([]))
+print(find_single_occurrence_in_list_with_time_complexity_o_n([]))
 # None
 
-print(single_number_in_space_complexity_o_1([]))
+print(find_single_occurrence_in_list_with_space_complexity_o_1([]))
 # None
 
-print(single_number_in_time_complexity_o_n([4]))
+print(find_single_occurrence_in_list_with_time_complexity_o_n([4]))
 # 4
 
-print(single_number_in_space_complexity_o_1([4]))
+print(find_single_occurrence_in_list_with_space_complexity_o_1([4]))
 # 4
 
-print(single_number_in_time_complexity_o_n([4, 3, 2, 4, 3, 2]))
+print(find_single_occurrence_in_list_with_time_complexity_o_n([4, 3, 2, 4, 3, 2]))
 # None
 
-print(single_number_in_space_complexity_o_1([4, 3, 2, 4, 3, 2]))
+print(find_single_occurrence_in_list_with_space_complexity_o_1([4, 3, 2, 4, 3, 2]))
 # None

@@ -70,7 +70,7 @@ def most_freq_subtree_sum(root: Node) -> Optional[int]:
                 nodes_to_process.append(node_to_process.right)
         else:
             node_to_process.subtree_sum = node_to_process.subtree_sum + node_to_process.val if node_to_process.subtree_sum is not None else node_to_process.val
-            if occurrence_counts_by_sums.__contains__(node_to_process.subtree_sum):
+            if node_to_process.subtree_sum in occurrence_counts_by_sums:
                 occurrence_counts_by_sums[node_to_process.subtree_sum] += 1
             else:
                 occurrence_counts_by_sums[node_to_process.subtree_sum] = 0

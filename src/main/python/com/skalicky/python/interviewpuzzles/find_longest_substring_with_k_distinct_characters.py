@@ -20,8 +20,8 @@ def count_distinct_chars(chars: List[str], from_index: int, to_index: int):
     distinct_chars: Dict[str, int] = {}
     for i in range(from_index, to_index + 1):
         current_char: str = chars[i]
-        if distinct_chars.__contains__(current_char):
-            distinct_chars[current_char] = distinct_chars[current_char] + 1
+        if current_char in distinct_chars:
+            distinct_chars[current_char] += 1
         else:
             distinct_chars[current_char] = 1
     return distinct_chars
@@ -42,7 +42,7 @@ def longest_substring_with_k_distinct_characters(s: str, k: int) -> Tuple[int, s
             distinct_char_count: Dict[str, int] = count_distinct_chars(chars, start_index_included, end_index_excluded)
             while len(distinct_char_count.keys()) > k:
                 removed_start_char: str = chars[start_index_included]
-                start_index_included = start_index_included + 1
+                start_index_included += 1
                 if distinct_char_count[removed_start_char] == 1:
                     distinct_char_count.pop(removed_start_char)
                 else:

@@ -31,8 +31,8 @@ class Solution:
             if input_string[current_left_pointer] != input_string[current_right_pointer]:
                 return False
             else:
-                current_left_pointer = current_left_pointer + 1
-                current_right_pointer = current_right_pointer - 1
+                current_left_pointer += 1
+                current_right_pointer -= 1
         return True
 
     @staticmethod

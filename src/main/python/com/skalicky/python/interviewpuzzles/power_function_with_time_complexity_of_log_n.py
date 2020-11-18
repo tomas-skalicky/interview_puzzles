@@ -14,18 +14,18 @@
 from typing import Dict
 
 
-def power_function_with_time_complexity_of_log_n(base, exponent: int):
+def power_function_with_time_complexity_of_log_n(base: object, exponent: int) -> object:
     if exponent == 0:
         return 1
     else:
-        powers: Dict[int,] = {}
+        powers: Dict[int, object] = {}
         current_exponent: int = 1
         powers[current_exponent] = base
         while exponent - current_exponent * 2 >= 0:
             powers[current_exponent * 2] = powers[current_exponent] * powers[current_exponent]
-            current_exponent = current_exponent * 2
+            current_exponent *= 2
         remaining_exponent: int = exponent
-        result = 1
+        result: object = 1
         while current_exponent >= 0:
             if remaining_exponent == current_exponent:
                 return result * powers[current_exponent]

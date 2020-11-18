@@ -42,24 +42,24 @@ interim_results_for_recursion_with_optimization: Dict[Any, int] = {}
 # Space complexity O(m * n) due to the call stack as well as due to the dictionary of interim results.
 def distance_with_recursion_with_optimization(s1: str, s2: str):
     interim_results_key = (s1, s2)
-    if interim_results_for_recursion_with_optimization.__contains__(interim_results_key):
+    if interim_results_key in interim_results_for_recursion_with_optimization:
         return interim_results_for_recursion_with_optimization[interim_results_key]
-
-    distance: int
-    if s1 == s2:
-        distance = 0
-    elif len(s1) == 0:
-        distance = len(s2)
-    elif len(s2) == 0:
-        distance = len(s1)
-    elif s1[0:1] == s2[0:1]:
-        distance = distance_with_recursion_with_optimization(s1[1:], s2[1:])
     else:
-        distance = 1 + min(distance_with_recursion_with_optimization(s1[1:], s2[1:]),
-                           distance_with_recursion_with_optimization(s1, s2[1:]),
-                           distance_with_recursion_with_optimization(s1[1:], s2))
-    interim_results_for_recursion_with_optimization[interim_results_key] = distance
-    return distance
+        distance: int
+        if s1 == s2:
+            distance = 0
+        elif len(s1) == 0:
+            distance = len(s2)
+        elif len(s2) == 0:
+            distance = len(s1)
+        elif s1[0:1] == s2[0:1]:
+            distance = distance_with_recursion_with_optimization(s1[1:], s2[1:])
+        else:
+            distance = 1 + min(distance_with_recursion_with_optimization(s1[1:], s2[1:]),
+                               distance_with_recursion_with_optimization(s1, s2[1:]),
+                               distance_with_recursion_with_optimization(s1[1:], s2))
+        interim_results_for_recursion_with_optimization[interim_results_key] = distance
+        return distance
 
 
 # Time complexity O(m * n)

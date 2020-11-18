@@ -68,7 +68,7 @@ class Solution:
                     row: int = neighbour_to_process[0]
                     column: int = neighbour_to_process[1]
                     if Solution.in_range(grid, row, column) and grid[row][
-                        column] == 1 and isle_cells_to_process.__contains__(neighbour_to_process):
+                        column] == 1 and neighbour_to_process in isle_cells_to_process:
                         isle_cells_to_process.remove(neighbour_to_process)
                         neighbours_to_process.add((row - 1, column))
                         neighbours_to_process.add((row, column - 1))

@@ -27,7 +27,7 @@ def find_pythagorean_triplets(nums: list):
     for i in range(0, sorted_count - 2):
         for j in range(i + 1, sorted_count - 1):
             summed: int = sorted_squares[i] + sorted_squares[j]
-            if squares_set.__contains__(summed):
+            if summed in squares_set:
                 return True
             elif summed > max_item:
                 break

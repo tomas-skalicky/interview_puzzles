@@ -34,12 +34,12 @@ class Solution:
             while current_index_of_nonzero_to_swap < number_count and current_index_of_zero_to_swap < number_count:
                 while current_index_of_nonzero_to_swap < number_count and numbers[
                     current_index_of_nonzero_to_swap] == 0:
-                    current_index_of_nonzero_to_swap = current_index_of_nonzero_to_swap + 1
+                    current_index_of_nonzero_to_swap += 1
                 while current_index_of_zero_to_swap < number_count and numbers[current_index_of_zero_to_swap] != 0:
-                    current_index_of_zero_to_swap = current_index_of_zero_to_swap + 1
+                    current_index_of_zero_to_swap += 1
                 if current_index_of_nonzero_to_swap < number_count and current_index_of_zero_to_swap < number_count:
                     temporary: int = numbers[current_index_of_zero_to_swap]
                     numbers[current_index_of_zero_to_swap] = numbers[current_index_of_nonzero_to_swap]
                     numbers[current_index_of_nonzero_to_swap] = temporary
-                    current_index_of_zero_to_swap = current_index_of_zero_to_swap + 1
-                    current_index_of_nonzero_to_swap = current_index_of_nonzero_to_swap + 1
+                    current_index_of_zero_to_swap += 1
+                    current_index_of_nonzero_to_swap += 1

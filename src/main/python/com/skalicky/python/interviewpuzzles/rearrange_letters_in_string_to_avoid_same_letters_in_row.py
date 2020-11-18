@@ -21,14 +21,14 @@ def multiple_letter(letter: str, occurrence_count: int) -> List[str]:
     return result
 
 
-def rearrange_string(s: str) -> Optional[str]:
-    total_length: int = len(s)
+def rearrange_letters_in_string_to_avoid_same_letters_in_row(input_string: str) -> Optional[str]:
+    total_length: int = len(input_string)
     if total_length <= 1:
-        return s
+        return input_string
     else:
         occurrence_counts_by_letters: Dict[str, int] = {}
-        for letter in list(s):
-            if occurrence_counts_by_letters.__contains__(letter):
+        for letter in list(input_string):
+            if letter in occurrence_counts_by_letters:
                 occurrence_counts_by_letters[letter] += 1
             else:
                 occurrence_counts_by_letters[letter] = 1
@@ -36,7 +36,7 @@ def rearrange_string(s: str) -> Optional[str]:
         list_of_letters_by_occurrence_counts: Dict[int, List[str]] = {}
         for letter in occurrence_counts_by_letters.keys():
             occurrence_count: int = occurrence_counts_by_letters[letter]
-            if not list_of_letters_by_occurrence_counts.__contains__(occurrence_count):
+            if occurrence_count not in list_of_letters_by_occurrence_counts:
                 list_of_letters_by_occurrence_counts[occurrence_count] = []
             list_of_letters_by_occurrence_counts[occurrence_count].append(letter)
 
@@ -79,15 +79,3 @@ def rearrange_string(s: str) -> Optional[str]:
                     if len(list_to_distribute) > i:
                         result_string += list_to_distribute[i]
             return result_string
-
-
-print(rearrange_string('a'))
-# a
-print(rearrange_string('abbccc'))
-# cbcbca
-print(rearrange_string('abbcccc'))
-# cbcbcac
-print(rearrange_string('abbccccc'))
-# None
-print(rearrange_string('aaaabbbbccdd'))
-# abcabcabdabd

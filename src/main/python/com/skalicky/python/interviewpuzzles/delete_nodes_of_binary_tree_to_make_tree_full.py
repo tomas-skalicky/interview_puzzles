@@ -26,7 +26,7 @@
 #           q.append(n.left)
 #         if n.right:
 #           q.append(n.right)
-#         num = num - 1
+#         num -= 1
 #       if len(q):
 #         result += "\n"
 #
@@ -83,7 +83,7 @@ class Node:
                     q.append(n.left)
                 if n.right:
                     q.append(n.right)
-                num = num - 1
+                num -= 1
             if len(q):
                 result += '\n'
 

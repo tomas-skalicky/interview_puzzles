@@ -32,12 +32,12 @@ class Solution:
             if current_number >= s:
                 return 1
             else:
-                current_sum = current_sum + current_number
+                current_sum += current_number
                 while current_sum >= s:
                     found = True
                     min_length = min(min_length, current_index + 1 - first_index)
-                    current_sum = current_sum - nums[first_index]
-                    first_index = first_index + 1
+                    current_sum -= nums[first_index]
+                    first_index += 1
         if found:
             return min_length
         else:

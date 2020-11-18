@@ -25,7 +25,7 @@ class Solution:
         frequencies_by_words: Dict[str, int] = {}
         max_frequency: int = 0
         for word in words:
-            if frequencies_by_words.__contains__(word):
+            if word in frequencies_by_words:
                 frequencies_by_words[word] += 1
             else:
                 frequencies_by_words[word] = 1
@@ -34,14 +34,14 @@ class Solution:
         word_lists_by_frequencies: Dict[int, List[str]] = {}
         for word in frequencies_by_words.keys():
             frequency: int = frequencies_by_words[word]
-            if not word_lists_by_frequencies.__contains__(frequency):
+            if frequency not in word_lists_by_frequencies:
                 word_lists_by_frequencies[frequency] = []
             word_lists_by_frequencies[frequency].append(word)
 
         result: List[str] = []
         current_frequency: int = max_frequency
         while len(result) < k and current_frequency > 0:
-            if word_lists_by_frequencies.__contains__(current_frequency):
+            if current_frequency in word_lists_by_frequencies:
                 sorted_words: List[str] = sorted(word_lists_by_frequencies[current_frequency])
                 current_index: int = 0
                 while len(result) < k and current_index < len(sorted_words):

@@ -20,8 +20,7 @@ def find_palindrome(s: str) -> Optional[str]:
     occurrence_count_by_characters: Dict[str, int] = {}
     for current_char in characters:
         occurrence_count_by_characters[current_char] = occurrence_count_by_characters[
-                                                           current_char] + 1 if occurrence_count_by_characters.__contains__(
-            current_char) else 1
+                                                           current_char] + 1 if current_char in occurrence_count_by_characters else 1
 
     char_with_odd_occurrences: Optional[str] = None
 

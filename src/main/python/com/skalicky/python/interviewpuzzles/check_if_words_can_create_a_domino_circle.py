@@ -31,11 +31,11 @@ def chained_words(words: List[str]) -> bool:
         words_by_last_letters: Dict[str, List[str]] = {}
         for word in words:
             first_letter: str = word[0]
-            if not words_by_first_letters.__contains__(first_letter):
+            if first_letter not in words_by_first_letters:
                 words_by_first_letters[first_letter] = []
             words_by_first_letters[first_letter].append(word)
             last_letter: str = word[len(word) - 1]
-            if not words_by_last_letters.__contains__(last_letter):
+            if last_letter not in words_by_last_letters:
                 words_by_last_letters[last_letter] = []
             words_by_last_letters[last_letter].append(word)
         for first_letter in words_by_first_letters.keys():
@@ -49,7 +49,7 @@ def chained_words(words: List[str]) -> bool:
             #    Note: the condition 1) and 2) implies the inverse implication of the condition 1).
             # 3) If there is only one occurrence of a particular letter we need to avoid false positives that a letter
             #    would create a circle with itself, i.e. starting and ending with the same letter.
-            if not words_by_last_letters.__contains__(first_letter) or len(words_by_last_letters[first_letter]) != len(
+            if first_letter not in words_by_last_letters or len(words_by_last_letters[first_letter]) != len(
                     words_with_first_letter) or (len(words_with_first_letter) == 1 and words_with_first_letter[0] ==
                                                  words_by_last_letters[first_letter][0]):
                 return False

@@ -31,7 +31,7 @@ def check_if_one_to_one_mapping_between_two_strings_exists(string1: str, string2
         for i in range(0, string1_length):
             character_in_string1: str = string1[i:i + 1]
             character_in_string2: str = string2[i:i + 1]
-            if character_map.__contains__(character_in_string1):
+            if character_in_string1 in character_map:
                 if character_map[character_in_string1] != character_in_string2:
                     return False
             else:

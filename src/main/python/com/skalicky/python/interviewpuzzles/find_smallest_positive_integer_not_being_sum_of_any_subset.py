@@ -32,7 +32,7 @@ def find_smallest(nums: List[int]) -> int:
                     new_sums.add(new_sum)
                     new_sums.add(interim_sum)
             interim_sums = new_sums
-            while interim_sums.__contains__(current_smallest):
+            while current_smallest in interim_sums:
                 current_smallest += 1
     return current_smallest
 

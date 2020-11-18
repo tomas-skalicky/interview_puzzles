@@ -17,15 +17,16 @@
 
 
 def two_sum(nums: list, k: int) -> bool:
-    if len(nums) < 2:
+    number_count: int = len(nums)
+    if number_count < 2:
         return False
     else:
         first_second_number_candidate = k - nums[0]
         second_number_candidates_to_search_for: set = {first_second_number_candidate}
-        for i in range(1, len(nums)):
+        for i in range(1, number_count):
             current_number = nums[i]
             current_second_number_candidate = k - current_number
-            if second_number_candidates_to_search_for.__contains__(current_number):
+            if current_number in second_number_candidates_to_search_for:
                 return True
             else:
                 second_number_candidates_to_search_for.add(current_second_number_candidate)

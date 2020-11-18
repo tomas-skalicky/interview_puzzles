@@ -74,7 +74,7 @@ def count_unival_subtrees(root: Node) -> int:
                                                        (
                                                                right_node is not None and right_node.unival_subtree_root and right_node.val == current_node.val) or right_node is None)
             if current_node.unival_subtree_root:
-                result_count = result_count + 1
+                result_count += 1
     return result_count
 
 

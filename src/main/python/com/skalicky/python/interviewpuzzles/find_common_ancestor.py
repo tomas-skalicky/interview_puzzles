@@ -51,7 +51,7 @@ def lowest_common_ancestor(a_node: TreeNode, b_node: TreeNode) -> Optional[TreeN
         a_ancestors[a_node_to_process.val] = a_node_to_process
     b_node_to_process: TreeNode = b_node
     while b_node_to_process is not None:
-        if a_ancestors.__contains__(b_node_to_process.val):
+        if b_node_to_process.val in a_ancestors:
             return b_node_to_process
         else:
             b_node_to_process = b_node_to_process.parent

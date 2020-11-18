@@ -57,8 +57,8 @@ def is_height_balanced(tree: Node) -> bool:
         if not has_left and not has_right:
             max_heights_in_subtree_by_node_values[node_to_process] = 1
         else:
-            left_has_height_set: bool = max_heights_in_subtree_by_node_values.__contains__(node_to_process.left)
-            right_has_height_set: bool = max_heights_in_subtree_by_node_values.__contains__(node_to_process.right)
+            left_has_height_set: bool = node_to_process.left in max_heights_in_subtree_by_node_values
+            right_has_height_set: bool = node_to_process.right in max_heights_in_subtree_by_node_values
             if (has_left and left_has_height_set) or (has_right and right_has_height_set):
                 if left_has_height_set and right_has_height_set:
                     if abs(max_heights_in_subtree_by_node_values[node_to_process.left] -

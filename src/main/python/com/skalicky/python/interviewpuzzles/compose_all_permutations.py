@@ -14,7 +14,7 @@ def permute_recursively(num: int, remaining_nums: List[int], current_permutation
                         occupied_indices: Set[int],
                         collected_permutations: List[List[int]]) -> None:
     for i in range(0, len(current_permutation)):
-        if not occupied_indices.__contains__(i):
+        if i not in occupied_indices:
             current_permutation[i] = num
             occupied_indices.add(i)
             if len(remaining_nums) == 0:

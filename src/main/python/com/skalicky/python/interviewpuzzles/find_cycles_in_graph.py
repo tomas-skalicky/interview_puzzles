@@ -43,9 +43,9 @@ def find_cycle_recursively_intern(vertex_to_process: str,
                                   processed_vertices: Set[str],
                                   vertices_in_cycle: List[str],
                                   destinations_by_vertices_arg: Dict[str, List[str]]):
-    if vertices_in_cycle.__contains__(vertex_to_process):
+    if vertex_to_process in vertices_in_cycle:
         return vertices_in_cycle
-    elif processed_vertices.__contains__(vertex_to_process):
+    elif vertex_to_process in processed_vertices:
         return None
     else:
         processed_vertices.add(vertex_to_process)
@@ -68,7 +68,7 @@ def find_cycle_recursively(destinations_by_vertices_arg: Dict[str, List[str]]):
         processed_vertices: Set[str] = set()
 
         for vertex in vertices_to_process:
-            if not processed_vertices.__contains__(vertex):
+            if vertex not in processed_vertices:
                 result_cycle: List[str] = find_cycle_recursively_intern(vertex, processed_vertices, [],
                                                                         destinations_by_vertices_arg)
                 if result_cycle:

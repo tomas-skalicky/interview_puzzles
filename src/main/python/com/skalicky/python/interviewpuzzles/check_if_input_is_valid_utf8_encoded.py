@@ -58,7 +58,7 @@ def utf8_validator(input_bytes: List[int]) -> bool:
     i: int = 0
     while i < input_length:
         current_byte: int = input_bytes[i]
-        if not BYTE_EQUAL.__contains__(current_byte):
+        if current_byte not in BYTE_EQUAL:
             return False
         else:
             encoding_length: int = BYTE_EQUAL.index(input_bytes[i])

@@ -89,16 +89,16 @@ def paths_through_maze_dynamic_programming(maze: List[List[int]]) -> int:
                         current_column_index - 1] if current_column_index > 0 else 0
                     maze_with_remembered_combinations[current_row_index][current_column_index] = from_top + from_left
 
-                if current_row_index < max_row_index and not processed_and_to_be_processed_sells.__contains__(
-                        (current_row_index + 1, current_column_index)) and \
+                if current_row_index < max_row_index and (
+                        current_row_index + 1, current_column_index) not in processed_and_to_be_processed_sells and \
                         maze[current_row_index + 1][current_column_index] == 0:
                     new_cell_to_process: Tuple[int, int] = (current_row_index + 1, current_column_index)
                     cells_to_process.append(new_cell_to_process)
                     processed_and_to_be_processed_sells.add(new_cell_to_process)
 
-                if current_column_index < max_column_index and not processed_and_to_be_processed_sells.__contains__(
-                        (current_row_index, current_column_index + 1)) and maze[current_row_index][
-                    current_column_index + 1] == 0:
+                if current_column_index < max_column_index and (
+                        current_row_index, current_column_index + 1) not in processed_and_to_be_processed_sells and \
+                        maze[current_row_index][current_column_index + 1] == 0:
                     new_cell_to_process: Tuple[int, int] = (current_row_index, current_column_index + 1)
                     cells_to_process.append(new_cell_to_process)
                     processed_and_to_be_processed_sells.add(new_cell_to_process)

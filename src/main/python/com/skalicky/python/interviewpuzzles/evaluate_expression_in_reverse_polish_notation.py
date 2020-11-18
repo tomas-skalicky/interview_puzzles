@@ -72,9 +72,8 @@ def reverse_polish_notation(expr: List[object]) -> Optional[int]:
                         queued_expression_parts.append(two_before_last_part)
                         queued_expression_parts.append(-1 * int(one_before_last_part))
 
-                    elif BINARY_OPERATORS.__contains__(last_part) and isinstance(one_before_last_part,
-                                                                                 int) and isinstance(
-                        two_before_last_part, int):
+                    elif last_part in BINARY_OPERATORS and isinstance(one_before_last_part, int) and isinstance(
+                            two_before_last_part, int):
                         queued_expression_parts.append(evaluate_operator(str(last_part), int(two_before_last_part),
                                                                          int(one_before_last_part)))
 
