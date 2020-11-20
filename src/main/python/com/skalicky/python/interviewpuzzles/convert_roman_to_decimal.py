@@ -43,10 +43,10 @@ from typing import Optional
 
 class Solution:
     @staticmethod
-    def roman_to_int(s) -> int:
+    def convert_roman_to_decimal(roman_number: str) -> int:
         result: int = 0
         processed_previous_letter: Optional[str] = None
-        for letter in list(s):
+        for letter in list(roman_number):
             if letter == 'I':
                 result += 1
             elif letter == 'V' or letter == 'X':
@@ -66,25 +66,3 @@ class Solution:
                     result += 500 if letter == 'D' else 1000
             processed_previous_letter = letter
         return result
-
-
-print(Solution.roman_to_int('I'))
-# 1
-print(Solution.roman_to_int('VII'))
-# 7
-print(Solution.roman_to_int('VIII'))
-# 8
-print(Solution.roman_to_int('IX'))
-# 9
-print(Solution.roman_to_int('XC'))
-# 90
-print(Solution.roman_to_int('C'))
-# 100
-print(Solution.roman_to_int('CD'))
-# 400
-print(Solution.roman_to_int('MCMIV'))
-# 1904
-print(Solution.roman_to_int('MCMX'))
-# 1910
-print(Solution.roman_to_int('MMMCMXCIX'))
-# 3999
