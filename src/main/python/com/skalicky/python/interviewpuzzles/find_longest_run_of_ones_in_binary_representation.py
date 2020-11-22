@@ -14,8 +14,8 @@
 # # 4
 
 
-def longest_run(n: int) -> int:
-    binary_representation: str = bin(n).split('b')[1]
+def find_longest_run_of_ones_in_binary_representation(input_integer: int) -> int:
+    binary_representation: str = bin(input_integer).split('b')[1]
     max_count: int = 0
     current_count: int = 0
     for current_digit in list(binary_representation):
@@ -25,7 +25,3 @@ def longest_run(n: int) -> int:
         else:
             current_count = 0
     return max_count
-
-
-print(longest_run(242))
-# 4
