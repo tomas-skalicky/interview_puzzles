@@ -63,7 +63,7 @@ class Solution:
         return version_path_with_removed_zeros
 
     @staticmethod
-    def compare_version(version1: str, version2: str) -> int:
+    def compare_version_numbers(version1: str, version2: str) -> int:
         version1_parts: List[str] = Solution.remove_trailing_zeros(version1.split(PATH_SEPARATOR))
         version1_part_count: int = len(version1_parts)
         version2_parts: List[str] = Solution.remove_trailing_zeros(version2.split(PATH_SEPARATOR))
@@ -82,15 +82,3 @@ class Solution:
             return 1
         else:
             return 0
-
-
-print(Solution.compare_version('1.0.1', '1'))
-# 1
-print(Solution.compare_version('1.0.33', '1.0.27'))
-# 1
-print(Solution.compare_version('0.1', '1.1'))
-# -1
-print(Solution.compare_version('1.01', '1.001'))
-# 0
-print(Solution.compare_version('1.0', '1.0.0'))
-# 0
