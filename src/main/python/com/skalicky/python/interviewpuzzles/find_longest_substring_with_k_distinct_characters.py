@@ -16,7 +16,7 @@
 from typing import Dict, List, Optional, Tuple
 
 
-def count_distinct_chars(chars: List[str], from_index: int, to_index: int):
+def count_distinct_chars(chars: List[str], from_index: int, to_index: int) -> Dict[str, int]:
     distinct_chars: Dict[str, int] = {}
     for i in range(from_index, to_index + 1):
         current_char: str = chars[i]
@@ -27,8 +27,8 @@ def count_distinct_chars(chars: List[str], from_index: int, to_index: int):
     return distinct_chars
 
 
-def longest_substring_with_k_distinct_characters(s: str, k: int) -> Tuple[int, str]:
-    chars: List[str] = list(s)
+def find_longest_substring_with_k_distinct_characters(input_string: str, k: int) -> Tuple[int, str]:
+    chars: List[str] = list(input_string)
     char_count: int = len(chars)
     if char_count == 0:
         return 0, ''
@@ -52,11 +52,3 @@ def longest_substring_with_k_distinct_characters(s: str, k: int) -> Tuple[int, s
                 max_length = current_max
                 max_substring = chars[start_index_included:end_index_excluded + 1]
         return max_length, ''.join(max_substring)
-
-
-print(longest_substring_with_k_distinct_characters('aabcdefff', 3))
-# 5 (because 'defff' has length 5 with 3 distinct characters)
-print(longest_substring_with_k_distinct_characters('aabacadefff', 3))
-# 6 (because 'aabaca' has length 6 with 3 distinct characters)
-print(longest_substring_with_k_distinct_characters('aabaca', 4))
-# 6 (because 'aabaca' has length 6 with 3 distinct characters)
