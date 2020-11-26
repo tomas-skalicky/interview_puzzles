@@ -17,8 +17,11 @@
 from typing import List, Set
 
 
-# Finding the first fixed point is O(log n) in the worst case. Finding all fixed points is O(n) in the worst case.
 def find_fixed_points(input_numbers: List[int]) -> Set[int]:
+    """Time complexity ... Find of the 1st fixed point takes O(log n) in the worst case due to a binary search.
+     Find of all fixed points takes O(n) in the worst case.
+    """
+
     number_count: int = len(input_numbers)
     if number_count == 0:
         return set()
