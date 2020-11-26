@@ -5,10 +5,10 @@
 #
 # Here's an example and some starter code.
 #
-# def sum_combinations(nums, target):
-#   # Fill this in.
+# def find_any_numbers_in_list_having_target_sum(nums, target):
+#     # Fill this in.
 #
-# print(sum_combinations([10, 1, 2, 7, 6, 1, 5], 8))
+# print(find_any_numbers_in_list_having_target_sum([10, 1, 2, 7, 6, 1, 5], 8))
 # # {(2, 6), (1, 1, 6), (1, 2, 5), (1, 7)}
 from typing import List, Optional, Set, Tuple
 
