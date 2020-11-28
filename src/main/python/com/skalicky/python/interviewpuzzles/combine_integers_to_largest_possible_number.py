@@ -5,23 +5,23 @@
 # Example:
 # Input:  [17, 7, 2, 45, 72]
 # Output:  77245217
-# def largestNum(nums):
-#   # Fill this in.
+# def combine_integers_to_largest_possible_number(nums):
+#     # Fill this in.
 #
-# print largestNum([17, 7, 2, 45, 72])
+# print combine_integers_to_largest_possible_number([17, 7, 2, 45, 72])
 # # 77245217
 from functools import cmp_to_key
 from typing import List
 
 
-def compare(num1_str: str, num2_str: str) -> int:
-    num1_first_digit: str = num1_str[0]
-    num1_length: int = len(num1_str)
-    num2_first_digit: str = num2_str[0]
-    num2_length: int = len(num2_str)
-    adapted_num1_str: str = num1_str if num1_length >= num2_length else num1_str + (
+def compare(number1_string: str, number2_string: str) -> int:
+    num1_first_digit: str = number1_string[0]
+    num1_length: int = len(number1_string)
+    num2_first_digit: str = number2_string[0]
+    num2_length: int = len(number2_string)
+    adapted_num1_str: str = number1_string if num1_length >= num2_length else number1_string + (
             num1_first_digit * (num2_length - num1_length))
-    adapted_num2_str: str = num2_str if num2_length >= num1_length else num2_str + (
+    adapted_num2_str: str = number2_string if num2_length >= num1_length else number2_string + (
             num2_first_digit * (num1_length - num2_length))
     if adapted_num1_str < adapted_num2_str:
         return -1
@@ -31,13 +31,7 @@ def compare(num1_str: str, num2_str: str) -> int:
         return 0
 
 
-def largest_num(nums: List[int]) -> str:
-    num_strings: List[str] = [str(n) for n in nums]
+def combine_integers_to_largest_possible_number(numbers: List[int]) -> str:
+    num_strings: List[str] = [str(n) for n in numbers]
     sorted_num_strings: List[str] = sorted(num_strings, key=cmp_to_key(compare), reverse=True)
     return ''.join(sorted_num_strings)
-
-
-print(largest_num([17, 7, 2, 45, 72]))
-# 77245217
-print(largest_num([7, 78, 72]))
-# 78772
