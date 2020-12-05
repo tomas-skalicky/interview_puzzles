@@ -8,11 +8,12 @@
 # Input: [2,3,4]
 # Output: [2,3,5]
 # class Solution():
-#   def plusOne(self, digits):
-#     # Fill this in.
+#     @staticmethod
+#     def add_one_to_large_number(large_number_digits):
+#         # Fill this in.
 #
 # num = [2, 9, 9]
-# print(Solution().plusOne(num))
+# print(Solution.add_one_to_large_number(num))
 # # [3, 0, 0]
 from typing import List
 
