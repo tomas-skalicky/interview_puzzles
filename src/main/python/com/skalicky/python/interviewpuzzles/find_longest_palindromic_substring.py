@@ -11,12 +11,13 @@
 # Output: "illi"
 #
 # class Solution:
-#     def longestPalindrome(self, s):
-#       # Fill this in.
+#     @staticmethod
+#     def find_longest_palindromic_substring(s):
+#         # Fill this in.
 #
 # # Test program
 # s = "tracecars"
-# print(str(Solution().longestPalindrome(s)))
+# print(str(Solution.find_longest_palindromic_substring(s)))
 # # racecar
 from collections import deque
 from typing import Deque, Optional, Tuple

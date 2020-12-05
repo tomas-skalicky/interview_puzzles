@@ -7,10 +7,10 @@
 # Output: 4
 # 242 in binary is 0b11110010, so the longest run of 1 is 4.
 #
-# def longest_run(n):
-#   # Fill this in.
+# def find_longest_run_of_ones_in_binary_representation(n):
+#     # Fill this in.
 #
-# print longest_run(242)
+# print find_longest_run_of_ones_in_binary_representation(242)
 # # 4
 
 

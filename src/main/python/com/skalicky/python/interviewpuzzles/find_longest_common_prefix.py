@@ -4,13 +4,13 @@
 #
 # Here's some examples and some starter code.
 #
-# def longest_common_prefix(strs):
-#   # Fill this in.
+# def find_longest_common_prefix(strings):
+#     # Fill this in.
 #
-# print(longest_common_prefix(['helloworld', 'hellokitty', 'hell']))
+# print(find_longest_common_prefix(['helloworld', 'hellokitty', 'hell']))
 # # hell
 #
-# print(longest_common_prefix(['daily', 'interview', 'pro']))
+# print(find_longest_common_prefix(['daily', 'interview', 'pro']))
 # # ''
 from typing import List
 
