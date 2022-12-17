@@ -53,21 +53,22 @@ from typing import List, Tuple
 
 class Solution:
     @staticmethod
-    def part_1(file_path: str) -> int:
+    def task_01_part_1(file_path: str) -> int:
         current_largest_sum: int = 0
         with open(file_path, 'r') as file:
             current_line: str = file.readline()
             current_sum: int = 0
             while len(current_line) != 0:
-                current_largest_sum, current_sum = Solution.part_1_process_one_line_from_file(current_largest_sum,
-                                                                                              current_line, current_sum)
+                current_largest_sum, current_sum = Solution.task_01_part_1_process_one_line_from_file(
+                    current_largest_sum, current_line, current_sum)
                 current_line = file.readline()
-            current_largest_sum, current_sum = Solution.part_1_process_one_line_from_file(current_largest_sum,
-                                                                                          current_line, current_sum)
+            current_largest_sum, current_sum = Solution.task_01_part_1_process_one_line_from_file(current_largest_sum,
+                                                                                                  current_line,
+                                                                                                  current_sum)
         return current_largest_sum
 
     @staticmethod
-    def part_1_process_one_line_from_file(current_largest_sum, current_line, current_sum) -> Tuple[int, int]:
+    def task_01_part_1_process_one_line_from_file(current_largest_sum, current_line, current_sum) -> Tuple[int, int]:
         if len(current_line) == 0 or current_line == '\n':
             current_largest_sum = max(current_largest_sum, current_sum)
             current_sum = 0
@@ -76,20 +77,22 @@ class Solution:
         return current_largest_sum, current_sum
 
     @staticmethod
-    def part_2(file_path: str) -> int:
+    def task_01_part_2(file_path: str) -> int:
         current_largest_3_sums_ordered_desc: List[int] = []
         with open(file_path, 'r') as file:
             current_line: str = file.readline()
             current_sum: int = 0
             while len(current_line) != 0:
-                current_sum = Solution.part_2_process_one_line_from_file(current_largest_3_sums_ordered_desc,
-                                                                         current_line, current_sum)
+                current_sum = Solution.task_01_part_2_process_one_line_from_file(current_largest_3_sums_ordered_desc,
+                                                                                 current_line, current_sum)
                 current_line = file.readline()
-            Solution.part_2_process_one_line_from_file(current_largest_3_sums_ordered_desc, current_line, current_sum)
+            Solution.task_01_part_2_process_one_line_from_file(current_largest_3_sums_ordered_desc, current_line,
+                                                               current_sum)
         return sum(current_largest_3_sums_ordered_desc)
 
     @staticmethod
-    def part_2_process_one_line_from_file(current_largest_3_sums_ordered_desc, current_line, current_sum) -> int:
+    def task_01_part_2_process_one_line_from_file(current_largest_3_sums_ordered_desc, current_line,
+                                                  current_sum) -> int:
         if len(current_line) == 0 or current_line == '\n':
             if len(current_largest_3_sums_ordered_desc) < 3:
                 current_largest_3_sums_ordered_desc.append(current_sum)
